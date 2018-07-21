@@ -11,7 +11,7 @@
 <body>
 
 	<div class="container">
-		<h2 align="center">Form Wawancara</h2>
+		<h2 align="center">Form Wawancara Pendahuluan</h2>
 		<form class="form-horizontal" action="#">
 			<div class="form-group">
 				<label class="control-label col-sm-2 col-md-2">Nama:</label>
@@ -39,16 +39,8 @@
 					<input type="text" class="form-control" name="kelas" id="kelas" placeholder="Masukkan Kelas Jabatan">
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2 col-md-2">Jabatan yang dilamar:</label>
-				<div class="col-md-4 col-sm-4">
-					<input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan">
-				</div>
-				<label class="control-label col-sm-2 col-md-2">Tanggal:</label>
-				<div class="col-md-4 col-sm-4">
-					<input type="text" class="form-control" name="tgl" id="tgl" placeholder="Masukkan Tanggal">
-				</div>
-			</div>
+
+			<hr style="height: 1px; margin-bottom: 40px;" noshade>
 		</form>
 	</div>
 
