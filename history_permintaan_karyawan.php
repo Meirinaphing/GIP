@@ -26,6 +26,8 @@
 	<link rel="stylesheet" href="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<!-- DataTables -->
+	<link rel="stylesheet" href="lte/plugins/datatables/dataTables.bootstrap4.css">
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -42,7 +44,7 @@
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
 				
-			
+
 				<li class="nav-item">
 					<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
 						class="fa fa-th-large"></i></a>
@@ -77,35 +79,14 @@
 						<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
-          <!-- <li class="nav-item has-treeview menu-open">
-          	<a href="#" class="nav-link active">
+          <li class="nav-item">
+          	<a href="form_leader.php" class="nav-link">
           		<i class="nav-icon fa fa-dashboard"></i>
           		<p>
           			Dashboard
-          			<i class="right fa fa-angle-left"></i>
           		</p>
           	</a>
-          	<ul class="nav nav-treeview">
-          		<li class="nav-item">
-          			<a href="./index.html" class="nav-link active">
-          				<i class="fa fa-circle-o nav-icon"></i>
-          				<p>Dashboard v1</p>
-          			</a>
-          		</li>
-          		<li class="nav-item">
-          			<a href="./index2.html" class="nav-link">
-          				<i class="fa fa-circle-o nav-icon"></i>
-          				<p>Dashboard v2</p>
-          			</a>
-          		</li>
-          		<li class="nav-item">
-          			<a href="./index3.html" class="nav-link">
-          				<i class="fa fa-circle-o nav-icon"></i>
-          				<p>Dashboard v3</p>
-          			</a>
-          		</li>
-          	</ul>
-          </li> -->
+          </li>
           <li class="nav-item has-treeview menu-open">
           	<a href="#" class="nav-link active">
           		<i class="nav-icon fa fa-th"></i>
@@ -172,11 +153,11 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<div class="content-header">
+	<section class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0 text-dark">History Request</h1>
+					<h1>History Request</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -186,9 +167,71 @@
 				</div><!-- /.col -->
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
-	</div>
+	</section>
 	<!-- /.content-header -->
+
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Hover Data Table</h3>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+						<table id="example2" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>Rendering engine</th>
+									<th>Browser</th>
+									<th>Platform(s)</th>
+									<th>Engine version</th>
+									<th>CSS grade</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Trident</td>
+									<td>Internet
+										Explorer 4.0
+									</td>
+									<td>Win 95+</td>
+									<td> 4</td>
+									<td>X</td>
+									<td>
+										<button class="btn btn-primary fa fa-eye" title="View"></button>
+										<button class="btn btn-success fa fa-check-square-o" title="Approve"></button>
+										<button class="btn btn-danger fa fa-close" title="Reject"></button>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>Rendering engine</th>
+									<th>Browser</th>
+									<th>Platform(s)</th>
+									<th>Engine version</th>
+									<th>CSS grade</th>
+									<th>Action</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</section>
+	<!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
+
 <!-- /.content-wrapper -->
 <footer class="main-footer">
 	<strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
@@ -243,5 +286,18 @@
 <script src="lte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="lte/dist/js/demo.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="lte/plugins/datatables/jquery.dataTables.js"></script>
+<script src="lte/plugins/datatables/dataTables.bootstrap4.js"></script>
+<!-- page script -->
+<script>
+	$(function () {
+		$("#example1").DataTable();
+		$('#example2').DataTable();
+	});
+</script>
 </body>
 </html>
