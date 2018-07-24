@@ -31,6 +31,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
+	
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -41,32 +42,59 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+	
+<style>
+.tab {
+  display: none;
+}
+	.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #3761D4;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #299F3E;
+}
+</style>	
+	
+	
+	
+	
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+	
+    <section class="content-header" align="center">
       <h1>
         Nama Perusahaan
         <small>Application Form</small>
+		<br>
       </h1>
     </section>
-
+	  
+	  
+	  
     <!-- Main content -->
     <section class="content">
 
-
       <div class="row">
-      <!-- /.row -->
-            <div class="box-body">
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		  
-                <div class="carousel-inner">
-                  
-				  <div class="item active">
-					 <div class="col-sm-2"></div>  
+      	<div class="box-body">
+               <div class="tab">
+				   <div class="col-sm-2">&nbsp</div>
        				 <div class="col-md-8">
 
           <div class="box box-success">
@@ -279,10 +307,10 @@
 			  <!-- /.box -->
 
         </div> 
-                  </div>
-					
-                  <div class="item">
-					 <div class="col-sm-2"></div> 
+				   <div class="col-sm-2">&nbsp</div>
+				</div>
+				 <div class="tab">
+					 <div class="col-sm-2">&nbsp</div>
       				 <div class="col-md-8">
 
           <div class="box box-danger">
@@ -424,9 +452,10 @@
           <!-- /.box -->
 
         </div>
-                  </div>
-                  <div class="item">
-					 <div class="col-sm-2"></div>
+					 <div class="col-sm-2">&nbsp</div>
+				</div>
+				<div class="tab">
+					<div class="col-sm-2">&nbsp</div>
        				 <div class="col-md-8">
 
           <div class="box box-info">
@@ -539,9 +568,10 @@
           </div>
           <!-- /.box -->
         </div>
-                  </div>
-                  <div class="item">
-					 <div class="col-sm-2"></div>
+					<div class="col-sm-2">&nbsp</div>
+				</div>
+				 <div class="tab">
+					 <div class="col-sm-2">&nbsp</div>
    				     <div class="col-md-8">
 
           <div class="box box-warning">
@@ -660,10 +690,34 @@
           <!-- /.box -->
 
         </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+					 <div class="col-sm-2">&nbsp</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-2">&nbsp</div>
+					<div class="col-sm-2">
+      					<button type="button" class="btn btn-warning" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+					</div>
+					<div class="col-sm-4" align="center" style="padding-top: 10px">
+						<span class="step"></span>
+						<span class="step"></span>
+						<span class="step"></span>
+						<span class="step"></span>
+					</div>
+					<div align="right" class="col-sm-2">
+						<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>
+					</div>
+					<div class="col-sm-2">&nbsp</div>
+				</div>
+      	</div>
+      </div>
+		
+		
+  <div style="overflow:auto;">
+    <div style="float:right;">
+    </div>
+  </div>
+		
+	
 		
 		
 		
@@ -680,39 +734,7 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-<div class="col-sm-12">
-		  <div class="col-sm-2"></div>
-		  
-			<div class="col-sm-2">  
-			  <a  href="#carousel-example-generic" data-slide="prev">  
-			  	<button class="btn btn-success" onClick="naik" ><span class="fa fa-angle-left"></span> Back</button
-              </a>
-		    </div>
-				  
-		  <div class="col-sm-4"></div>
-				  
-			<div align="right" class="col-sm-2">
-			  <a  href="#carousel-example-generic" data-slide="next" >
-			  <button class="btn btn-success" onClick="naik" >Next <span class="fa fa-angle-right"></span></button
-              </a>
-		    </div>
-				  
-		  <div class="col-sm-2"></div>
-</div>
-     </div><!--tutup row--> 
+	
 
     </section>
     <!-- /.content -->
@@ -828,6 +850,7 @@
 </script>
 </body>
 </html>
+<!--	script untuk rupiah-->
 <script type="text/javascript">
 
   var gaji1 = document.getElementById('gaji1');
@@ -898,4 +921,79 @@ function naik(){
 }
 	
 	
+</script>
+	
+	<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the crurrent tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByClassName("wajib");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
 </script>
