@@ -711,12 +711,6 @@
       	</div>
       </div>
 		
-		
-  <div style="overflow:auto;">
-    <div style="float:right;">
-    </div>
-  </div>
-		
 	
 		
 		
@@ -923,7 +917,7 @@ function naik(){
 	
 </script>
 	
-	<script>
+<script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
@@ -938,7 +932,7 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").innerHTML = "Send";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }

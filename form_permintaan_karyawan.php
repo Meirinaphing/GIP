@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Form Permintaan Karyawan Baru</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
+
 
   <!-- <div class="container">
     <h2 align="center">Form Permintaan Karyawan Baru</h2>
@@ -37,8 +28,7 @@
     </form>
   </div> -->
 
-
-  <div class="container">
+	
     <h2 align="center">Form Permintaan Karyawan Baru</h2>
     <form class="form-horizontal" action="#">
       <div class="form-group" align="center">
@@ -47,16 +37,14 @@
           <input type="text" class="form-control" id="noform" name="noform" readonly>
         </div>
       </div>
-      <br><br>
-
-
-      <div class="form-group">
-        <label class="control-label col-sm-1" style="text-align: left;">Nama Pemohon:</label>
+		<br>
+      <div class="form-group row">
+        <label class="control-label col-sm-2" style="text-align: right;">Nama Pemohon:</label>
         <div class="col-sm-4">
           <input type="text" class="form-control" id="namapemohon" name="namapemohon" readonly>
         </div>
-        <label class="control-label col-sm-2 col-sm-offset-3">Tanggal:</label>
-        <div class="col-sm-2">
+        <label class="control-label col-sm-2 col-sm-offset-3" style="text-align: right;">Tanggal:</label>
+        <div class="col-sm-4">
           <input type="text" class="form-control" id="tglmohon" name="tglmohon" readonly>
         </div>
       </div>
@@ -250,8 +238,8 @@
         </div>
       </div>
     </form>
-  </div>
 
+	
   <script>
     function radio(){
       var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui'
@@ -294,5 +282,3 @@
 
 </script>
 
-</body>
-</html>

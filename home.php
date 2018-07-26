@@ -26,6 +26,8 @@
 	<link rel="stylesheet" href="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	
+	
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -129,7 +131,7 @@
           	</a>
           	<ul class="nav nav-treeview">
           		<li class="nav-item">
-          			<a href="form_permintaan_karyawan.php" class="nav-link">
+          			<a href="#" class="nav-link" onClick="form_permintaan_karyawan()">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Request Karyawan</p>
           			</a>
@@ -203,7 +205,7 @@
 	<!-- /.content-header -->
 
 	<!-- Main content -->
-	<section class="content">
+	<section class="content" >
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
@@ -365,9 +367,23 @@
 <script src="lte/dist/js/demo.js"></script>
 </body>
 </html>
-<script>
 
-
+<script>	
+	function form_permintaan_karyawan(){
+				$.ajax({
+					type: "POST",
+					url: "form_permintaan_karyawan.php", 
+					data: {kosong:'kosong'},
+					dataType: "text",  
+					cache:false,
+					success: 
+					function(data){
+						$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+				return false;
+			}
 </script>
 
 
