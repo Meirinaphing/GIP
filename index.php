@@ -32,7 +32,7 @@
     <a href="adminlte/index2.html"><b>Admin</b>LTE</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">John Doe</div>
+  <!-- <div class="lockscreen-name">John Doe</div> -->
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
@@ -45,8 +45,9 @@
     <!-- lockscreen credentials (contains the form) -->
     <form class="lockscreen-credentials">
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="password">
+        <input type="email" class="form-control" placeholder="Email">
 
+        <input type="password" class="form-control" placeholder="password">
         <div class="input-group-btn">
           <button type="button" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
         </div>
