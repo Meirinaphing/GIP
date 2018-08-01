@@ -30,20 +30,18 @@
 						<table id="example2" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>Tanggal</th>
+									<th>Nama Pemohon</th>
+									<th>Divisi</th>
+									<th>Job Class</th>
+									<th>Jumlah</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>Trident</td>
-									<td>Internet
-										Explorer 4.0
-									</td>
+									<td></td>
 									<td>Win 95+</td>
 									<td> 4</td>
 									<td>X</td>
@@ -56,11 +54,11 @@
 							</tbody>
 							<tfoot>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>Tanggal</th>
+									<th>Nama Pemohon</th>
+									<th>Divisi</th>
+									<th>Job Class</th>
+									<th>Jumlah</th>
 									<th>Action</th>
 								</tr>
 							</tfoot>
@@ -80,7 +78,6 @@
 <!-- /.content-wrapper -->
 <script>
 	$(function () {
-		$("#example1").DataTable();
-		$('#example2').DataTable();
+		$("#example2").DataTable();
 	});
 </script>

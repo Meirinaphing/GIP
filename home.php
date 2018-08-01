@@ -26,7 +26,8 @@
 	<link rel="stylesheet" href="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	
+	<!-- DataTables -->
+	<link rel="stylesheet" href="lte/plugins/datatables/dataTables.bootstrap4.css">
 	
 </head>
 
@@ -392,6 +393,12 @@ if(!isset($_SESSION['user'])){
 <script src="lte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="lte/dist/js/demo.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="lte/plugins/datatables/jquery.dataTables.js"></script>
+<script src="lte/plugins/datatables/dataTables.bootstrap4.js"></script>
 </body>
 </html>
 
