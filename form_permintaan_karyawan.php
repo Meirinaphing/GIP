@@ -307,10 +307,16 @@ function save_form(){
   cache:false,
   success: 
   function(data){
-    alert('Berhasil di Submit');
-    location.reload();
+    data=data.split('|');
+    if(data[1]=="Success"){
+      alert("Success");
+    }else{
+      alert("Failed");
+    }
+    // alert('Berhasil di Submit');
+    // location.reload();
     // $('#isi_content').html(data);
-          //alert(data);  //as a debugging message.
+          // alert(data);  //as a debugging message.
         }
 });// you have missed this bracket
  return false;

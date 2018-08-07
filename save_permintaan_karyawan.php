@@ -12,7 +12,7 @@ if(!isset($_SESSION['user'])){
 
 	// $iduser = 
 $username = $_SESSION['user'];
-$tanggal = strftime('%D');
+$tanggal = date('Y-m-d');
 $divisi = $_POST['divisi'];
 $job = $_POST['job'];
 $jabatan = $_POST['jabatan'];
@@ -40,7 +40,7 @@ $jlhorg3 = $_POST['jlhorg3'];
 
 
 
-$sql = "insert into permintaan_karyawan values('','$username','$tanggal','$divisi','$job','$jabatan','$pria','$wanita','$approval','$mp','$status','$bulan','$jobdesk','$umur','$pengalaman','$tahun','$kemampuan','$startgaji','$endgaji','$rencana','$rtahun','$jlhorg','$jlhkaryawan','$jlhorg2','$rencanapenambahan','$jlhorg3','Submited')";
+$sql = "insert into permintaan_karyawan values('','$username','$tanggal','$divisi','$job','$jabatan','$pria','$wanita','$approval','$mp','$status','$bulan','$jobdesk','$umur','$pendidikan','$pengalaman','$tahun','$kemampuan','$startgaji','$endgaji','$rencana','$rtahun','$jlhorg','$jlhkaryawan','$jlhorg2','$rencanapenambahan','$jlhorg3','Submited')";
 
 $query = $conn->query($sql);
 return true;

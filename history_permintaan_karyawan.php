@@ -65,6 +65,71 @@ if(!isset($_SESSION['user'])){
 
 									$status = $row['status'];
 									?>
+
+
+									<!-- The Modal -->
+									<div class="modal fade" id="myModal">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+
+												<!-- Modal Header -->
+												<div class="modal-header">
+													<h4 class="modal-title col-sm-12">
+														<div class="row mb-2">
+															<div class="col-sm-4"><?=$row['nopk'];?></div>
+															<div class="col-sm-4" style="text-align: center;"><?=$row['iduser'];?></div>
+															<div class="col-sm-4" style="text-align: right;"><?=$row['tgl'];?></div>
+														</div>
+													</h4>
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+												</div>
+
+												<!-- Modal body -->
+												<div class="modal-body">
+													<div class="row mb-2">
+														<div class="col-sm-4">Divisi/Dept : <?=$row['divisi'];?></div>
+														<div class="col-sm-4" style="text-align: center;">Job Kelas : <?=$row['job_kelas'];?></div>
+														<div class="col-sm-4" style="text-align: right;">Jabatan : <?=$row['jabatan'];?></div>
+													</div>
+													<hr>
+													<div class="row mb-2">
+														<div class="col-sm-3">Jumlah : <?=$row['jum_pria'];?> Pria <?=$row['jum_wanita'];?> Wanita</div>
+														<div class="col-sm-3" style="text-align: center;">Umur : <?=$row['umur'];?></div>
+														<div class="col-sm-3" style="text-align: center;">Pendidikan : <?=$row['pendidikan'];?></div>
+														<div class="col-sm-3" style="text-align: right;">Status : <?=$row['status_karyawan'];?></div>
+													</div>
+													<div>
+														<b> Tugas dan Tanggung Jawab : </b> <br>
+														<?=$row['uraian_p'];?>
+													</div>
+													<div class="row mb-2">
+														<div class="col-sm-4">Pengalaman : <?=$row['pengalaman'];?></div>
+														<div class="col-sm-4" style="text-align: center;">Gaji : <?=$row['job_kelas'];?></div>
+														<div class="col-sm-4" style="text-align: right;">Jabatan : <?=$row['jabatan'];?></div>
+													</div>
+
+													<!-- 
+														- Persetujuan Budget Manpower Planning
+															* ya, file
+															* tidak, alasan
+														- Pengalaman
+														- Kemampuan yang diharapkan
+														- Gaji
+														- 4. Rencana
+													 -->
+
+												</div>
+
+												<!-- Modal footer -->
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
 									<tr>
 										<td><?=$row['tgl'];?></td>
 										<td><?=$row['iduser'];?></td>
@@ -73,7 +138,7 @@ if(!isset($_SESSION['user'])){
 										<td><?=$jlh;?></td>
 										<td><?=$row['status'];?></td>
 										<td>
-											<button id="view" class="btn btn-primary fa fa-eye" title="View"></button>
+											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View"></button>
 											<button onclick="approve(<?=$row['nopk']?>)" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
 											<button onclick="reject(<?=$row['nopk']?>)" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
 										</td>

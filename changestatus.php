@@ -7,12 +7,10 @@ $nopk = $_POST['nopk'];
 
 if($status == "approve"){
 	$sql = "update permintaan_karyawan set status='Approved' where nopk='".$nopk."'";
-
-$query = $conn->query($sql);
+	$query = $conn->query($sql);
 }else{
 	$sql = "update permintaan_karyawan set status='Rejected' where nopk='".$nopk."'";
-
-$query = $conn->query($sql);
+	$query = $conn->query($sql);
 }
 
 
