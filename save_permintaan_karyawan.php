@@ -1,6 +1,7 @@
 <?php
 
-$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
+//$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
+include 'conn.php';
 
 session_start();
 
@@ -40,9 +41,9 @@ $jlhorg3 = $_POST['jlhorg3'];
 
 
 
-$sql = "insert into permintaan_karyawan values('','$username','$tanggal','$divisi','$job','$jabatan','$pria','$wanita','$approval','$mp','$status','$bulan','$jobdesk','$umur','$pendidikan','$pengalaman','$tahun','$kemampuan','$startgaji','$endgaji','$rencana','$rtahun','$jlhorg','$jlhkaryawan','$jlhorg2','$rencanapenambahan','$jlhorg3','Submited')";
+echo $sql = "insert into permintaan_karyawan values('12','$username','$tanggal','$divisi','$job','$jabatan','$pria','$wanita','$approval','$mp','$status','$bulan','$jobdesk','$umur','$pendidikan','$pengalaman','$tahun','$kemampuan','$startgaji','$endgaji','$rencana','$rtahun','$jlhorg','$jlhkaryawan','$jlhorg2','$rencanapenambahan','$jlhorg3','Submited')";
 
 $query = $conn->query($sql);
-return true;
+//return true;
 
 ?>

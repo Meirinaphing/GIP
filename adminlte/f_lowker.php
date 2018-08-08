@@ -112,7 +112,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-user"></i>
                   </div>
-                  <input type="text" class="form-control" placeholder="Nama Lengkap">
+                  <input type="text" class="form-control wajib" placeholder="Nama Lengkap">
                 </div>
                 <!-- /.input group -->
               </div>

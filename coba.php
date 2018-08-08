@@ -87,7 +87,7 @@ button:hover {
   <h1>Register:</h1>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">Name:
-    <p><input class="wajib" placeholder="First name..." oninput="this.className = ''" name="fname" required></p>
+    <p><input class="wajib" placeholder="First name..." oninput="this.className = ''" name="fname" ></p>
     <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
   </div>
   <div class="tab">Contact Info:

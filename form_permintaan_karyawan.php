@@ -1,4 +1,49 @@
+<style>
 
+
+body {
+  background-color: #f1f1f1;
+}
+
+
+
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+textarea.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+</style>  
 
 
   <!-- <div class="container">
@@ -42,23 +87,23 @@
   <?php
   $number = 1;
   ?>
-  <div class="content-header">
-    <div class="container-fluid">
-     <div class="row mb-2">
-      <div class="col-sm-6">
-       <h1 class="m-0 text-dark">Form Permintaan Karyawan Baru</h1>
-       <h5>No.<?=$number;?></h5>
-     </div><!-- /.col -->
-     <div class="col-sm-6">
-       <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active">Form Permintaan Karyawan Baru</li>
-      </ol>
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-</div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1>Form Permintaan Karyawan Baru</h1>
+					<h5>No.<?=$number;?></h5>
+				</div><!-- /.col -->
+				<div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Form Permintaan Karyawan Baru</li>
+					</ol>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</section>
+
 
 <form id="form_permintaan">
 
@@ -67,205 +112,246 @@
     <div class="container-fluid">
      <!-- Small boxes (Stat box) -->
      <div class="row">
-      <div class="col-lg-12">
+		 <div class="col-lg-1"></div>
+      <div class="col-lg-10">
        <!-- small box -->
-       <div class="card card-default">
-         <div class="card-header">
-          <div class="row">  
-            <h3 class="card-title col-sm-6">Nama Pemohon : <?=$_SESSION['user'];?></h3>
-            <h3 class="card-title col-sm-6" style="text-align:right;">Tanggal : <?php echo date("D").','.date('d-M-Y') ?></h3>
-          </div>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-          <div class="row">
+		   <div class="card card-default tab">
+			 <div class="card-header bg-info">
+			  <div class="row">  
+				<h3 class="card-title col-sm-6">Nama Pemohon : <?=$_SESSION['user'];?></h3>
+				<h3 class="card-title col-sm-6" style="text-align:right;">Tanggal : <?php echo date("D").','.date('d-M-Y') ?></h3>
+			  </div>
+			</div>
+			<!-- /.card-header -->
+			<div class="card-body">
+			  <div class="row">
 
-           <div class="col-sm-4">
-            <label class="control-label" style="text-align: left;">Divisi/Dept:</label>
-            <input type="text" class="form-control" id="divisi" name="divisi" placeholder="Enter Divisi">
-          </div>
-          <div class="col-sm-4">
-            <label class="control-label">Job Kelas:</label>
-            <input type="text" class="form-control" id="job" name="job" placeholder="Enter Job Kelas">
-          </div>
-          <div class="col-sm-4">
-           <label class="control-label" style="text-align: left;">Jabatan:</label>
-           <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Enter Jabatan">
-         </div>
+				<div class="col-sm-4">
+					<label class="control-label" style="text-align: left;">Divisi/Dept:</label>
+					<input type="text" class="form-control wajib " id="divisi" name="divisi" placeholder="Enter Divisi" required>
+				</div>
+				<div class="col-sm-4">
+					<label class="control-label">Job Kelas:</label>
+					<input type="text" class="form-control wajib" id="job" name="job" placeholder="Enter Job Kelas">
+				</div>
+				<div class="col-sm-4">
+					<label class="control-label" style="text-align: left;">Jabatan:</label>
+					<input type="text" class="form-control wajib" id="jabatan" name="jabatan" placeholder="Enter Jabatan">
+				</div>
+			   </div>
+			 </div>
+			</div>
+		  
+		  
+		  <div class="card card-default tab">
+		   <div class="card-header bg-success">
+			  <div class="row">
+				<div class="col-sm-6" >
+				    <h5>1. Penambahan Jumlah Karyawan</h5>
+			   	</div>
+			    <div class="col-sm-1" align="right">
+				    <label class="control-label">Pria:</label>
+			    </div>
+                <div class="col-sm-2">
+            	    <input type="number" class="form-control form-control-sm wajib" value="" id="pria" name="pria" placeholder="Pria">
+                </div>
+                <div class="col-sm-1" align="right">
+                    <label class="control-label ">Wanita:</label>
+         		</div>
+				<div class="col-sm-2">
+					<input type="number" class="form-control form-control-sm wajib" value="" id="wanita" name="wanita" placeholder="Wanita">
+				</div>
+      		  </div>
+			</div>
+			<!-- /.card-header -->
+			<div class="card-body">
+			  <div class="form-group">
+				  <div class="col-sm-12">
+					  <label>Berdasarkan Persetujuan Budget Manpower Planning:</label>
+					  &nbsp&nbsp
+					  <label class="control-label">
+						<input type="radio"  name="approval" value="yes" id="yes" onclick="radio()" checked> Yes
+					  </label>
+					  &nbsp&nbsp
+					  <label class="control-label">
+						<input type="radio" name="approval" value="no" id="no" onclick="radio()"> No
+					  </label>
+				  </div>
+				  <div class="co-sm-12">
+      				<p class="form-control " id="isi">Jika ya, Lampirkan Manpower Planning yang disetujui <input type="file" class="wajib" name="mp" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></p>
+				  </div>
+    		 </div>
+    		<div class="form-group">
+				<div class="col-sm-12">
+				  <label>Status Karyawan:</label>
+				  &nbsp&nbsp
+				  <label class="control-label">
+					<input type="radio" name="status" value="bulanan" id="bulanan" onclick="fkontrak()" checked> Bulanan
+				  </label>
+				  &nbsp&nbsp
+				  <label class="control-label">
+					<input type="radio" name="status" value="harian" id="harian" onclick="fkontrak()"> Harian
+				  </label>
+				  &nbsp&nbsp
+				  <label class="control-label">
+					<input type="radio" name="status" value="kontrak" id="kontrak" onclick="fkontrak()"> Kontrak
+					<span id="isikontrak"></span>
+				  </label>
+				  </div>
+			   </div>
+			 </div>
+			 </div>
+		  
+		  
+				<div class="card card-default tab">
+					<div class="card-header bg-danger">
+						<div class="row">  
+							<h3 class="card-title">2. Uraian Pekerjaan (Tugas dan Tanggung Jawab)</h3>
+						</div>
+					</div>
+				<!-- /.card-header -->
+					<div class="card-body">
+						<div class="row">
+							<textarea class="form-control wajib" rows="5" id="jobdesk" style="margin-left: 4%; width: 95%;" placeholder="Uraian Pekerjaan"></textarea>
+						</div>
+					</div>
+				</div>
+		  
+				<div class="card card-default tab">
+					<div class="card-header bg-gray">
+						<div class="row">  
+							<h3 class="card-title">3. Kualifikasi</h3>
+						</div>
+					</div>
+				<!-- /.card-header -->
+					<div class="card-body">
+						<div class="form-group row">
+						   <label class="control-label col-sm-1" style="text-align: left; margin-left: 3%;">Umur:</label>
+						   <div class="col-sm-1">
+							 <input type="text" class="form-control wajib form-control-sm" id="umur" name="umur" placeholder="Umur">
+						   </div>
+						   <div class="col-sm-2" align="right">
+							 <label class="control-label">Pendidikan:</label></div>
+							 <div class="col-sm-4">
+							   <input type="text" class="form-control wajib form-control-sm" id="pendidikan" name="pendidikan" placeholder="Enter Pendidikan">
+							 </div>
+						 </div>
+						
+						
+						
+						<div class="form-group">
+							  <label style="margin-left:3%;">Pengalaman:</label>
+							  &nbsp&nbsp
+							  <label class="control-label">
+								<input type="radio" name="pengalamann" value="tidakpengalaman" id="tidakpengalaman" onclick="fpengalaman()" checked> Boleh yang tidak berpengalaman
+							  </label>
+							  &nbsp&nbsp
+							  <label class="control-label">
+								<input type="radio" name="pengalamann" value="pengalaman" id="pengalaman" onclick="fpengalaman()"> Pengalaman
+								<span id="isipengalaman"></span>
+							  </label>
+						</div>
+
+							<div class="form-group">
+							  <label style="margin-left: 3%;">Kemampuan yang diharapkan:</label>
+							  <textarea class="form-control wajib" rows="5" id="kemampuan" name="kemampuan" style="margin-left: 4%; width: 95%;" placeholder="Kemampuan Yang Diharapkan"></textarea>
+							</div>
+							<div class="form-group col-sm-12">
+							 <div class="row">
+							  <label class="control-label col-sm-2" style="text-align: left; margin-left: 3%; text-align: right;">Gaji(GBS):</label>
+							  <div class="col-sm-2">
+								<input type="text" class="form-control wajib form-control-sm" id="startgaji" name="startgaji" placeholder="Start Gaji">
+							  </div>
+							  <label class="col-sm-1 control-label" style="text-align: center;">s/d</label>
+							  <div class="col-sm-2">
+								<input type="text" class="form-control wajib form-control-sm" id="endgaji" name="endgaji" placeholder="End Gaji">
+							  </div>
+							  <div class="col-sm-2" style="width:13.5%;"></div>
+							</div>
+					</div>
+				</div>
+  			</div>
+		  
+				<div class="card card-default tab">
+					<div class="card-header bg-black">
+						<div class="row">  
+							<h3 class="card-title">4. Rencana</h3>
+						</div>
+					</div>
+				<!-- /.card-header -->
+					<div class="card-body">
+						<div class="row">
+							<label class="control-label col-sm-4" style="text-align: right;">Manpower Planning Thn</label>
+							<div class="col-sm-2">
+							  <input type="number" class="form-control form-control-sm" id="rtahun" name="rtahun" placeholder="Manpower Planning Tahun">
+							</div>
+							<div class="col-sm-2">
+							  <input type="number" class="form-control form-control-sm" id="jlhorg" name="jlhorg" placeholder="Jumlah Orang">
+							</div>
+							<div class="col-sm-2">
+							<label class="control-label " style="text-align: left;">Orang</label>
+							</div>
+							
+						</div>
+						
+						<div class="row">
+								<label class="control-label col-sm-4" style="text-align: right;">Jumlah Karyawan Bulan</label>
+								<div class="col-sm-2">
+								  <input type="text" class="form-control wajib form-control-sm" id="jlhkaryawan" name="jlhkaryawan" placeholder="Jumlah Karyawan">
+								</div>
+								<div class="col-sm-2">
+								  <input type="text" class="form-control wajib form-control-sm" id="jlhorg2" name="jlhorg2" placeholder="Jumlah Orang">
+								</div>
+								<div class="col-sm-2">
+									<label class="control-label" style="text-align: left;">Orang</label>
+								</div>
+  							</div>
+						
+					  <div class="row">
+						<label class="control-label col-sm-4" style="text-align: right;">Rencana Penambahan</label>
+						<div class="col-sm-2">
+						  <input type="text" class="form-control wajib form-control-sm" id="rencanapenambahan" name="rencanapenambahan" placeholder="Rencana Penambahan">
+						</div>
+						<div class="col-sm-2">
+						  <input type="text" class="form-control wajib form-control-sm" id="jlhorg3" name="jlhorg3" placeholder="Jumlah Orang">
+						</div>
+						<div class="col-sm-2">
+							<label class="control-label" style="text-align: left;">Orang</label>
+					  	</div>
+					  </div>
+						
+					</div>
+				</div>
+  
+					<div class="row">
+					<div class="col-sm-2">&nbsp</div>
+					<div class="col-sm-2">
+      					<button type="button" class="btn btn-warning" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+					</div>
+					<div class="col-sm-4" align="center" style="padding-top: 10px">
+						<span class="step"></span>
+						<span class="step"></span>
+						<span class="step"></span>
+						<span class="step"></span>
+					</div>
+					<div align="right" class="col-sm-2" id="nextBtn" >
+<!--						<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>-->
+					</div>
+					<div class="col-sm-2">&nbsp</div>
+					</div>
 
 
-         <div class="form-group col-sm-12" style="padding-top: 20px;">	
-           <div class="row">
-            <div class="col-sm-6">
-             <h4>1. Penambahan Jumlah Karyawan</h4>
-           </div>
-           <div class="col-sm-1" align="right">
-             <label class="control-label">Pria:</label>
-           </div>
-           <div class="col-sm-2">
-            <input type="number" class="form-control form-control-sm" value="0" id="pria" name="pria" placeholder="Pria">
-          </div>
-          <div class="col-sm-1" align="right">
-           <label class="control-label ">Wanita:</label>
-         </div>
-         <div class="col-sm-2">
-          <input type="number" class="form-control form-control-sm" value="0" id="wanita" name="wanita" placeholder="Wanita">
-        </div>
-      </div>
-    </div>
 
 
-    <div class="form-group col-sm-12">
-      <label style="margin-left:4%;">Berdasarkan Persetujuan Budget Manpower Planning:</label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="approval" value="yes" id="yes" onclick="radio()"> Yes
-      </label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="approval" value="no" id="no" onclick="radio()"> No
-      </label>
-      <p class="co-sm-12" style="margin-left: 4%;" id="isi"></p>
-    </div>
-    <div class="form-group col-sm-12">
-      <label style="margin-left:4%;">Status Karyawan:</label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="status" value="bulanan" id="bulanan" onclick="fkontrak()" checked> Bulanan
-      </label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="status" value="harian" id="harian" onclick="fkontrak()"> Harian
-      </label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="status" value="kontrak" id="kontrak" onclick="fkontrak()"> Kontrak
-        <span id="isikontrak"></span>
-      </label>
-    </div>
-
-    <div class="form-group col-sm-12">
-      <h4>2. Uraian Pekerjaan (Tugas dan Tanggung Jawab)</h4>
-      <textarea class="form-control" rows="5" id="jobdesk" style="margin-left: 4%; width: 95%;"></textarea>
-    </div>
-
-
-    <div class="form-group col-sm-12">
-      <h4>3. Kualifikasi</h4>
-      <div class="row">
-       <label class="control-label col-sm-1" style="text-align: left; margin-left: 3%;">Umur:</label>
-       <div class="col-sm-1">
-         <input type="text" class="form-control form-control-sm" id="umur" name="umur" placeholder="Umur">
-       </div>
-       <div class="col-sm-2" align="right">
-         <label class="control-label">Pendidikan:</label></div>
-         <div class="col-sm-4">
-           <input type="text" class="form-control form-control-sm" id="pendidikan" name="pendidikan" placeholder="Enter Pendidikan">
-         </div>
-       </div>
-
-     </div>
-     <div class="form-group col-sm-12">
-      <label style="margin-left:3%;">Pengalaman:</label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="pengalamann" value="tidakpengalaman" id="tidakpengalaman" onclick="fpengalaman()" checked> Boleh yang tidak berpengalaman
-      </label>
-      &nbsp&nbsp
-      <label class="control-label">
-        <input type="radio" name="pengalamann" value="pengalaman" id="pengalaman" onclick="fpengalaman()"> Pengalaman
-        <span id="isipengalaman"></span>
-      </label>
-    </div>
-
-    <div class="form-group col-sm-12">
-      <label style="margin-left: 3%;">Kemampuan yang diharapkan:</label>
-      <textarea class="form-control" rows="5" id="kemampuan" name="kemampuan" style="margin-left: 4%; width: 95%;"></textarea>
-    </div>
-    <div class="form-group col-sm-12">
-     <div class="row">
-      <label class="control-label col-sm-1" style="text-align: left; margin-left: 3%;">Gaji(GBS):</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control form-control-sm" id="startgaji" name="startgaji" placeholder="Start Gaji">
-      </div>
-      <label class="col-sm-1 control-label" style="text-align: center;">s/d</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control form-control-sm" id="endgaji" name="endgaji" placeholder="End Gaji">
-      </div>
-      <div class="col-sm-2" style="width:13.5%;"></div>
-    </div>
-  </div>
-
-  <div class="form-group col-sm-12">
-    <h4>4. Rencana</h4>
-    <div class="row">
-      <div class=" col-sm-2" style="margin-left: 3%;text-align: left;">
-       <label class="control-label" >Rencana Dibutuhkan:</label>
-     </div>
-     <div class="col-sm-4">
-      <input type="text" class="form-control form-control-sm" id="rencana" name="rencana" placeholder="Rencana Dibutuhkan">
-    </div>
-  </div>
-</div>
-<div class="form-group col-sm-12">
-  <div class="row">
-    <label class="control-label col-sm-2" style="margin-left: 3%;text-align: left;">Manpower Planning Thn</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="rtahun" name="rtahun" placeholder="Manpower Planning Tahun">
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="jlhorg" name="jlhorg" placeholder="Jumlah Orang">
-    </div>
-    <label class="control-label" style="text-align: left;">Orang</label>
-
-  </div>
-</div>
-<div class="form-group col-sm-12">
-  <div class="row">
-    <label class="control-label col-sm-2" style="margin-left: 3%;text-align: left;">Jumlah Karyawan Bulan</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="jlhkaryawan" name="jlhkaryawan" placeholder="Jumlah Karyawan">
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="jlhorg2" name="jlhorg2" placeholder="Jumlah Orang">
-    </div>
-    <label class="control-label" style="text-align: left;">Orang</label>
-  </div>
-</div>
-<div class="form-group col-sm-12">
-  <div class="row">
-    <label class="control-label col-sm-2" style="margin-left: 3%;text-align: left;">Rencana Penambahan</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="rencanapenambahan" name="rencanapenambahan" placeholder="Rencana Penambahan">
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="jlhorg3" name="jlhorg3" placeholder="Jumlah Orang">
-    </div>
-    <label class="control-label" style="text-align: left;">Orang</label>
-  </div>
-</div>
-
-
-
-
-
-<div class="form-group"> 
-  <div class="col-sm-offset-2 col-sm-10">
-    <button type="button" onclick="save_form()" class="btn btn-default">Submit</button>
-  </div>
-</div>
 
 </form>
 <script>
   function radio(){
-    var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui'
+    var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui '
     + '<input type="file" name="mp" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">';
     var b = 'Jika Tidak, '
     + 'Menggantikan Formasi karena: &nbsp&nbsp'
-    + '<input type="radio" name="approvalno" value="promosi" id="promosi"> Promosi&nbsp&nbsp'
+    + '<input type="radio" name="approvalno" value="promosi" id="promosi" checked> Promosi&nbsp&nbsp'
     + '<input type="radio" name="approvalno" value="mutasi" id="mutasi"> Mutasi&nbsp&nbsp'
     + '<input type="radio" name="approvalno" value="pensiun" id="pensiun"> Pensiun&nbsp&nbsp'
     + '<input type="radio" name="approvalno" value="berhenti" id="berhenti"> Berhenti';
@@ -307,16 +393,16 @@ function save_form(){
   cache:false,
   success: 
   function(data){
-    data=data.split('|');
-    if(data[1]=="Success"){
-      alert("Success");
-    }else{
-      alert("Failed");
-    }
+//    data=data.split('|');
+//    if(data[1]=="Success"){
+//      alert("Success");
+//    }else{
+//      alert("Failed");
+//    }
     // alert('Berhasil di Submit');
     // location.reload();
-    // $('#isi_content').html(data);
-          // alert(data);  //as a debugging message.
+     $('#isi_content').html(data);
+          alert(data);  //as a debugging message.
         }
 });// you have missed this bracket
  return false;
@@ -324,4 +410,78 @@ function save_form(){
 
 
 </script>
+<!-- form next -->
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the crurrent tab
 
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = '<button type="button" onclick="save_form()" class="btn btn-primary">Submit</button>';
+  } else {
+    document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>';
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByClassName("wajib");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
