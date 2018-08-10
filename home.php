@@ -106,7 +106,7 @@ if(!isset($_SESSION['user'])){
 			<a href="#" class="brand-link">
 				<img src="logo.png" alt="Logo" class="brand-image img-circle elevation-3"
 				style="opacity: .8">
-				<span class="brand-text font-weight-light">PT. Graha Inti Permai <?=$_SESSION['iduser'];?></span>
+				<span class="brand-text font-weight-light">PT. Graha Inti Permai</span>
 			</a>
 
 			<!-- Sidebar -->
@@ -174,7 +174,7 @@ if(!isset($_SESSION['user'])){
           			</a>
           		</li>
           		<li class="nav-item">
-          			<a href="#" class="nav-link">
+          			<a href="#" class="nav-link" onClick="penilaian()">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Form Penilaian</p>
           			</a>
@@ -427,6 +427,22 @@ if(!isset($_SESSION['user'])){
 		$.ajax({
 			type: "POST",
 			url: "history_permintaan_karyawan.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+
+	function penilaian(){
+		$.ajax({
+			type: "POST",
+			url: "form_penilaian.php", 
 			data: {kosong:'kosong'},
 			dataType: "text",  
 			cache:false,
