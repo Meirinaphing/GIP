@@ -32,7 +32,7 @@ if(!isset($_SESSION['user'])){
 				<div class="card-header">
 					<h3 class="card-title">
 						<div class="row">  
-							<h3 class="card-title col-sm-6">Nama : <?=$_SESSION['user'];?></h3>
+							<h3 class="card-title col-sm-6">Nama : </h3>
 							<h3 class="card-title col-sm-6" style="text-align:right;">Tanggal : <?php echo date("D").','.date('d-M-Y') ?></h3>
 						</div>
 						<div class="row">  
@@ -58,83 +58,83 @@ if(!isset($_SESSION['user'])){
 						<tbody>
 							<tr>
 								<td>Komunikasi</td>
-								<td align="center"><input type="radio" name="komunikasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="komunikasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="komunikasi" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="komunikasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="komunikasi" class="flat-red"></td>
+								<td align="center"><input type="radio" name="komunikasi" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="komunikasi" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="komunikasi" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="komunikasi" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="komunikasi" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Kecerdasan</td>
-								<td align="center"><input type="radio" name="kecerdasan" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kecerdasan" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kecerdasan" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="kecerdasan" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kecerdasan" class="flat-red"></td>
+								<td align="center"><input type="radio" name="kecerdasan" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="kecerdasan" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="kecerdasan" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="kecerdasan" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="kecerdasan" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Kepercayaan Diri</td>
-								<td align="center"><input type="radio" name="percaya_diri" class="flat-red"></td>
-								<td align="center"><input type="radio" name="percaya_diri" class="flat-red"></td>
-								<td align="center"><input type="radio" name="percaya_diri" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="percaya_diri" class="flat-red"></td>
-								<td align="center"><input type="radio" name="percaya_diri" class="flat-red"></td>
+								<td align="center"><input type="radio" name="percaya_diri" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="percaya_diri" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="percaya_diri" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="percaya_diri" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="percaya_diri" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Kemampuan Umum</td>
-								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red"></td>
+								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="kemampuan_umum" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Kemampuan Khusus</td>
-								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red"></td>
+								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="kemampuan_khusus" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Kepemimpinan</td>
-								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red"></td>
-								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red"></td>
+								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="kepemimpinan" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Motivasi</td>
-								<td align="center"><input type="radio" name="motivasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="motivasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="motivasi" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="motivasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="motivasi" class="flat-red"></td>
+								<td align="center"><input type="radio" name="motivasi" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="motivasi" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="motivasi" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="motivasi" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="motivasi" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Pengalaman</td>
-								<td align="center"><input type="radio" name="pengalaman" class="flat-red"></td>
-								<td align="center"><input type="radio" name="pengalaman" class="flat-red"></td>
-								<td align="center"><input type="radio" name="pengalaman" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="pengalaman" class="flat-red"></td>
-								<td align="center"><input type="radio" name="pengalaman" class="flat-red"></td>
+								<td align="center"><input type="radio" name="pengalaman" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="pengalaman" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="pengalaman" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="pengalaman" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="pengalaman" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Pengambilan Keputusan</td>
-								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red"></td>
-								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red"></td>
-								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red"></td>
-								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red"></td>
+								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="pengambilan_keputusn" class="flat-red" value="5"></td>
 							</tr>
 							<tr>
 								<td>Sosialisasi</td>
-								<td align="center"><input type="radio" name="sosialisasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="sosialisasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="sosialisasi" class="flat-red" checked></td>
-								<td align="center"><input type="radio" name="sosialisasi" class="flat-red"></td>
-								<td align="center"><input type="radio" name="sosialisasi" class="flat-red"></td>
+								<td align="center"><input type="radio" name="sosialisasi" class="flat-red" value="1"></td>
+								<td align="center"><input type="radio" name="sosialisasi" class="flat-red" value="2"></td>
+								<td align="center"><input type="radio" name="sosialisasi" class="flat-red" value="3" checked></td>
+								<td align="center"><input type="radio" name="sosialisasi" class="flat-red" value="4"></td>
+								<td align="center"><input type="radio" name="sosialisasi" class="flat-red" value="5"></td>
 							</tr>
 						</tbody>
 					</table>
