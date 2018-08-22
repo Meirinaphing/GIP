@@ -94,8 +94,7 @@
         </h1>
       </section>
       
-      
-      
+      <form action="daftar.php" method="get">
       <!-- Main content -->
       <section class="content">
 
@@ -445,21 +444,22 @@
         <table class="table table-bordered">
           <tbody>
             <tr>
-              <th>Foreign Language Cimpetencies / Bahasa Asing Yang Dikuasai </th>
+              <th class="col-sm-6">Foreign Language Cimpetencies / Bahasa Asing Yang Dikuasai </th>
               <th>Spoken/Lisan</th>
               <th>Writer/Menulis</th>
             </tr>
           </tbody>
           <tfoot id="u_bahasa">
+				 
             <tr>
               <td><span >English / Bahasa Inggris</span></td>
               <td>
-               <input type="radio" class="minimal" name="bhs" checked> Active
-               <input type="radio" class="minimal" name="bhs"> Passive
+               <input type="radio" class="" name="bhs1" checked> Active
+               <input type="radio" class="" name="bhs1"> Passive
              </td>
              <td>
-               <input type="radio" class="minimal-red" name="mns" checked> Active
-               <input type="radio" class="minimal-red" name="mns"> Passive
+               <input type="radio" class="" name="mns1" checked> Active
+               <input type="radio" class="" name="mns1"> Passive
              </td>
            </tr>
          </tfoot>
@@ -495,7 +495,7 @@
         </div>
         <!-- /.input group -->
       </div>
-      <div id="head_pengalaman">
+      <div id="head_pengalaman" class="form-group col-sm-12">
         <div class="form-group col-sm-12">
           <label>Nama perusahaan:</label>	
           <div class="input-group">
@@ -734,8 +734,8 @@
   <span class="step"></span>
   <span class="step"></span>
 </div>
-<div align="right" class="col-sm-2">
-  <button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>
+<div align="right" class="col-sm-2" id="nextBtn">
+  <button type="button" class="btn btn-success" id="Btn" onclick="nextPrev(1)">Next</button>
 </div>
 <div class="col-sm-2">&nbsp</div>
 </div>
@@ -764,6 +764,7 @@
 </section>
 <!-- /.content -->
 </div>
+	  </form>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
@@ -955,12 +956,12 @@
  var isii='<tr>'+
  '<td><span >English / Bahasa Inggris</span></td>'+
  '<td>'+
- '<input type="radio" class="minimal" name="bhs" checked> Active'+
- '<input type="radio" class="minimal" name="bhs"> Passive'+
+ '<input type="radio" class="minimal" name="bhs1" checked> Active'+
+ '<input type="radio" class="minimal" name="bhs1"> Passive'+
  '</td>'+
  '<td>'+
- '<input type="radio" class="minimal-red" name="mns" checked> Active'+
- '<input type="radio" class="minimal-red" name="mns"> Passive'+
+ '<input type="radio" class="minimal-red" name="mns1" checked> Active'+
+ '<input type="radio" class="minimal-red" name="mns1"> Passive'+
  '</td>'+
  '</tr>';
 
@@ -984,136 +985,171 @@
 }
 
 function tambah_pelatihan(jlh){
-  var b=1;
-  var isii='';
-  $("#tbody_pelatihan").show();
-  if(jlh>15){
-   jlh=15;
-   document.getElementById('jlh_pelatihan').value=15;
- }
- if(jlh<=0){
-   jlh=0;
-   document.getElementById('jlh_pelatihan').value=0;
 
-   $("#tbody_pelatihan").hide();
- }
+$.ajax({
+			type: "POST",
+			url: "w_f_pelatihan.php", 
+			data: {jlh:jlh},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				 if(jlh>5){
+				   jlh=5;
+				   document.getElementById('jlh_pelatihan').value=5;
+				 }
+				 if(jlh<=0){
+				   jlh=0;
+				   document.getElementById('jlh_pelatihan').value=0;
+				 }
+ 
+				$('#tbody_pelatihan').html(data);
+					// alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+
+ //  var b=1;
+ //  var isii='';
+ //  $("#tbody_pelatihan").show();
+ //  if(jlh>15){
+ //   jlh=15;
+ //   document.getElementById('jlh_pelatihan').value=15;
+ // }
+ // if(jlh<=0){
+ //   jlh=0;
+ //   document.getElementById('jlh_pelatihan').value=0;
+
+ //   $("#tbody_pelatihan").hide();
+ // }
  
 
- while(b<=jlh){
+ // while(b<=jlh){
 
-   isii += '<tr>'+
-   '<td><input type="text" class="form-control" placeholder="Nama Kursus/ Pelatihan" id="nama_pelatihan'+b+'"></td>'+
-   '<td><input type="text" class="form-control" placeholder="Penyelenggara" id="penyelenggara'+b+'"></td>'+
-   '<td><input type="text" class="form-control" data-inputmask="alias: dd/mm/yyyy" data-mask="" id="tanggal'+b+'" placeholder="Tanggal"></td>'+
-   '<td><textarea class="form-control" placeholder="Keterangan" id="keterangan'+b+'"></textarea></td>'+
-   '</tr>';
-   b++;
- }  
- $("#u_pelatihan").html(isii);  
+ //   isii += '<tr>'+
+ //   '<td><input type="text" class="form-control" placeholder="Nama Kursus/ Pelatihan" id="nama_pelatihan'+b+'"></td>'+
+ //   '<td><input type="text" class="form-control" placeholder="Penyelenggara" id="penyelenggara'+b+'"></td>'+
+ //   '<td><input type="text" class="form-control" data-inputmask="alias: dd/mm/yyyy" data-mask="" id="tanggal'+b+'" placeholder="Tanggal"></td>'+
+ //   '<td><textarea class="form-control" placeholder="Keterangan" id="keterangan'+b+'"></textarea></td>'+
+ //   '</tr>';
+ //   b++;
+ // }  
+ // $("#u_pelatihan").html(isii);  
 }
 
 function tambah_pengalaman(jlh){
-  var b=1;
-  var isii='';
-  $("#head_pengalaman").show();
-  if(jlh>5){
-   jlh=5;
-   document.getElementById('jlh_pengalaman').value=5;
- }
- if(jlh<=0){
-   jlh=0;
-   document.getElementById('jlh_pengalaman').value=0;
 
-   $("#head_pengalaman").hide();
- }
+		$.ajax({
+			type: "POST",
+			url: "w_f_pengalaman.php", 
+			data: {jlh:jlh},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				 if(jlh>5){
+				   jlh=5;
+				   document.getElementById('jlh_pengalaman').value=5;
+				 }
+				 if(jlh<=0){
+				   jlh=0;
+				   document.getElementById('jlh_pengalaman').value=0;
+				 }
  
+				$('#head_pengalaman').html(data);
+					// alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
 
- while(b<=jlh){
 
-   isii += '<div class="form-group col-sm-12">'+
-   '<label>Nama perusahaan:</label>'+
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa fa-industry"></i>'+
-   '</div>'+
-   '<input type="text" class="form-control" placeholder="Nama Perusahaan">'+
-   '</div>'+
-   '</div>'+
-   '<div class="form-group col-sm-12">'+
-   '<label>Bergerak Di Bidang:</label>'+
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa fa-bar-chart"></i>'+
-   '</div>'+
-   '<input type="text" class="form-control" placeholder="Bergerak di Bidang">'+
-   '</div>'+
-   '</div>'+
-   '<div class="col-sm-12">'+
-   '<div class="form-group col-sm-6">'+
-   '<label>Jabatan:</label> ' +
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa fa-user-secret"></i>'+
-   '</div>'+
-   '<input type="text" class="form-control" placeholder="jabatan">'+
-   '</div>'+
-   '</div>'+
-   '<div class="form-group col-sm-6">'+
-   '<label>Gaji:</label>'+
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa fa-money"></i>'+
-   '</div>'+
-   '<input type="text" onkeydown="return limitCharacter(event)" class="form-control" id="gaji1" placeholder="Gaji">'+
-   '</div>'+
-   '</div>'+
-   '</div>'+
-   '<div class="form-group col-sm-12">'+
-   '<div class="input-group">'+
-   '</div>'+
-   '<div class="col-sm-6">'+
-   '<label>Mulai bekerja:</label>' +
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa  fa-calendar"></i>'+
-   '</div>'+
-   '<input type="text" class="form-control" data-inputmask="alias: mm/yyyy" data-mask="" placeholder="Masuk">'+
-   '</div>'+
-   '</div>'+
-   '<div class="col-sm-2"></div>'+
-   '<div class="col-sm-6">'+
-   '<label>Berhenti</label>'+ 
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa  fa-calendar"></i>'+
-   '</div>'+
-   '<input type="text" class="form-control" data-inputmask="alias: mm/yyyy" data-mask="" placeholder="Keluar">'+
-   '</div>'+
-   '</div>'+
-   '</div>'+
-   '<div class="form-group col-sm-12">'+
-   '<label>Alasan Berhenti:</label>' +
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa fa-hand-stop-o"></i>'+
-   '</div>'+
-   '<textarea class="form-control" placeholder="Alasan Berhenti"></textarea>'+
-   '</div>'+
-   '</div>'+
-   '<div class="form-group col-sm-12">'+
-   '<label>Gambaran Pekerjaan:</label>' +
-   '<div class="input-group">'+
-   '<div class="input-group-addon">'+
-   '<i class="fa fa-object-group-stop-o"></i>'+
-   '</div>'+
-   '<textarea class="form-control" placeholder="Gambaran Pekerjaan"></textarea>'+
-   '</div>'+
-   '<hr class="hr">'+
-   '</div>';
 
-   b++;
- }  
- $("#head_pengalaman").html(isii);  
+ // while(b<=jlh){
+ //   isii += '<div class="form-group col-sm-12">'+
+ //   '<label>Nama perusahaan:</label>'+
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa fa-industry"></i>'+
+ //   '</div>'+
+ //   '<input type="text" class="form-control" placeholder="Nama Perusahaan">'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="form-group col-sm-12">'+
+ //   '<label>Bergerak Di Bidang:</label>'+
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa fa-bar-chart"></i>'+
+ //   '</div>'+
+ //   '<input type="text" class="form-control" placeholder="Bergerak di Bidang">'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="col-sm-12">'+
+ //   '<div class="form-group col-sm-6">'+
+ //   '<label>Jabatan:</label> ' +
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa fa-user-secret"></i>'+
+ //   '</div>'+
+ //   '<input type="text" class="form-control" placeholder="jabatan">'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="form-group col-sm-6">'+
+ //   '<label>Gaji:</label>'+
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa fa-money"></i>'+
+ //   '</div>'+
+ //   '<input type="text" onkeydown="return limitCharacter(event)" class="form-control" id="gaji'+b+'" placeholder="Gaji">'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="form-group col-sm-12">'+
+ //   '<div class="input-group">'+
+ //   '</div>'+
+ //   '<div class="col-sm-6">'+
+ //   '<label>Mulai bekerja:</label>' +
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa  fa-calendar"></i>'+
+ //   '</div>'+
+ //   '<input type="text" class="form-control" data-inputmask="`alias`: `mm/yyyy`" data-mask="" placeholder="Masuk">'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="col-sm-2"></div>'+
+ //   '<div class="col-sm-6">'+
+ //   '<label>Berhenti</label>'+ 
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa  fa-calendar"></i>'+
+ //   '</div>'+
+ //   '<input type="text" class="form-control" data-inputmask="`alias`: `mm/yyyy`" data-mask="" placeholder="Keluar">'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="form-group col-sm-12">'+
+ //   '<label>Alasan Berhenti:</label>' +
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+ //   '<i class="fa fa-hand-stop-o"></i>'+
+ //   '</div>'+
+ //   '<textarea class="form-control" placeholder="Alasan Berhenti"></textarea>'+
+ //   '</div>'+
+ //   '</div>'+
+ //   '<div class="form-group col-sm-12">'+
+ //   '<label>Gambaran Pekerjaan:</label>' +
+ //   '<div class="input-group">'+
+ //   '<div class="input-group-addon">'+
+	   
+ //   '<i class="fa fa-object-group"></i>'+
+ //   '</div>'+
+ //   '<textarea class="form-control" placeholder="Gambaran Pekerjaan"></textarea>'+
+ //   '</div>'+
+ //   '<hr class="hr">'+
+ //   '</div>';
+
+ //   b++;
+ // }  
+ // $("#head_pengalaman").html(isii);  
 }
 
 
@@ -1138,9 +1174,9 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Send";
+    document.getElementById("nextBtn").innerHTML = '<button type="submit" class="btn btn-success" id="nextBtn" >Send</button>';
   } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>';
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
@@ -1207,13 +1243,13 @@ function fixStepIndicator(n) {
     + tanggal di field TTL
 
   - HEHE
-    + Tanggal di pendidikan non formal
+    + Tanggal di pendidikan non formal +ok+
     + Style di bahasa
-    + gaji dan tgl di pengalaman kerja
+    + gaji dan tgl di pengalaman kerja +ok+
     + Enable/disable penyakit
 
 
-  - BUG di akhir page
+  - BUG di akhir page +OK+
 
   */
 
