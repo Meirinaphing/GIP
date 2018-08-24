@@ -95,227 +95,227 @@
       </section>
       
       <form action="daftar.php" method="get">
-      <!-- Main content -->
-      <section class="content">
+        <!-- Main content -->
+        <section class="content">
 
-        <div class="row">
-         <div class="box-body">
-           <div class="tab">
-             <div class="col-sm-2">&nbsp</div>
-             <div class="col-md-8">
+          <div class="row">
+           <div class="box-body">
+             <div class="tab">
+               <div class="col-sm-2">&nbsp</div>
+               <div class="col-md-8">
 
-              <div class="box box-success">
-                <div class="box-header box-success">
-                  <h2 class="box-title"><span class="fa fa-user-circle"></span> Data Pribadi</h2>
-                  <div class="box-tools pull-right"></div>
-                </div>
-
-                <div class="box-body">
-
-                  <div class="form-group col-sm-6">
-                    <label>Nama :</label>	
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-user"></i>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Nama Lengkap">
-                    </div>
-                    <!-- /.input group -->
+                <div class="box box-success">
+                  <div class="box-header box-success">
+                    <h2 class="box-title"><span class="fa fa-user-circle"></span> Data Pribadi</h2>
+                    <div class="box-tools pull-right"></div>
                   </div>
-                  <!-- /.form group -->
-                  
-                  <div class="form-group col-sm-6">
-                    <label>Foto :</label>	
-                    <div class="input-group" id="tam-foto">
-                     <input type="file" id="exampleInputFile" onchange="tamfoto(this.value)">
-                     <p class="help-block">Example block-level help text here.</p>
+
+                  <div class="box-body">
+
+                    <div class="form-group col-sm-6">
+                      <label>Nama :</label>	
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-user"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nama Lengkap">
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+
+                    <div class="form-group col-sm-6">
+                      <label>Foto :</label>	
+                      <div class="input-group" id="tam-foto">
+                       <input type="file" id="exampleInputFile" onchange="tamfoto(this.value)">
+                       <p class="help-block">Example block-level help text here.</p>
+                     </div>
+                     <!-- /.input group -->
                    </div>
-                   <!-- /.input group -->
-                 </div>
-                 
-                 <div class="form-group col-sm-6">
-                   <div class="col-sm-12 col-xs-12" style="padding: 0px">
-                    <label>Tempat / Tgl.Lahir :</label>
-                  </div>	
-                  <div class="row">
-                   <div class="col-sm-6 col-xs-6" style="padding-right: 0px;">
+
+                   <div class="form-group col-sm-6">
+                     <div class="col-sm-12 col-xs-12" style="padding: 0px">
+                      <label>Tempat / Tgl.Lahir :</label>
+                    </div>	
+                    <div class="row">
+                     <div class="col-sm-6 col-xs-6" style="padding-right: 0px;">
+                       <div class="input-group">
+                         <div class="input-group-addon">
+                          <i class="fa fa-globe"></i>
+                        </div>
+                        <div class="input-group">
+                         <input type="text" class="form-control" placeholder="Tempat">
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="col-sm-6 col-xs-6" style="padding-left: 0px; padding-right: 0px;">
                      <div class="input-group">
                        <div class="input-group-addon">
-                        <i class="fa fa-globe"></i>
+                        <i class="fa fa-calendar"></i>
                       </div>
                       <div class="input-group">
-                       <input type="text" class="form-control" placeholder="Tempat">
+                       <input type="text" class="form-control" placeholder="Tanggal" id="datepicker">
                      </div>
                    </div>
                  </div>
-                 
-                 <div class="col-sm-6 col-xs-6" style="padding-left: 0px; padding-right: 0px;">
-                   <div class="input-group">
-                     <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Tanggal" id="datepicker">
-                   </div>
-                 </div>
                </div>
+               <!-- /.input group -->
              </div>
-             <!-- /.input group -->
-           </div>
-           <!-- /.form group -->
+             <!-- /.form group -->
 
-           <div class="form-group col-sm-6">
-            <label>No KTP:</label>
+             <div class="form-group col-sm-6">
+              <label>No KTP:</label>
 
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-credit-card"></i>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-credit-card"></i>
+                </div>
+                <input type="text" class="form-control pull-right " id="noktp" placeholder="No KTP">
               </div>
-              <input type="text" class="form-control pull-right " id="noktp" placeholder="No KTP">
+              <!-- /.input group -->
             </div>
-            <!-- /.input group -->
-          </div>
-          
-          <div class="form-group col-sm-12">
-            <label>Alamat:</label>
 
-            <div class="input-group date">
-              <div class="input-group-addon">
-                <i class="fa fa-edit"></i>
+            <div class="form-group col-sm-12">
+              <label>Alamat:</label>
+
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-edit"></i>
+                </div>
+                <textarea class="form-control" placeholder="Alamat Sesuai KTP"></textarea>
               </div>
-              <textarea class="form-control" placeholder="Alamat Sesuai KTP"></textarea>
+              <!-- /.input group -->
             </div>
-            <!-- /.input group -->
-          </div>
-          
-          <div class="form-group col-sm-12">
-            <label>Jabatan Yang Di Lamar:</label>
 
-            <div class="input-group date">
-              <div class="input-group-addon">
-                <i class="fa fa-user-secret"></i>
+            <div class="form-group col-sm-12">
+              <label>Jabatan Yang Di Lamar:</label>
+
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-user-secret"></i>
+                </div>
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">Office Boy</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
               </div>
-              <select class="form-control select2" style="width: 100%;">
-                <option selected="selected">Office Boy</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
+              <!-- /.input group -->
             </div>
-            <!-- /.input group -->
-          </div>
-          
-          <div class="form-group col-sm-12">
-            <label>Jenis Kelamin:</label>
 
-            <div class="input-group date">
+            <div class="form-group col-sm-12">
+              <label>Jenis Kelamin:</label>
 
-              <input type="radio" class="minimal" name="jk" checked> Pria
-              <label></label>
-              <input type="radio" class="minimal-red" name="jk"> Wanita
-            </div>
-            <!-- /.input group -->
-          </div>
-          
-          <div class="form-group col-sm-12">
-            <label>Status:</label>
+              <div class="input-group date">
 
-            <div class="input-group date">
-              <input type="radio" name="stat" class="flat-red" checked> Belum Menikah
-              <input type="radio" name="stat" class="flat-red"> Sudah Menikah
-              <input type="radio" name="stat" class="flat-red"> Janda/Duda
-            </div>
-            <!-- /.input group -->
-          </div>
-          
-          <div class="form-group col-sm-6">
-            <label>Kebangsaan :</label>	
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-globe"></i>
+                <input type="radio" class="minimal" name="jk" checked> Pria
+                <label></label>
+                <input type="radio" class="minimal-red" name="jk"> Wanita
               </div>
-              <input type="text" class="form-control" placeholder="Indonesia">
+              <!-- /.input group -->
             </div>
-            <!-- /.input group -->
-          </div>
-          <!-- /.form group -->
-          
-          <div class="form-group col-sm-6">
-            <label>No Telepon:</label>	
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-phone"></i>
+
+            <div class="form-group col-sm-12">
+              <label>Status:</label>
+
+              <div class="input-group date">
+                <input type="radio" name="stat" class="flat-red" checked> Belum Menikah
+                <input type="radio" name="stat" class="flat-red"> Sudah Menikah
+                <input type="radio" name="stat" class="flat-red"> Janda/Duda
               </div>
-              <input type="text" class="form-control" data-inputmask="'mask': '9999-9999-99999'" data-mask placeholder="0811-2233-4455">
+              <!-- /.input group -->
             </div>
-            
-            <!-- /.input group -->
-          </div>
+
+            <div class="form-group col-sm-6">
+              <label>Kebangsaan :</label>	
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-globe"></i>
+                </div>
+                <input type="text" class="form-control" placeholder="Indonesia">
+              </div>
+              <!-- /.input group -->
+            </div>
+            <!-- /.form group -->
+
+            <div class="form-group col-sm-6">
+              <label>No Telepon:</label>	
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <input type="text" class="form-control" data-inputmask="'mask': '9999-9999-99999'" data-mask placeholder="0811-2233-4455">
+              </div>
+
+              <!-- /.input group -->
+            </div>
 
 
-        </div>  
-        <!--			  pembatas-->
-        <hr>
-        <!--			  Pembatas-->
-        <div class="box-header">
-          <h3 class="box-title"><span class="fa fa-users"></span> Susunan Keluarga, <small>Termasuk Anda</small></h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group col-sm-6">
-            <label>Jumlah Saudara:</label>	
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-users"></i>
-              </div>
-              <input type="number" value="1" id="jlh_saudara" name="jlh_saudara" class="form-control" onChange="tambahsasudara(this.value)">
-            </div>
-            
-            <!-- /.input group -->
+          </div>  
+          <!--			  pembatas-->
+          <hr>
+          <!--			  Pembatas-->
+          <div class="box-header">
+            <h3 class="box-title"><span class="fa fa-users"></span> Susunan Keluarga, <small>Termasuk Anda</small></h3>
           </div>
-          <!-- Date dd/mm/yyyy -->
-          <table class="table table-bordered">
-            <tbody><tr>
-              <th style="width: 17%">Hubungan</th>
-              <th>Nama</th>
-              <th>Usia</th>
-              <th>Pendidikan Trakhir</th>
-              <th>Keterangan</th>
-            </tr>
-            <tr>
-              <td><span class="form-control">Ayah</span></td>
-              <td><input type="text" class="form-control" placeholder="Nama"></td>
-              <td><input type="number" class="form-control" Placeholder="usia"></td>
-              <td><input type="text" class="form-control" placeholder="pendidikan terakhir"></td>
-              <td><textarea class="form-control" placeholder="keterangan"></textarea></td>
-            </tr>
-            <tr>
-              <td><span class="form-control">Ibu</span></td>
-              <td><input type="text" class="form-control" placeholder="Nama"></td>
-              <td><input type="number" class="form-control" Placeholder="usia"></td>
-              <td><input type="text" class="form-control" placeholder="pendidikan terakhir"></td>
-              <td><textarea class="form-control" placeholder="keterangan"></textarea></td>
-            </tr>
-            
-          </tbody>
-          <tfoot id="u_saudara">
-           <tr> 
-             <td><span class="form-control">Saudara 1</span></td>
-             <td><input type="text" class="form-control" placeholder="Nama" id="namasaudara1"></td>
-             <td><input type="number" class="form-control" Placeholder="usia" id="usiasaudara1"></td>
-             <td><input type="text" class="form-control" placeholder="pendidikan terakhir" id="pendidikansaudara1"></td>
-             <td><textarea class="form-control" placeholder="keterangan" id="keterangansaudara1"></textarea></td>
-           </tr>
-         </tfoot>
-       </table>
+          <div class="box-body">
+            <div class="form-group col-sm-6">
+              <label>Jumlah Saudara:</label>	
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-users"></i>
+                </div>
+                <input type="number" value="1" id="jlh_saudara" name="jlh_saudara" class="form-control" onChange="tambahsasudara(this.value)">
+              </div>
+
+              <!-- /.input group -->
+            </div>
+            <!-- Date dd/mm/yyyy -->
+            <table class="table table-bordered">
+              <tbody><tr>
+                <th style="width: 17%">Hubungan</th>
+                <th>Nama</th>
+                <th>Usia</th>
+                <th>Pendidikan Trakhir</th>
+                <th>Keterangan</th>
+              </tr>
+              <tr>
+                <td><span class="form-control">Ayah</span></td>
+                <td><input type="text" class="form-control" placeholder="Nama"></td>
+                <td><input type="number" class="form-control" Placeholder="usia"></td>
+                <td><input type="text" class="form-control" placeholder="pendidikan terakhir"></td>
+                <td><textarea class="form-control" placeholder="keterangan"></textarea></td>
+              </tr>
+              <tr>
+                <td><span class="form-control">Ibu</span></td>
+                <td><input type="text" class="form-control" placeholder="Nama"></td>
+                <td><input type="number" class="form-control" Placeholder="usia"></td>
+                <td><input type="text" class="form-control" placeholder="pendidikan terakhir"></td>
+                <td><textarea class="form-control" placeholder="keterangan"></textarea></td>
+              </tr>
+
+            </tbody>
+            <tfoot id="u_saudara">
+             <tr> 
+               <td><span class="form-control">Saudara 1</span></td>
+               <td><input type="text" class="form-control" placeholder="Nama" id="namasaudara1"></td>
+               <td><input type="number" class="form-control" Placeholder="usia" id="usiasaudara1"></td>
+               <td><input type="text" class="form-control" placeholder="pendidikan terakhir" id="pendidikansaudara1"></td>
+               <td><textarea class="form-control" placeholder="keterangan" id="keterangansaudara1"></textarea></td>
+             </tr>
+           </tfoot>
+         </table>
+       </div>
+       <!-- /.box-body -->
      </div>
-     <!-- /.box-body -->
-   </div>
-   <!-- /.box -->
+     <!-- /.box -->
 
- </div> 
- <div class="col-sm-2">&nbsp</div>
-</div>
-<div class="tab">
+   </div> 
+   <div class="col-sm-2">&nbsp</div>
+ </div>
+ <div class="tab">
   <div class="col-sm-2">&nbsp</div>
   <div class="col-md-8">
 
@@ -450,7 +450,7 @@
             </tr>
           </tbody>
           <tfoot id="u_bahasa">
-				 
+
             <tr>
               <td><span >English / Bahasa Inggris</span></td>
               <td>
@@ -615,33 +615,33 @@
             <tr>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="jantung" id="penyakit" name="penyakit">
+                  <input class="form-check-input" type="checkbox" value="jantung" id="jantung" name="penyakit">
                 </div>
               </td>
               <td>Heart disease (Jantung)</td>
-              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-              <td><input type="text" class="form-control" placeholder="Notes"></td>
+              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_jantung"></td>
+              <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_jantung"></td>
             </tr>
             <tr>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="hipertensi" id="penyakit" name="penyakit">
+                  <input class="form-check-input" type="checkbox" value="hipertensi" id="hipertensi" name="penyakit">
                 </div>
               </td>
               <td>Hypertenssion (Hipertensi)</td>
-              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-              <td><input type="text" class="form-control" placeholder="Notes"></td>
+              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_hipertensi"></td>
+              <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_hipertensi"></td>
             </tr>
           </tr>
           <tr>
             <td>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="diabetes" id="penyakit" name="penyakit">
+                <input class="form-check-input" type="checkbox" value="diabetes" id="diabetes" name="penyakit">
               </div>
             </td>
             <td>Diabetes (Diabetes)</td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-            <td><input type="text" class="form-control" placeholder="Notes"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_diabetes"></td>
+            <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_diabetes"></td>
           </tr>
         </tr>
         <tr>
@@ -764,7 +764,7 @@
 </section>
 <!-- /.content -->
 </div>
-	  </form>
+</form>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
@@ -986,28 +986,28 @@
 
 function tambah_pelatihan(jlh){
 
-$.ajax({
-			type: "POST",
-			url: "w_f_pelatihan.php", 
-			data: {jlh:jlh},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				 if(jlh>5){
-				   jlh=5;
-				   document.getElementById('jlh_pelatihan').value=5;
-				 }
-				 if(jlh<=0){
-				   jlh=0;
-				   document.getElementById('jlh_pelatihan').value=0;
-				 }
- 
-				$('#tbody_pelatihan').html(data);
+  $.ajax({
+   type: "POST",
+   url: "w_f_pelatihan.php", 
+   data: {jlh:jlh},
+   dataType: "text",  
+   cache:false,
+   success: 
+   function(data){
+     if(jlh>5){
+       jlh=5;
+       document.getElementById('jlh_pelatihan').value=5;
+     }
+     if(jlh<=0){
+       jlh=0;
+       document.getElementById('jlh_pelatihan').value=0;
+     }
+
+     $('#tbody_pelatihan').html(data);
 					// alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
-		return false;
+  return false;
 
  //  var b=1;
  //  var isii='';
@@ -1039,28 +1039,28 @@ $.ajax({
 
 function tambah_pengalaman(jlh){
 
-		$.ajax({
-			type: "POST",
-			url: "w_f_pengalaman.php", 
-			data: {jlh:jlh},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				 if(jlh>5){
-				   jlh=5;
-				   document.getElementById('jlh_pengalaman').value=5;
-				 }
-				 if(jlh<=0){
-				   jlh=0;
-				   document.getElementById('jlh_pengalaman').value=0;
-				 }
- 
-				$('#head_pengalaman').html(data);
+  $.ajax({
+   type: "POST",
+   url: "w_f_pengalaman.php", 
+   data: {jlh:jlh},
+   dataType: "text",  
+   cache:false,
+   success: 
+   function(data){
+     if(jlh>5){
+       jlh=5;
+       document.getElementById('jlh_pengalaman').value=5;
+     }
+     if(jlh<=0){
+       jlh=0;
+       document.getElementById('jlh_pengalaman').value=0;
+     }
+
+     $('#head_pengalaman').html(data);
 					// alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
-		return false;
+  return false;
 
 
 
@@ -1139,7 +1139,7 @@ function tambah_pengalaman(jlh){
  //   '<label>Gambaran Pekerjaan:</label>' +
  //   '<div class="input-group">'+
  //   '<div class="input-group-addon">'+
-	   
+
  //   '<i class="fa fa-object-group"></i>'+
  //   '</div>'+
  //   '<textarea class="form-control" placeholder="Gambaran Pekerjaan"></textarea>'+
@@ -1234,23 +1234,39 @@ function fixStepIndicator(n) {
 }
 
 
+//Penyakit disabled/enabled
+$('#jantung').click(function(){
+ $('#t_jantung').attr('disabled',!this.checked);
+ $('#n_jantung').attr('disabled',!this.checked);
+});
+
+$('#hipertensi').click(function(){
+ $('#t_hipertensi').attr('disabled',!this.checked);
+ $('#n_hipertensi').attr('disabled',!this.checked);
+});
+
+$('#diabetes').click(function(){
+ $('#t_diabetes').attr('disabled',!this.checked);
+ $('#n_diabetes').attr('disabled',!this.checked);
+});
+
+
+
 
 /*
   Notes:
   - Validasi
     + angka tdk bole minus
     + field mandatory
+    + filter tanggal (end & start)
     + tanggal di field TTL
 
   - HEHE
-    + Tanggal di pendidikan non formal +ok+
+    + Pendidikan Non Formal jlh=0 (masih ada field)
     + Style di bahasa
-    + gaji dan tgl di pengalaman kerja +ok+
-    + Enable/disable penyakit
+    + min max gaji di pengalaman kerja
+    + Enable/disable penyakit (baru sampai diabetes)
 
+    */
 
-  - BUG di akhir page +OK+
-
-  */
-
-</script>
+  </script>
