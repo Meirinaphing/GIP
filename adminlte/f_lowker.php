@@ -1003,7 +1003,7 @@ $.ajax({
 				   document.getElementById('jlh_pelatihan').value=0;
 				 }
  
-				$('#tbody_pelatihan').html(data);
+				$('#u_pelatihan').html(data);
 					// alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
