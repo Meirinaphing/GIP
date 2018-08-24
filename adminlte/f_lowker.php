@@ -647,67 +647,67 @@
         <tr>
           <td>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="hepatitis" id="penyakit" name="penyakit">
+              <input class="form-check-input" type="checkbox" value="hepatitis" id="hepatitis" name="penyakit">
             </div>
           </td>
           <td>Hepatitis (Hepatitis)</td>
-          <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-          <td><input type="text" class="form-control" placeholder="Notes"></td>
+          <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_hepatitis"></td>
+          <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_hepatitis"></td>
         </tr>
       </tr>
       <tr>
         <td>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="kanker" id="penyakit" name="penyakit">
+            <input class="form-check-input" type="checkbox" value="kanker" id="kanker" name="penyakit">
           </div>
         </td>
         <td>Cancer (Kanker)</td>
-        <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-        <td><input type="text" class="form-control" placeholder="Notes"></td>
+        <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_kanker"></td>
+        <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_kanker"></td>
       </tr>
     </tr>
     <tr>
       <td>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="tbc" id="penyakit" name="penyakit">
+          <input class="form-check-input" type="checkbox" value="tbc" id="tbc" name="penyakit">
         </div>
       </td>
       <td>TBC (TBC)</td>
-      <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-      <td><input type="text" class="form-control" placeholder="Notes"></td>
+      <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_tbc"></td>
+      <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_tbc"></td>
     </tr>
   </tr>
   <tr>
     <td>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="asma" id="penyakit" name="penyakit">
+        <input class="form-check-input" type="checkbox" value="asma" id="asma" name="penyakit">
       </div>
     </td>
     <td>Asthma (Asma)</td>
-    <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-    <td><input type="text" class="form-control" placeholder="Notes"></td>
+    <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_asma"></td>
+    <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_asma"></td>
   </tr>
 </tr>
 <tr>
   <td>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="aids" id="penyakit" name="penyakit">
+      <input class="form-check-input" type="checkbox" value="aids" id="aids" name="penyakit">
     </div>
   </td>
   <td>AIDS (AIDS)</td>
-  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-  <td><input type="text" class="form-control" placeholder="Notes"></td>
+  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_aids"></td>
+  <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_aids"></td>
 </tr>
 </tr>
 <tr>
   <td>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="lainnya" id="penyakit" name="penyakit">
+      <input class="form-check-input" type="checkbox" value="lainnya" id="lainnya" name="penyakit">
     </div>
   </td>
   <td>Other Diseases (Penyakit Lainnya)</td>
-  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-  <td><input type="text" class="form-control" placeholder="Notes"></td>
+  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_lainnya"></td>
+  <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_lainnya"></td>
 </tr>
 </tr>
 </tbody>
@@ -985,8 +985,6 @@
 }
 
 function tambah_pelatihan(jlh){
-
-<<<<<<< HEAD
   $.ajax({
    type: "POST",
    url: "w_f_pelatihan.php", 
@@ -1004,29 +1002,9 @@ function tambah_pelatihan(jlh){
        document.getElementById('jlh_pelatihan').value=0;
      }
 
-     $('#tbody_pelatihan').html(data);
-=======
-$.ajax({
-			type: "POST",
-			url: "w_f_pelatihan.php", 
-			data: {jlh:jlh},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				 if(jlh>5){
-				   jlh=5;
-				   document.getElementById('jlh_pelatihan').value=5;
-				 }
-				 if(jlh<=0){
-				   jlh=0;
-				   document.getElementById('jlh_pelatihan').value=0;
-				 }
- 
-				$('#u_pelatihan').html(data);
->>>>>>> 51096f3d89c12d3d3bfe647083a1b5581d221077
-					// alert(data);  //as a debugging message.
-				}
+     $('#u_pelatihan').html(data);
+        // alert(data);  //as a debugging message.
+      }
 			  });// you have missed this bracket
   return false;
 
@@ -1271,6 +1249,35 @@ $('#diabetes').click(function(){
  $('#n_diabetes').attr('disabled',!this.checked);
 });
 
+$('#hepatitis').click(function(){
+ $('#t_hepatitis').attr('disabled',!this.checked);
+ $('#n_hepatitis').attr('disabled',!this.checked);
+});
+
+$('#kanker').click(function(){
+ $('#t_kanker').attr('disabled',!this.checked);
+ $('#n_kanker').attr('disabled',!this.checked);
+});
+
+$('#tbc').click(function(){
+ $('#t_tbc').attr('disabled',!this.checked);
+ $('#n_tbc').attr('disabled',!this.checked);
+});
+
+$('#asma').click(function(){
+ $('#t_asma').attr('disabled',!this.checked);
+ $('#n_asma').attr('disabled',!this.checked);
+});
+
+$('#aids').click(function(){
+ $('#t_aids').attr('disabled',!this.checked);
+ $('#n_aids').attr('disabled',!this.checked);
+});
+
+$('#lainnya').click(function(){
+ $('#t_lainnya').attr('disabled',!this.checked);
+ $('#n_lainnya').attr('disabled',!this.checked);
+});
 
 
 
