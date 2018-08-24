@@ -13,6 +13,7 @@ $jlh=$_POST['jlh'];
 while ($b<=$jlh) {
 ?>
 
+
 <tr>
  	<td><input type="text" class="form-control" placeholder="Nama Kursus/ Pelatihan" id="nama_pelatihan<?php echo $b ; ?>"></td>
  	<td><input type="text" class="form-control" placeholder="Penyelenggara" id="penyelenggara_pelatihan<?php echo $b ; ?>"></td>

@@ -986,6 +986,7 @@
 
 function tambah_pelatihan(jlh){
 
+<<<<<<< HEAD
   $.ajax({
    type: "POST",
    url: "w_f_pelatihan.php", 
@@ -1004,6 +1005,26 @@ function tambah_pelatihan(jlh){
      }
 
      $('#tbody_pelatihan').html(data);
+=======
+$.ajax({
+			type: "POST",
+			url: "w_f_pelatihan.php", 
+			data: {jlh:jlh},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				 if(jlh>5){
+				   jlh=5;
+				   document.getElementById('jlh_pelatihan').value=5;
+				 }
+				 if(jlh<=0){
+				   jlh=0;
+				   document.getElementById('jlh_pelatihan').value=0;
+				 }
+ 
+				$('#u_pelatihan').html(data);
+>>>>>>> 51096f3d89c12d3d3bfe647083a1b5581d221077
 					// alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
