@@ -116,6 +116,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
   <!-- /.input group -->
 </div>
 </div>
+</div>
 
 
 
