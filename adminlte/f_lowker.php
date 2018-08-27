@@ -86,7 +86,7 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       
-      <section class="content-header" align="center">
+      <section class="content-header" align="center" style="text-align: center">
         <h1>
           PT. GRAHA INTI PERMAI
           <small>Application Form</small>
@@ -118,7 +118,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <input type="text" class="form-control" placeholder="Nama Lengkap">
+                        <input id="nama_pelamar " name="nama_pelamar" type="text" class="form-control" placeholder="Nama Lengkap">
                       </div>
                       <!-- /.input group -->
                     </div>
@@ -127,8 +127,8 @@
                     <div class="form-group col-sm-6">
                       <label>Foto :</label>	
                       <div class="input-group" id="tam-foto">
-                       <input type="file" id="exampleInputFile" onchange="tamfoto(this.value)">
-                       <p class="help-block">Example block-level help text here.</p>
+                       <input type="file" id="Foto_Pelamar" name="Foto_Pelamar" onchange="tamfoto(this.value)">
+                       <p class="help-block">Ukuran foto 3x4</p>
                      </div>
                      <!-- /.input group -->
                    </div>
@@ -144,7 +144,7 @@
                           <i class="fa fa-globe"></i>
                         </div>
                         <div class="input-group">
-                         <input type="text" class="form-control" placeholder="Tempat">
+                         <input type="text" id="tempatlahir" name="tempatlahir" class="form-control" placeholder="Tempat">
                        </div>
                      </div>
                    </div>
@@ -155,7 +155,7 @@
                         <i class="fa fa-calendar"></i>
                       </div>
                       <div class="input-group">
-                       <input type="text" class="form-control" placeholder="Tanggal" id="datepicker">
+                       <input type="text" id="tanggallahir" name="tanggallahir" class="form-control" placeholder="Tanggal" id="datepicker">
                      </div>
                    </div>
                  </div>
@@ -171,7 +171,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-credit-card"></i>
                 </div>
-                <input type="text" class="form-control pull-right " id="noktp" placeholder="No KTP">
+                <input type="text" class="form-control pull-right " id="noktp" name="noktp" placeholder="No KTP">
               </div>
               <!-- /.input group -->
             </div>
@@ -183,7 +183,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-edit"></i>
                 </div>
-                <textarea class="form-control" placeholder="Alamat Sesuai KTP"></textarea>
+                <textarea id="alamatktp" name="alamatktp" class="form-control" placeholder="Alamat Sesuai KTP"></textarea>
               </div>
               <!-- /.input group -->
             </div>
@@ -195,7 +195,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-user-secret"></i>
                 </div>
-                <select class="form-control select2" style="width: 100%;">
+                <select id="jabatanygdilamar" name="jabatanygdilamar" class="form-control select2" style="width: 100%;">
                   <option selected="selected">Office Boy</option>
                   <option>1</option>
                   <option>2</option>
@@ -210,9 +210,9 @@
 
               <div class="input-group date">
 
-                <input type="radio" class="minimal" name="jk" checked> Pria
+                <input type="radio" class="minimal" name="jk_pelamar" value="Pria" checked> Pria
                 <label></label>
-                <input type="radio" class="minimal-red" name="jk"> Wanita
+                <input type="radio" class="minimal-red" name="jk_pelamar" value="Wanita"> Wanita
               </div>
               <!-- /.input group -->
             </div>
@@ -221,9 +221,9 @@
               <label>Status:</label>
 
               <div class="input-group date">
-                <input type="radio" name="stat" class="flat-red" checked> Belum Menikah
-                <input type="radio" name="stat" class="flat-red"> Sudah Menikah
-                <input type="radio" name="stat" class="flat-red"> Janda/Duda
+                <input type="radio" name="stat_pelamar" class="flat-red" checked> Belum Menikah
+                <input type="radio" name="stat_pelamar" class="flat-red"> Sudah Menikah
+                <input type="radio" name="stat_pelamar" class="flat-red"> Janda/Duda
               </div>
               <!-- /.input group -->
             </div>
@@ -234,7 +234,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-globe"></i>
                 </div>
-                <input type="text" class="form-control" placeholder="Indonesia">
+                <input type="text" class="form-control" id="kebangsaan_pelamar" name="kebangsaan_pelamar" placeholder="Indonesia">
               </div>
               <!-- /.input group -->
             </div>
@@ -246,7 +246,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input type="text" class="form-control" data-inputmask="'mask': '9999-9999-99999'" data-mask placeholder="0811-2233-4455">
+                <input type="text" class="form-control" id="notlpn_pelamar" name="notlpn_pelamar" data-inputmask="'mask': '9999-9999-99999'" data-mask placeholder="0811-2233-4455">
               </div>
 
               <!-- /.input group -->
@@ -283,28 +283,22 @@
               </tr>
               <tr>
                 <td><span class="form-control">Ayah</span></td>
-                <td><input type="text" class="form-control" placeholder="Nama"></td>
-                <td><input type="number" class="form-control" Placeholder="usia"></td>
-                <td><input type="text" class="form-control" placeholder="pendidikan terakhir"></td>
-                <td><textarea class="form-control" placeholder="keterangan"></textarea></td>
+                <td><input type="text" class="form-control" placeholder="Nama" name="namaayah" id="namaayah"></td>
+                <td><input type="number" class="form-control" Placeholder="usia" name="usiaayah" id="usiaayah"></td>
+                <td><input type="text" class="form-control" placeholder="pendidikan terakhir" name="pendidikanayah" id="pendidikanayah"></td>
+                <td><textarea class="form-control" placeholder="keterangan" name="keteranganayah" id="keteranganayah"></textarea></td>
               </tr>
               <tr>
                 <td><span class="form-control">Ibu</span></td>
-                <td><input type="text" class="form-control" placeholder="Nama"></td>
-                <td><input type="number" class="form-control" Placeholder="usia"></td>
-                <td><input type="text" class="form-control" placeholder="pendidikan terakhir"></td>
-                <td><textarea class="form-control" placeholder="keterangan"></textarea></td>
+                <td><input type="text" class="form-control" placeholder="Nama" name="namaibu" id="namaibu"></td>
+                <td><input type="number" class="form-control" Placeholder="usia" name="usiaibu" id="usiaibu"></td>
+                <td><input type="text" class="form-control" placeholder="pendidikan terakhir" name="pendidikanibu" id="pendidikanibu"></td>
+                <td><textarea class="form-control" placeholder="keterangan" name="keteranganibu" id="keteranganibu"></textarea></td>
               </tr>
 
             </tbody>
             <tfoot id="u_saudara">
-             <tr> 
-               <td><span class="form-control">Saudara 1</span></td>
-               <td><input type="text" class="form-control" placeholder="Nama" id="namasaudara1"></td>
-               <td><input type="number" class="form-control" Placeholder="usia" id="usiasaudara1"></td>
-               <td><input type="text" class="form-control" placeholder="pendidikan terakhir" id="pendidikansaudara1"></td>
-               <td><textarea class="form-control" placeholder="keterangan" id="keterangansaudara1"></textarea></td>
-             </tr>
+             <!-- isi soudara -->
            </tfoot>
          </table>
        </div>
@@ -315,6 +309,7 @@
    </div> 
    <div class="col-sm-2">&nbsp</div>
  </div>
+
  <div class="tab">
   <div class="col-sm-2">&nbsp</div>
   <div class="col-md-8">
@@ -336,58 +331,58 @@
           </tr>
           <tr>
             <td><span class="form-control">SD</span></td>
-            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi"></td>
+            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namasd" id="namasd"></td>
 
-            <td><input type="text" class="form-control" placeholder="Jurusan"></td>
-            <td><input type="text" class="form-control" placeholder="IPK"></td>
+            <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansd" id="jurusansd"></td>
+            <td><input type="text" class="form-control" placeholder="IPK" name="ipksd" id="ipksd"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksd" id="masuksd"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaisd" id="selesaisd"></td>
           </tr>
           
           <tr>
             <td><span class="form-control">SMP</span></td>
-            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi"></td>
+            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namasmp" id="namasmp"></td>
 
-            <td><input type="text" class="form-control" placeholder="Jurusan"></td>
-            <td><input type="text" class="form-control" placeholder="IPK"></td>
+            <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansmp" id="jurusansmp"></td>
+            <td><input type="text" class="form-control" placeholder="IPK" name="ipksmp" id="ipksmp"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksmp" id="masuksmp"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaismp" id="selesaismp"></td>
           </tr>
           
           <tr>
             <td><span class="form-control">SMA</span></td>
-            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi"></td>
+            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namsma" id="namsma"></td>
 
-            <td><input type="text" class="form-control" placeholder="Jurusan"></td>
-            <td><input type="text" class="form-control" placeholder="IPK"></td>
+            <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansma" id="jurusansma"></td>
+            <td><input type="text" class="form-control" placeholder="IPK" name="ipksma" id="ipksma"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksma" id="masuksma"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaisma" id="selesaisma"></td>
           </tr>
           
           <tr>
             <td><span class="form-control">Universitas</span></td>
-            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi"></td>
+            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namauni" id="namauni"></td>
 
-            <td><input type="text" class="form-control" placeholder="Jurusan"></td>
-            <td><input type="text" class="form-control" placeholder="IPK"></td>
+            <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusanuni" id="jurusanuni"></td>
+            <td><input type="text" class="form-control" placeholder="IPK" name="ipkuni" id="ipkuni"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masukuni" id="masukuni"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaiuni" id="selesaiuni"></td>
           </tr>
         </tbody>
       </table>
@@ -416,12 +411,7 @@
           </tr>
         </tbody>
         <tfoot id="u_pelatihan">
-          <tr>
-            <td><input type="text" class="form-control" placeholder="Nama Kursus/ Pelatihan"></td>
-            <td><input type="text" class="form-control" placeholder="Penyelenggara"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Tanggal"></td>
-            <td><textarea class="form-control" placeholder="Keterangan "></textarea></td>
-          </tr>
+          <!-- isi pelatihan -->
         </tfoot>
       </table>
       
@@ -450,18 +440,7 @@
             </tr>
           </tbody>
           <tfoot id="u_bahasa">
-
-            <tr>
-              <td><span >English / Bahasa Inggris</span></td>
-              <td>
-               <input type="radio" class="" name="bhs1" checked> Active
-               <input type="radio" class="" name="bhs1"> Passive
-             </td>
-             <td>
-               <input type="radio" class="" name="mns1" checked> Active
-               <input type="radio" class="" name="mns1"> Passive
-             </td>
-           </tr>
+            <!-- isi bahasa -->
          </tfoot>
        </table>
      </div>
@@ -615,99 +594,99 @@
             <tr>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="jantung" id="jantung" name="penyakit">
+                  <input class="form-check-input" type="checkbox" value="jantung" id="jantung" name="jantung">
                 </div>
               </td>
               <td>Heart disease (Jantung)</td>
-              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_jantung"></td>
-              <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_jantung"></td>
+              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_jantung" name="t_jantung"></td>
+              <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_jantung" name="n_jantung" ></td>
             </tr>
             <tr>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="hipertensi" id="hipertensi" name="penyakit">
+                  <input class="form-check-input" type="checkbox" value="hipertensi" id="hipertensi" name="hipertensi">
                 </div>
               </td>
               <td>Hypertenssion (Hipertensi)</td>
-              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_hipertensi"></td>
-              <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_hipertensi"></td>
+              <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_hipertensi" name="t_hipertensi"></td>
+              <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_hipertensi" name="n_hipertensi"></td>
             </tr>
           </tr>
           <tr>
             <td>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="diabetes" id="diabetes" name="penyakit">
+                <input class="form-check-input" type="checkbox" value="diabetes" id="diabetes" name="diabetes" >
               </div>
             </td>
             <td>Diabetes (Diabetes)</td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_diabetes"></td>
-            <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_diabetes"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_diabetes" name="t_diabetes"></td>
+            <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_diabetes" name="n_diabetes"></td>
           </tr>
         </tr>
         <tr>
           <td>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="hepatitis" id="hepatitis" name="penyakit">
+              <input class="form-check-input" type="checkbox" value="hepatitis" id="hepatitis" name="hepatitis">
             </div>
           </td>
           <td>Hepatitis (Hepatitis)</td>
-          <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_hepatitis"></td>
-          <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_hepatitis"></td>
+          <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_hepatitis" name="t_hepatitis"></td>
+          <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_hepatitis" name="n_hepatitis"></td>
         </tr>
       </tr>
       <tr>
         <td>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="kanker" id="kanker" name="penyakit">
+            <input class="form-check-input" type="checkbox" value="kanker" id="kanker" name="kanker">
           </div>
         </td>
         <td>Cancer (Kanker)</td>
-        <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_kanker"></td>
-        <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_kanker"></td>
+        <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_kanker" name="t_kanker"></td>
+        <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_kanker" name="n_kanker"></td>
       </tr>
     </tr>
     <tr>
       <td>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="tbc" id="tbc" name="penyakit">
+          <input class="form-check-input" type="checkbox" value="tbc" id="tbc" name="tbc">
         </div>
       </td>
       <td>TBC (TBC)</td>
-      <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_tbc"></td>
-      <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_tbc"></td>
+      <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_tbc" name="t_tbc"></td>
+      <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_tbc" name="n_tbc"></td>
     </tr>
   </tr>
   <tr>
     <td>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="asma" id="asma" name="penyakit">
+        <input class="form-check-input" type="checkbox" value="asma" id="asma" name="asma">
       </div>
     </td>
     <td>Asthma (Asma)</td>
-    <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_asma"></td>
-    <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_asma"></td>
+    <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_asma" name="t_asma"></td>
+    <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_asma" name="n_asma"></td>
   </tr>
 </tr>
 <tr>
   <td>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="aids" id="aids" name="penyakit">
+      <input class="form-check-input" type="checkbox" value="aids" id="aids" name="aids">
     </div>
   </td>
   <td>AIDS (AIDS)</td>
-  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_aids"></td>
-  <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_aids"></td>
+  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_aids" name="t_aids"></td>
+  <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_aids" name="n_aids" ></td>
 </tr>
 </tr>
 <tr>
   <td>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="lainnya" id="lainnya" name="penyakit">
+      <input class="form-check-input" type="checkbox" value="lainnya" id="lainnya" name="lainnya">
     </div>
   </td>
   <td>Other Diseases (Penyakit Lainnya)</td>
-  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_lainnya"></td>
-  <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_lainnya"></td>
+  <td><input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" disabled="disabled" id="t_lainnya" name="t_lainnya"></td>
+  <td><input type="text" class="form-control" placeholder="Notes" disabled="disabled" id="n_lainnya" name="n_lainnya"></td>
 </tr>
 </tr>
 </tbody>
@@ -723,12 +702,185 @@
 </div>
 <div class="col-sm-2">&nbsp</div>
 </div>
+
+<!-- batas------------------------------------------------------------------tab------------------------------- -->
+<div class="tab">
+  <div class="col-sm-2">&nbsp</div>
+  <div class="col-md-8">
+
+    <div class="box box-danger">
+      <div class="box-header">
+        <h3 class="box-title"><span class="fa fa-pencil-square-o"></span> Refrensi</h3>
+      </div>
+      <div class="box-body">
+       <div class="form-group">
+        <label>1. Silahkan tulis nama kerabat untuk referensi anda!</label><br>
+        <label>Jumlah Refrensi:</label>  
+      <div class="input-group col-sm-6" >
+        <div class="input-group-addon">
+          <i class="fa fa-users"></i>
+        </div>
+        <input type="number" value="1" class="form-control" id="jlh_kerabat" name="jlh_kerabat" onChange="tambah_refrensi(this.value)">
+      </div>
+      <hr>
+      <!-- /.input group -->
+      <table class="table table-bordered">
+        <tbody id="u_ref_kerabat">
+          <tr>
+            <td>Name <br> <i>Nama</i></td>
+            <td><input type="text" class="form-control" placeholder="Nama"></td>
+            <td>Phone Number <br> <i>No Telepon</i></td>
+            <td><input type="text" class="form-control" placeholder="No Telpon"></td>
+          </tr>
+          <tr>
+            <td>Position <br> <i>Jabatan</i></td>
+            <td><input type="text" class="form-control" placeholder="Jabatan"></td>
+            <td>Company <br> <i>Perusahaan</i></td>
+            <td><input type="text" class="form-control" placeholder="Perusahaan"></td>
+          </tr>
+          <tr>
+            <td>Relation <br> <i>Hubungan</i></td>
+            <td colspan="3"><input type="text" class="form-control" placeholder="Hubungan"></td>
+          </tr>
+        </tbody>
+      </table>
+        <!-- /.input group -->
+    </div>
+    
+    <hr>
+    <div class="form-group">
+      <label>2.Silahkan isi nama orang yang dapat di hubungi segera dalam keadaan mendesak/darurat!</label>
+      <br>
+      <label>Jumlah Nama:</label>  
+      <div class="input-group col-sm-6" >
+        <div class="input-group-addon">
+          <i class="fa fa-users"></i>
+        </div>
+        <input type="number" value="1" class="form-control" id="jlh_nama" name="jlh_nama" onChange="tambah_nama(this.value)">
+      </div>
+      <!-- /.input group -->
+      <table class="table table-bordered">
+        <tbody id="tbody_nama">
+          <tr>
+            <th>Name / <small><i>Nama</i></small></th>
+            <th>Relation / <small><i>Hubungan</i></small></th>
+            <th>Phone Number / <small><i>No Telepon</i></small></th>
+          </tr>
+        </tbody>
+        <tfoot id="u_nama">
+          <!-- isi hubungan -->
+        </tfoot>
+      </table>
+      
+    </div>
+    
+    <div class="form-group">
+      <label>3. Silahkan isi kolom keterangan sesuai dengan kesedian Anda!</label>
+      <br>
+
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>No</th>
+              <th>Your Availability on : <br> <small><i>Kesediaan Anda perihal</i></small></th>
+              <th>Keterangan</th>
+            </tr>
+          </tbody>
+          <tfoot id="">
+
+            <tr>
+              <td>1</td>
+              <td>
+               Ditempatkan di kota lain <br>
+               Jika ya ingin ditempatkan di mana? Jika tidak beri alasan
+               </td>
+             <td>
+                <input type="text" class="form-control" placeholder="keterangan" name="kotalain" id="kotalain">
+             </td>
+           </tr>
+
+            <tr>
+              <td>2</td>
+            <td>
+               Gaji yang di inginkan
+            </td>
+             <td>
+                <input type="text" id="ingin_gaji" name="ingin_gaji" class="form-control" placeholder="Gaji" >
+             </td>
+           </tr>
+         </tfoot>
+       </table>
+     </div>
+     <hr>
+
+     <div class="form-group">
+      
+
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>
+                Apakah Anda memiliki keluarga, kerabat, atau teman yang bekerja di perusahaan ini Sebutkan!
+              </td>
+              <td>
+                <textarea name="pelanggaran_polisi" id="pelanggaran_polisi"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Apakah Anda pernah Melamar ke Perusahaaj ini sebelumnya? Jika ya, untuk posisi apa?
+              </td>
+              <td>
+                <textarea name="melamar_disini" id="melamar_disini"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Apakah Anda perham terlibat dengan pihak kepolisian berkaitan dengan isu pelanggaran kriminal,atau pelanggaran perdata?
+              </td>
+              <td>
+                <textarea name="pelanggaran_polisi" id="pelanggaran_polisi"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Apakah anda memiliki kepemilikan atau keteriakatan dengan perusahaan lain?
+              </td>
+              <td>
+                <textarea name="kepemilikan_p_lain" id="kepemilikan_p_lain"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Jika Anda di terima, kapan Anda dapat mulai bekerja?
+              </td>
+              <td>
+                <textarea name="mulai_kerja" id="mulai_kerja"></textarea>
+              </td>
+            </tr>
+          </tbody>
+       </table>
+     </div>
+     
+   </div>
+
+ </div>
+ <!-- /.box-body -->
+</div>
+<!-- /.box -->
+
+</div>
+<div class="col-sm-2">&nbsp</div>
+</div>
+<!-- batas---------------------------------------------------tab -->
+
 <div class="col-sm-12">
  <div class="col-sm-2">&nbsp</div>
  <div class="col-sm-2">
    <button type="button" class="btn btn-warning" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
  </div>
  <div class="col-sm-4" align="center" style="padding-top: 10px">
+  <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
@@ -878,11 +1030,19 @@
 </html>
 <!--	script untuk rupiah-->
 <script type="text/javascript">
+ $(document).ready(function() {
+      tambahsasudara(1);
+      tambah_bahasa(1);
+      tambah_pelatihan(1);
+      tambah_pengalaman(1);
+      tambah_nama(1);
+      tambah_refrensi(1);
+ });
 
-  var gaji1 = document.getElementById('gaji1');
-  if(gaji1){
-    gaji1.addEventListener('keyup', function(e){
-      gaji1.value = formatRupiah(this.value);
+  var ingin_gaji = document.getElementById('ingin_gaji');
+  if(ingin_gaji){
+    ingin_gaji.addEventListener('keyup', function(e){
+      ingin_gaji.value = formatRupiah(this.value);
     });
   }
 
@@ -933,58 +1093,84 @@
    var isi="";
    while(a<=jumlah){
      isi+='<tr>'+
-     '<td><span class="form-control">Saudara '+a+'</span></td><td><input type="text" class="form-control" placeholder="Nama" id="namasaudara'+a+'"></td>'+
-     '<td><input type="number" class="form-control" Placeholder="usia" id="umursaudara'+a+'"></td>'+
-     '<td><input type="text" class="form-control" placeholder="pendidikan terakhir" id="pendidikansaudara'+a+'"></td>'+
-     '<td><textarea class="form-control" placeholder="keterangan" id="keterangansaudara'+a+'"></textarea></td>'+
+     '<td><span class="form-control">Saudara '+a+'</span></td><td><input type="text" class="form-control" placeholder="Nama" id="namasaudara'+a+'" name="namasaudara'+a+'"></td>'+
+     '<td><input type="number" class="form-control" Placeholder="usia" id="umursaudara'+a+'" name="umursaudara'+a+'"></td>'+
+     '<td><input type="text" class="form-control" placeholder="pendidikan terakhir" id="pendidikansaudara'+a+'" name="pendidikansaudara'+a+'"></td>'+
+     '<td><textarea class="form-control" placeholder="keterangan" id="keterangansaudara'+a+'" name="keterangansaudara'+a+'"></textarea></td>'+
      '</tr>';
      a++;
    }	
    $("#u_saudara").html(isi);  
  }
 
- function tambah_bahasa(jlh){
+function tambah_bahasa(jlh){
   if(jlh>5){
    jlh=5;
    document.getElementById('jlh_bahasa').value=5;
  }
  if(jlh<1){
    jlh=1;
-   document.getElementById('jlh_bahasa').value=1;
- }
- var b=2;
- var isii='<tr>'+
- '<td><span >English / Bahasa Inggris</span></td>'+
- '<td>'+
- '<input type="radio" class="minimal" name="bhs1" checked> Active'+
- '<input type="radio" class="minimal" name="bhs1"> Passive'+
- '</td>'+
- '<td>'+
- '<input type="radio" class="minimal-red" name="mns1" checked> Active'+
- '<input type="radio" class="minimal-red" name="mns1"> Passive'+
- '</td>'+
- '</tr>';
+    document.getElementById('jlh_bahasa').value=1;
+   }
+  var b=2;
+  var isii = '<tr>'+
+              '<td><span >English / Bahasa Inggris</span></td>'+
+              '<td>'+
+                  '<input type="radio" class="minimal" name="bhs1" value="active_lisan" checked> Active'+
+                  '<input type="radio" class="minimal" name="bhs1" value="passive_lisan"> Passive'+
+              '</td>'+
+              '<td>'+
+                  '<input type="radio" class="minimal-red" name="mns1" value="active_write" checked> Active'+
+                  '<input type="radio" class="minimal-red" name="mns1" value="passive_write"> Passive'+
+              '</td>'+
+            '</tr>';
 
 
- while(b<=jlh){
+  while(b<=jlh){
 
    isii += '<tr>'+
-   '<td><input type="text" class="form-control" Placeholder="Nama" id="nama_bahasa'+b+'"></td>'+
+   '<td><input type="text" class="form-control" Placeholder="Nama" id="nama_bahasa'+b+' " name="nama_bahasa'+b+'"></td>'+
    '<td>'+
-   '<input type="radio" class="minimal" name="bhs'+b+'" checked> Active'+
-   '<input type="radio" class="minimal" name="bhs'+b+'"> Passive'+
+   '<input type="radio" class="minimal" name="bhs'+b+'" value="active_lisan" checked> Active'+
+   '<input type="radio" class="minimal" name="bhs'+b+'" value="passive_lisan"> Passive'+
    '</td>'+
    '<td>'+
-   '<input type="radio" class="minimal-red" name="mns'+b+'" checked> Active'+
-   '<input type="radio" class="minimal-red" name="mns'+b+'"> Passive'+
+   '<input type="radio" class="minimal-red" name="mns'+b+'" value="active_write" checked> Active'+
+   '<input type="radio" class="minimal-red" name="mns'+b+'" value="passive_write"> Passive'+
    '</td>'+
    '</tr>';
    b++;
- }  
- $("#u_bahasa").html(isii);  
+  }  
+   $("#u_bahasa").html(isii);  
+}
+
+
+function tambah_refrensi(jlh){
+  $.ajax({
+   type: "POST",
+   url: "w_f_kerabat.php", 
+   data: {jlh:jlh},
+   dataType: "text",  
+   cache:false,
+   success: 
+   function(data){
+     if(jlh>3){
+       jlh=3;
+       document.getElementById('jlh_kerabat').value=3;
+     }
+     if(jlh<=0){
+       jlh=0;
+       document.getElementById('jlh_kerabat').value=0;
+     } 
+     $('#u_ref_kerabat').html(data);
+        // alert(data);  //as a debugging message.
+      }
+   });// you have missed this bracket
+  return false;
 }
 
 function tambah_pelatihan(jlh){
+
   $.ajax({
    type: "POST",
    url: "w_f_pelatihan.php", 
@@ -1034,6 +1220,32 @@ function tambah_pelatihan(jlh){
  //   b++;
  // }  
  // $("#u_pelatihan").html(isii);  
+}
+
+function tambah_nama(jlh){
+
+  $.ajax({
+   type: "POST",
+   url: "w_f_nama.php", 
+   data: {jlh:jlh},
+   dataType: "text",  
+   cache:false,
+   success: 
+   function(data){
+     if(jlh>2){
+       jlh=2;
+       document.getElementById('jlh_nama').value=2;
+     }
+     if(jlh<=1){
+       jlh=1;
+       document.getElementById('jlh_nama').value=1;
+     }
+
+     $('#u_nama').html(data);
+           //alert(data);  //as a debugging message.
+        }
+        });// you have missed this bracket
+  return false;
 }
 
 function tambah_pengalaman(jlh){
@@ -1156,9 +1368,7 @@ function naik(){
  window.scrollTo(0, 0);
 }
 
-</script>
 
-<script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
@@ -1173,8 +1383,10 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
+    naik();
     document.getElementById("nextBtn").innerHTML = '<button type="submit" class="btn btn-success" id="nextBtn" >Send</button>';
   } else {
+    naik();
     document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>';
   }
   //... and run a function that will display the correct step indicator:
@@ -1298,3 +1510,4 @@ $('#lainnya').click(function(){
     */
 
   </script>
+
