@@ -94,7 +94,7 @@
         </h1>
       </section>
       
-      <form action="daftar.php" method="get">
+      <form action="proses.php" method="get">
         <!-- Main content -->
         <section class="content">
 
@@ -155,7 +155,7 @@
                         <i class="fa fa-calendar"></i>
                       </div>
                       <div class="input-group">
-                       <input type="text" id="tanggallahir" name="tanggallahir" class="form-control" placeholder="Tanggal" id="datepicker">
+                       <input type="text" id="tanggallahir" name="tanggallahir" class="form-control" placeholder="Tanggal" >
                      </div>
                    </div>
                  </div>
@@ -172,6 +172,18 @@
                   <i class="fa fa-credit-card"></i>
                 </div>
                 <input type="text" class="form-control pull-right " id="noktp" name="noktp" placeholder="No KTP">
+              </div>
+              <!-- /.input group -->
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label>Email:</label>
+
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <input type="text" class="form-control pull-right " id="email" name="email" placeholder="Email">
               </div>
               <!-- /.input group -->
             </div>
@@ -221,9 +233,9 @@
               <label>Status:</label>
 
               <div class="input-group date">
-                <input type="radio" name="stat_pelamar" class="flat-red" checked> Belum Menikah
-                <input type="radio" name="stat_pelamar" class="flat-red"> Sudah Menikah
-                <input type="radio" name="stat_pelamar" class="flat-red"> Janda/Duda
+                <input value="Belum Nikah" type="radio" name="stat_pelamar" class="flat-red" checked> Belum Menikah
+                <input value="Sudah Nikah" type="radio" name="stat_pelamar" class="flat-red"> Sudah Menikah
+                <input value="Janda/Duda" type="radio" name="stat_pelamar" class="flat-red"> Janda/Duda
               </div>
               <!-- /.input group -->
             </div>
@@ -823,7 +835,7 @@
                 Apakah Anda memiliki keluarga, kerabat, atau teman yang bekerja di perusahaan ini Sebutkan!
               </td>
               <td>
-                <textarea name="pelanggaran_polisi" id="pelanggaran_polisi"></textarea>
+                <textarea name="keluarga_di_p" id="keluarga_di_p"></textarea>
               </td>
             </tr>
             <tr>
@@ -994,7 +1006,7 @@
     )
 
     //Date picker
-    $('#datepicker').datepicker({
+    $('#tanggallahir').datepicker({
       autoclose: true,
       format: 'dd/mm/yyyy'
     })
