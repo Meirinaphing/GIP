@@ -1,26 +1,26 @@
 <?php
 include '../conn.php';
- $nama_pelamar = $_GET['nama_pelamar'];
- $Foto_Pelamar = $_GET['Foto_Pelamar'];
- $tempatlahir = $_GET['tempatlahir'];
- $tanggallahir = $_GET['tanggallahir'];
+ $nama_pelamar = $_POST['nama_pelamar'];
+ $Foto_Pelamar = $_POST['Foto_Pelamar'];
+ $tempatlahir = $_POST['tempatlahir'];
+ $tanggallahir = $_POST['tanggallahir'];
  $p_tgl = explode("/", $tanggallahir);
  $i_tgllahir = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $noktp = $_GET['noktp'];
- $alamatktp = $_GET['alamatktp'];
- $jabatanygdilamar = $_GET['jabatanygdilamar'];
- $jk_pelamar = $_GET['jk_pelamar'];
- $stat_pelamar = $_GET['stat_pelamar'];
- $kebangsaan_pelamar = $_GET['kebangsaan_pelamar'];
- $notlpn_pelamar = $_GET['notlpn_pelamar'];
- $kotalain = $_GET['kotalain'];
- $ingin_gaji = $_GET['ingin_gaji'];
- $keluarga_di_p = $_GET['keluarga_di_p'];
- $melamar_disini = $_GET['melamar_disini'];
- $pelanggaran_polisi = $_GET['pelanggaran_polisi'];
- $kepemilikan_p_lain = $_GET['kepemilikan_p_lain'];
- $mulai_kerja = $_GET['mulai_kerja'];
- $email = $_GET['email'];
+ $noktp = $_POST['noktp'];
+ $alamatktp = $_POST['alamatktp'];
+ $jabatanygdilamar = $_POST['jabatanygdilamar'];
+ $jk_pelamar = $_POST['jk_pelamar'];
+ $stat_pelamar = $_POST['stat_pelamar'];
+ $kebangsaan_pelamar = $_POST['kebangsaan_pelamar'];
+ $notlpn_pelamar = $_POST['notlpn_pelamar'];
+ $kotalain = $_POST['kotalain'];
+ $ingin_gaji = $_POST['ingin_gaji'];
+ $keluarga_di_p = $_POST['keluarga_di_p'];
+ $melamar_disini = $_POST['melamar_disini'];
+ $pelanggaran_polisi = $_POST['pelanggaran_polisi'];
+ $kepemilikan_p_lain = $_POST['kepemilikan_p_lain'];
+ $mulai_kerja = $_POST['mulai_kerja'];
+ $email = $_POST['email'];
 
 $sql_p = "INSERT INTO `pelamar` (`idpelamar`, `namapelamar`, `fotopelamar`, `tempatlahir`, `tgllahir`, `noktp`, `alamat`, `jabatandilamar`, `jkpelamar`, `statuspelamar`, `kebangsaan`, `notlpn`, `ditempatkan`, `ingingaji`, `adakeluarga`, `pernahlamar`, `pelanggaran`, `perusahaanlain`, `mulaikerja`, `email`) VALUES (NULL, '$nama_pelamar', '$Fotopelamar', '$tempatlahir', '$i_tgllahir', '$noktp', '$alamatktp', '$jabatanygdilamar', '$jk_pelamar', '$stat_pelamar', '$kebangsaan_pelamar', '$notlpn_pelamar', '$kotalain', '$ingin_gaji', '$keluarga_di_p', '$melamar_disini', '$pelanggaran_polisi', '$kepemilikan_p_lain', '$mulai_kerja', '$email')";
 $query_p = $conn->query($sql_p);
@@ -32,40 +32,40 @@ $query_crid = $conn->query($sql_crid);
 }
 
 
- $namasd = $_GET['namasd'];
- $jurusansd = $_GET['jurusansd'];
- $ipksd = $_GET['ipksd'];
- $p_masuksd = $_GET['masuksd'];
+ $namasd = $_POST['namasd'];
+ $jurusansd = $_POST['jurusansd'];
+ $ipksd = $_POST['ipksd'];
+ $p_masuksd = $_POST['masuksd'];
  $p_tgl = explode("/", $p_masuksd);
  	$masuksd = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $p_selesaisd = $_GET['selesaisd'];
+ $p_selesaisd = $_POST['selesaisd'];
  $p_tgl = explode("/", $p_selesaisd);
  	$selesaisd = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $namasmp = $_GET['namasmp'];
- $jurusansmp = $_GET['jurusansmp'];
- $ipksmp = $_GET['ipksmp'];
- $p_masuksmp = $_GET['masuksmp'];
+ $namasmp = $_POST['namasmp'];
+ $jurusansmp = $_POST['jurusansmp'];
+ $ipksmp = $_POST['ipksmp'];
+ $p_masuksmp = $_POST['masuksmp'];
  $p_tgl = explode("/", $p_masuksmp);
  	$masuksmp = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $p_selesaismp = $_GET['selesaismp'];
+ $p_selesaismp = $_POST['selesaismp'];
  $p_tgl = explode("/", $p_selesaismp);
  	$slesaismp = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $namsma = $_GET['namsma'];
- $jurusansma = $_GET['jurusansma'];
- $ipksma = $_GET['ipksma'];
- $p_masuksma = $_GET['masuksma'];
+ $namsma = $_POST['namsma'];
+ $jurusansma = $_POST['jurusansma'];
+ $ipksma = $_POST['ipksma'];
+ $p_masuksma = $_POST['masuksma'];
  $p_tgl = explode("/", $p_masuksma);
  	$masuksma = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $p_selesaisma = $_GET['selesaisma'];
+ $p_selesaisma = $_POST['selesaisma'];
  $p_tgl = explode("/", $p_selesaisma);
  	$slesaisma = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $namauni = $_GET['namauni'];
- $jurusanuni = $_GET['jurusanuni'];
- $ipkuni = $_GET['ipkuni'];
- $p_masukuni = $_GET['masukuni'];
+ $namauni = $_POST['namauni'];
+ $jurusanuni = $_POST['jurusanuni'];
+ $ipkuni = $_POST['ipkuni'];
+ $p_masukuni = $_POST['masukuni'];
  $p_tgl = explode("/", $p_masukuni);
  	$masukuni = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $p_selesaiuni = $_GET['selesaiuni'];
+ $p_selesaiuni = $_POST['selesaiuni'];
  $p_tgl = explode("/", $p_selesaiuni);
  	$slesaiuni = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
  
@@ -77,14 +77,14 @@ $query_p_p = $conn->query($sql_p_p);
 
 
  // jlh kerabat 
- $jlh_kerabat = $_GET['jlh_kerabat'];
+ $jlh_kerabat = $_POST['jlh_kerabat'];
  $n=1;
  while ($n<=$jlh_kerabat) {
-	 $kerabat_nama[$n] = $_GET['kerabat_nama'.$n];
-	 $kerabat_tlp[$n] = $_GET['kerabat_tlp'.$n];
-	 $kerabat_posisi[$n] = $_GET['kerabat_posisi'.$n];
-	 $kerabat_perusahaan[$n] = $_GET['kerabat_perusahaan'.$n];
-	 $kerabat_hubungan[$n] = $_GET['kerabat_hubungan'.$n];
+	 $kerabat_nama[$n] = $_POST['kerabat_nama'.$n];
+	 $kerabat_tlp[$n] = $_POST['kerabat_tlp'.$n];
+	 $kerabat_posisi[$n] = $_POST['kerabat_posisi'.$n];
+	 $kerabat_perusahaan[$n] = $_POST['kerabat_perusahaan'.$n];
+	 $kerabat_hubungan[$n] = $_POST['kerabat_hubungan'.$n];
 
 	 $sql_kerabat ="INSERT INTO `pelamar_kerabat` (`idkerabat`, `idpelamar`, `nama_k`, `telp_k`, `posisi_k`, `perusahaan_k`, `hubungan_k`) VALUES (NULL, '$idpelamar', '$kerabat_nama[$n]', '$kerabat_tlp[$n]', '$kerabat_posisi[$n]', '$kerabat_perusahaan[$n]', '$kerabat_hubungan[$n]')";	
 	 $query_kerabat = $conn->query($sql_kerabat);
@@ -94,12 +94,12 @@ $query_p_p = $conn->query($sql_p_p);
 
 
 // jumlah nama penting 
- $jlh_nama = $_GET['jlh_nama'];
+ $jlh_nama = $_POST['jlh_nama'];
  $n=1;
  while ($n<=$jlh_nama) {
- 	$no_penting_nama[$n] = $_GET['no_penting_nama'.$n];
- 	$no_penting_hubungan[$n] = $_GET['no_penting_hubungan'.$n];
- 	$no_penting_telepon[$n] = $_GET['no_penting_telepon'.$n];
+ 	$no_penting_nama[$n] = $_POST['no_penting_nama'.$n];
+ 	$no_penting_hubungan[$n] = $_POST['no_penting_hubungan'.$n];
+ 	$no_penting_telepon[$n] = $_POST['no_penting_telepon'.$n];
  	$sql_nama= "INSERT INTO `pelamar_nama` (`idnama`, `idpelamar`, `nama_penting`, `hubungan_penting`, `telp_penting`) VALUES (NULL, '$idpelamar', '$no_penting_nama[$n]', '$no_penting_hubungan[$n]', '$no_penting_telepon[$n]')";
 	 $query_nama = $conn->query($sql_nama);
  $n++;
@@ -107,27 +107,27 @@ $query_p_p = $conn->query($sql_p_p);
 
 
 // saudara 
- $jlh_saudara = $_GET['jlh_saudara'];
+ $jlh_saudara = $_POST['jlh_saudara'];
  $n=1;
-	 $namaayah = $_GET['namaayah'];
-	 $usiaayah = $_GET['usiaayah'];
-	 $pendidikanayah = $_GET['pendidikanayah'];
-	 $keteranganayah = $_GET['keteranganayah'];
+	 $namaayah = $_POST['namaayah'];
+	 $usiaayah = $_POST['usiaayah'];
+	 $pendidikanayah = $_POST['pendidikanayah'];
+	 $keteranganayah = $_POST['keteranganayah'];
 	     $sql_saudara_ayh = "INSERT INTO `pelamar_saudara` (`nosaudara`, `idpelamar`, `nama_s`, `umur_s`, `pendidikan_s`, `keterangan_s`) VALUES (NULL,'$idpelamar', '$namaayah', '$usiaayah', '$pendidikanayah', '$keteranganayah')";
 		 $query_saudara_ayh = $conn->query($sql_saudara_ayh);
 
-	 $namaibu = $_GET['namaibu'];
-	 $usiaibu = $_GET['usiaibu'];
-	 $pendidikanibu = $_GET['pendidikanibu'];
-	 $keteranganibu = $_GET['keteranganibu'];
+	 $namaibu = $_POST['namaibu'];
+	 $usiaibu = $_POST['usiaibu'];
+	 $pendidikanibu = $_POST['pendidikanibu'];
+	 $keteranganibu = $_POST['keteranganibu'];
 	     $sql_saudara_ibu= "INSERT INTO `pelamar_saudara` (`nosaudara`, `idpelamar`, `nama_s`, `umur_s`, `pendidikan_s`, `keterangan_s`) VALUES (NULL,'$idpelamar', '$namaibu', '$usiaibu', '$pendidikanibu', '$keteranganibu')";
 		 $query_saudara_ibu = $conn->query($sql_saudara_ibu);
 
  while ($n<=$jlh_saudara){
-	 $namasaudara[$n] = $_GET['namasaudara'.$n];
-	 $umursaudara[$n] = $_GET['umursaudara'.$n];
-	 $pendidikansaudara[$n] = $_GET['pendidikansaudara'.$n];
-	 $keterangansaudara[$n] = $_GET['keterangansaudara'.$n];
+	 $namasaudara[$n] = $_POST['namasaudara'.$n];
+	 $umursaudara[$n] = $_POST['umursaudara'.$n];
+	 $pendidikansaudara[$n] = $_POST['pendidikansaudara'.$n];
+	 $keterangansaudara[$n] = $_POST['keterangansaudara'.$n];
 
 	 	 $sql_saudara= "INSERT INTO `pelamar_saudara` (`nosaudara`, `idpelamar`, `nama_s`, `umur_s`, `pendidikan_s`, `keterangan_s`) VALUES (NULL,'$idpelamar' , '$namasaudara[$n]', '$umursaudara[$n]', '$pendidikansaudara[$n]', '$keterangansaudara[$n]')";
 		 $query_saudara = $conn->query($sql_saudara);
@@ -140,16 +140,16 @@ $query_p_p = $conn->query($sql_p_p);
 
 
  // pelatihan 
- $jlh_pelatihan = $_GET['jlh_pelatihan'];
+ $jlh_pelatihan = $_POST['jlh_pelatihan'];
 	$n=1;
  while ($n<=$jlh_pelatihan){
 
- $nama_pelatihan[$n] = $_GET['nama_pelatihan'.$n];
- $penyelenggara_pelatihan[$n] = $_GET['penyelenggara_pelatihan'.$n];
- $p_tanggal_pelatihan[$n] = $_GET['tanggal_pelatihan'.$n];
+ $nama_pelatihan[$n] = $_POST['nama_pelatihan'.$n];
+ $penyelenggara_pelatihan[$n] = $_POST['penyelenggara_pelatihan'.$n];
+ $p_tanggal_pelatihan[$n] = $_POST['tanggal_pelatihan'.$n];
  $p_tgl = explode("/", $p_tanggal_pelatihan[$n]);
  	$tanggal_pelatihan[$n] = $p_tgl[2].'-'.$p_tgl[1].'-'.$p_tgl[0];
- $keterangan_pelatihan[$n] = $_GET['keterangan_pelatihan'.$n];
+ $keterangan_pelatihan[$n] = $_POST['keterangan_pelatihan'.$n];
 
 	 	 $sql_pelatihan= "INSERT INTO `pelamar_pelatihan` (`nopelatihan`, `idpelamar`, `nama_pelatihan`, `penyelenggaraan_pelatihan`, `tgl_pelatihan`, `keterangan_pelatihan`) VALUES (NULL, '$idpelamar', '$nama_pelatihan[$n]', '$penyelenggara_pelatihan[$n]', '$tanggal_pelatihan[$n]', '$keterangan_pelatihan[$n]')";
 		 $query_pelatihan = $conn->query($sql_pelatihan);
@@ -159,16 +159,16 @@ $query_p_p = $conn->query($sql_p_p);
 
 // jumlah bahasa 
 
-    $jlh_bahasa = $_GET['jlh_bahasa'];
+    $jlh_bahasa = $_POST['jlh_bahasa'];
  $n=1;
  while ($n<=$jlh_bahasa){
  	if($n==1){
  		$nama_bahasa[$n] = "Inggris";
  	}else{
- 		$nama_bahasa[$n] = $_GET['nama_bahasa'.$n];
+ 		$nama_bahasa[$n] = $_POST['nama_bahasa'.$n];
  	}
- 	    $bhs[$n] = $_GET['bhs'.$n];
- 		$mns[$n] = $_GET['mns'.$n];
+ 	    $bhs[$n] = $_POST['bhs'.$n];
+ 		$mns[$n] = $_POST['mns'.$n];
 
  		$sql_bahasa= "INSERT INTO `pelamar_bahasa` (`nobahasa`, `idpelamar`, `nama_bahasa`, `lisan`, `menulis`) VALUES (NULL, '$idpelamar', '$nama_bahasa[$n]', '$bhs[$n]', '$mns[$n]')";
 		 $query_bahasa = $conn->query($sql_bahasa);
@@ -179,55 +179,120 @@ $query_p_p = $conn->query($sql_p_p);
 
 
 //pengalaman kerja 
- $jlh_pengalaman = $_GET['jlh_pengalaman'];
  
- $pengalaman_nama_p_1 = $_GET['pengalaman_nama_p_1'];
- $pengalaman_bergerak_di_1 = $_GET['pengalaman_bergerak_di_1'];
- $pengalaman_jabatan_p_1 = $_GET['pengalaman_jabatan_p_1'];
- $pengalaman_gaji_p_1 = $_GET['pengalaman_gaji_p_1'];
- $pengalaman_mulai_k_1 = $_GET['pengalaman_mulai_k_1'];
- $pengalaman_keluar_p_1 = $_GET['pengalaman_keluar_p_1'];
- $pengalaman_alasan_berhenti_1 = $_GET['pengalaman_alasan_berhenti_1'];
- $pengalaman_gambaran_p_1 = $_GET['pengalaman_gambaran_p_1'];
+ $jlh_pengalaman = $_POST['jlh_pengalaman'];
+ $n=1;
 
-?>
+ while ($n<=$jlh_pengalaman){
+
+	 $pengalaman_nama_p_[$n] = $_POST['pengalaman_nama_p_'.$n];
+	 $pengalaman_bergerak_di_[$n] = $_POST['pengalaman_bergerak_di_'.$n];
+	 $pengalaman_jabatan_p_[$n] = $_POST['pengalaman_jabatan_p_'.$n];
+	 $pengalaman_gaji_p_[$n] = $_POST['pengalaman_gaji_p_'.$n];
+	 $p_pengalaman_mulai_k_[$n] = $_POST['pengalaman_mulai_k_'.$n];
+ 		$p_tgl = explode("/", p_pengalaman_mulai_k_[$n]);
+ 		$pengalaman_mulai_k_[$n] = $p_tgl[1].'-'.$p_tgl[0].'-01';
+
+	 $p_pengalaman_keluar_p_[$n] = $_POST['pengalaman_keluar_p_'.$n];
+ 		$p_tgl = explode("/", p_pengalaman_keluar_p_[$n]);
+ 		$pengalaman_keluar_p_[$n] = $p_tgl[1].'-'.$p_tgl[0].'-01';
+
+	 $pengalaman_alasan_berhenti_[$n] = $_POST['pengalaman_alasan_berhenti_'.$n];
+	 $pengalaman_gambaran_p_[$n] = $_POST['pengalaman_gambaran_p_'.$n];
+
+	$sql_pengalaman= "INSERT INTO `pelamar_pengalaman` (`nopengalaman`, `idpelamar`, `pengalaman_nama`, `pengalaman_bererak`, `pengalaman_jabatang`, `pengalaman_gaji`, `pengalaman_mulai`, `pengalaman_keluar`, `pengalaman_alasan_berhenti`, `pengalaman_gambaran_pekerjaan`) VALUES (NULL, '$idpelamar', '$pengalaman_nama_p_[$n]', '$pengalaman_bergerak_di_[$n]', '$pengalaman_jabatan_p_[$n]', '$pengalaman_gaji_p_[$n]', '$pengalaman_mulai_k_[$n]', '$pengalaman_keluar_p_[$n]', '$pengalaman_alasan_berhenti_[$n]', '$pengalaman_gambaran_p_[$n]')";
+
+	$query_pengalaman = $conn->query($sql_pengalaman);
+
+$n++;
+}
+
 // penyakit
+ $jantung = $_POST['jantung'];
+ if(isset($jantung)){
+	$t_jantung = $_POST['t_jantung'];
+ 	$n_jantung = $_POST['n_jantung'];
 
- $jantung = $_GET['jantung'];
- $t_jantung = $_GET['t_jantung'];
- $n_jantung = $_GET['n_jantung'];
- 
- $hipertensi = $_GET['hipertensi'];
- $t_hipertensi = $_GET['t_hipertensi'];
- $n_hipertensi = $_GET['n_hipertensi'];
- 
- $diabetes = $_GET['diabetes'];
- $t_diabetes = $_GET['t_diabetes'];
- $n_diabetes = $_GET['n_diabetes'];
- 
- $hepatitis = $_GET['hepatitis'];
- $t_hepatitis = $_GET['t_hepatitis'];
- $n_hepatitis = $_GET['n_hepatitis'];
- 
- $kanker = $_GET['kanker'];
- $t_kanker = $_GET['t_kanker'];
- $n_kanker = $_GET['n_kanker'];
- 
- $tbc = $_GET['tbc'];
- $t_tbc = $_GET['t_tbc'];
- $n_tbc = $_GET['n_tbc'];
- 
- $asma = $_GET['asma'];
- $t_asma = $_GET['t_asma'];
- $n_asma = $_GET['n_asma'];
- 
- $aids = $_GET['aids'];
- $t_aids = $_GET['t_aids'];
- $n_aids = $_GET['n_aids'];
- 
- $lainnya = $_GET['lainnya'];
- $t_lainnya = $_GET['t_lainnya'];
- $n_lainnya = $_GET['n_lainnya'];
+ 	$sql_jantung= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Jantung', '$t_jantung', '$n_jantung')";
 
+	$query_jantung = $conn->query($sql_jantung);
+ 	
 
- 
+ }
+
+ $hipertensi = $_POST['hipertensi'];
+ if(isset($hipertensi)){
+	$t_hipertensi = $_POST['t_hipertensi'];
+ 	$n_hipertensi = $_POST['n_hipertensi'];
+
+ 	$sql_hipertensi= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Hipertensi', '$t_hipertensi', '$n_hipertensi')";
+
+	$query_hipertensi = $conn->query($sql_hipertensi);
+ }
+
+ $diabetes = $_POST['diabetes'];
+ if(isset($diabetes)){
+ 	$t_diabetes = $_POST['t_diabetes'];
+ 	$n_diabetes = $_POST['n_diabetes'];
+ 	$sql_diabetes= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Diabetes', '$t_diabetes', '$n_diabetes')";
+
+	$query_diabetes = $conn->query($sql_diabetes);
+ }
+
+ $hepatitis = $_POST['hepatitis'];
+ if(isset($hepatitis)){
+ 	$t_hepatitis = $_POST['t_hepatitis'];
+	$n_hepatitis = $_POST['n_hepatitis'];
+ 	$sql_hepatitis = "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Hepatitis', '$t_hepatitis', '$n_hepatitis')";
+
+	$query_hepatitis = $conn->query($sql_hepatitis);
+ }
+
+ $kanker = $_POST['kanker'];
+ if(isset($kanker)){
+ 	$t_kanker = $_POST['t_kanker'];
+ 	$n_kanker = $_POST['n_kanker'];
+ 	$sql_kanker= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Kanker', '$t_kanker', '$n_kanker')";
+
+	$query_kanker = $conn->query($sql_kanker);
+ }
+
+ $tbc = $_POST['tbc'];
+ if(isset($tbc)){
+	$t_tbc = $_POST['t_tbc'];
+    $n_tbc = $_POST['n_tbc'];
+ 	$sql_tbc= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'TBC', '$t_tbc', '$n_tbc')";
+
+	$query_tbc = $conn->query($sql_tbc);
+ }
+
+ $asma = $_POST['asma'];
+ if(isset($asma)){
+ 	$t_asma = $_POST['t_asma'];
+ 	$n_asma = $_POST['n_asma'];
+ 	$sql_asma= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Asma', '$t_asma', '$n_asma')";
+
+	$query_asma = $conn->query($sql_asma);
+ }
+
+ $aids = $_POST['aids'];
+ if(isset($aids)){
+ 	$t_aids = $_POST['t_aids'];
+ 	$n_aids = $_POST['n_aids'];
+
+ 	$sql_aids= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', 'Aids', '$t_aids', '$n_aids')";
+
+	$query_aids = $conn->query($sql_aids);
+ }
+
+ $lainnya = $_POST['lainnya'];
+ if(isset($lainnya)){
+ 	$t_lainnya = $_POST['t_lainnya'];
+ 	$n_lainnya = $_POST['n_lainnya'];
+
+ 	$sql_lainnya= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', '$lainnya', '$t_lainnya', '$n_lainnya')";
+
+	$query_lainnya = $conn->query($sql_lainnya);
+ }
+
+ ?>

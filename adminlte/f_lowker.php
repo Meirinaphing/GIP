@@ -183,7 +183,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-envelope"></i>
                 </div>
-                <input type="text" class="form-control pull-right " id="email" name="email" placeholder="Email">
+                <input type="email" class="form-control pull-right " id="email" name="email" placeholder="Email">
               </div>
               <!-- /.input group -->
             </div>

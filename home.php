@@ -101,7 +101,7 @@ if(!isset($_SESSION['user'])){
 		<!-- /.navbar -->
 
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<aside class="main-sidebar sidebar-dark-primary ">
 			<!-- Brand Logo -->
 			<a href="#" class="brand-link">
 				<img src="logo.png" alt="Logo" class="brand-image img-circle elevation-3"
@@ -217,7 +217,8 @@ if(!isset($_SESSION['user'])){
 </aside>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" id="isi_content">
+<div class="content-wrapper" >
+	<div id="isi_content">
 	<!-- Content Header (Page header) -->
 	<div class="content-header">
 		<div class="container-fluid">
@@ -342,7 +343,7 @@ if(!isset($_SESSION['user'])){
 		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
-</div>
+</div></div>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
 	<strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
@@ -408,6 +409,7 @@ if(!isset($_SESSION['user'])){
 
 <script>	
 	function form_permintaan_karyawan(){
+		$('#myModal').modal('hide');
 		$.ajax({
 			type: "POST",
 			url: "form_permintaan_karyawan.php", 
@@ -417,6 +419,7 @@ if(!isset($_SESSION['user'])){
 			success: 
 			function(data){
 				$('#isi_content').html(data);
+
 					//alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
@@ -424,6 +427,7 @@ if(!isset($_SESSION['user'])){
 	}
 
 	function history_permintaan_karyawan(){
+		$('#myModal').modal('hide');
 		$.ajax({
 			type: "POST",
 			url: "history_permintaan_karyawan.php", 
@@ -440,6 +444,7 @@ if(!isset($_SESSION['user'])){
 	}
 
 	function penilaian(){
+		$('#myModal').modal('hide');
 		$.ajax({
 			type: "POST",
 			url: "form_penilaian.php", 
@@ -456,7 +461,13 @@ if(!isset($_SESSION['user'])){
 	}
 </script>
 
-
+<!-- The Modal -->
+									<div class="modal fade" id="myModal">
+										<div class="modal-dialog modal-lg">
+											<div id="isimodal">
+											</div>
+										</div>
+									</div>
 
 
 

@@ -3,7 +3,7 @@
 $conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
 $status = $_POST['status'];
-$nopk = $_POST['nopk'];
+echo $nopk = $_POST['nopk'];
 
 if($status == "approve"){
 	$sql = "update permintaan_karyawan set status='Approved' where nopk='".$nopk."'";

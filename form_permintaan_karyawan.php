@@ -80,12 +80,20 @@ textarea.invalid {
   if(!isset($_SESSION['user'])){
     header("Location:index.php");
   }
-
+  include 'conn.php';
+$d=date('d');
+$m=date('m');
   ?>
 
 
   <?php
-  $number = 1;
+  $n = 1;
+  $sql = "select * from permintaan_karyawan";
+								$query = $conn->query($sql);
+								foreach ($query as $row) {
+									$n++;
+							}
+  $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
   ?>
 <section class="content-header">
 		<div class="container-fluid">
@@ -105,8 +113,8 @@ textarea.invalid {
 	</section>
 
 
-<form id="form_permintaan">
-
+<form id="form_permintaan" enctype="multipart/form-data">
+<input type="hidden" name="nopk" id="nopk" value="<?php echo $number ?>"> 
   <!-- Main content -->
   <section class="content" >
     <div class="container-fluid">
@@ -212,7 +220,7 @@ textarea.invalid {
 				<!-- /.card-header -->
 					<div class="card-body">
 						<div class="row">
-							<textarea class="form-control wajib" rows="5" id="jobdesk" style="margin-left: 4%; width: 95%;" placeholder="Uraian Pekerjaan"></textarea>
+							<textarea class="form-control wajib" rows="5" id="jobdesk" name="jobdesk" style="margin-left: 4%; width: 95%;" placeholder="Uraian Pekerjaan"></textarea>
 						</div>
 					</div>
 				</div>
@@ -348,13 +356,13 @@ textarea.invalid {
 <script>
   function radio(){
     var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui '
-    + '<input type="file" name="mp" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">';
+    + '<input type="file" name="mp" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document class="wajib">';
     var b = 'Jika Tidak, '
     + 'Menggantikan Formasi karena: &nbsp&nbsp'
-    + '<input type="radio" name="approvalno" value="promosi" id="promosi" checked> Promosi&nbsp&nbsp'
-    + '<input type="radio" name="approvalno" value="mutasi" id="mutasi"> Mutasi&nbsp&nbsp'
-    + '<input type="radio" name="approvalno" value="pensiun" id="pensiun"> Pensiun&nbsp&nbsp'
-    + '<input type="radio" name="approvalno" value="berhenti" id="berhenti"> Berhenti';
+    + '<input type="radio" name="mp" value="promosi" id="promosi" checked> Promosi&nbsp&nbsp'
+    + '<input type="radio" name="mp" value="mutasi" id="mutasi"> Mutasi&nbsp&nbsp'
+    + '<input type="radio" name="mp" value="pensiun" id="pensiun"> Pensiun&nbsp&nbsp'
+    + '<input type="radio" name="mp" value="berhenti" id="berhenti"> Berhenti';
 
     if(document.getElementById('yes').checked){
       document.getElementById("isi").innerHTML = a;
@@ -401,8 +409,10 @@ function save_form(){
 //    }
     // alert('Berhasil di Submit');
     // location.reload();
-     $('#isi_content').html(data);
+     // $('#isi_content').html(data);
           alert(data);  //as a debugging message.
+          // form_permintaan_karyawan();
+          
         }
 });// you have missed this bracket
  return false;
