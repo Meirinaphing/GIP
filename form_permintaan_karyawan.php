@@ -87,13 +87,21 @@ $m=date('m');
 
 
   <?php
-  $n = 1;
-  $sql = "select * from permintaan_karyawan";
-								$query = $conn->query($sql);
-								foreach ($query as $row) {
-									$n++;
-							}
-  $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
+  $ck = 0;
+  $whl=1;
+  $sql = "select count(*) from permintaan_karyawan";
+  $n = $conn->query($sql)->fetchColumn();
+  while ( $whl > 0) {
+  $c_number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
+
+	  $sql_c = "select count(*) from permintaan_karyawan where nopk ='$c_number'";
+  	  $whl= $conn->query($sql_c)->fetchColumn();
+  	  if($whl>0){
+  	  $n++;
+  	  }
+  }
+$number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
+  								
   ?>
 <section class="content-header">
 		<div class="container-fluid">
