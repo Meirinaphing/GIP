@@ -168,7 +168,7 @@ if(!isset($_SESSION['user'])){
           	</a>
           	<ul class="nav nav-treeview">
           		<li class="nav-item">
-          			<a href="#" class="nav-link">
+          			<a href="#" class="nav-link" onclick="calonkariawan()">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Calon Karyawan</p>
           			</a>
@@ -459,12 +459,30 @@ if(!isset($_SESSION['user'])){
 			  });// you have missed this bracket
 		return false;
 	}
+	function calonkariawan(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "calon_kariawan.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
 </script>
 
 <!-- The Modal -->
 									<div class="modal fade" id="myModal">
 										<div class="modal-dialog modal-lg">
-											<div id="isimodal">
+											<div class="modal-content">
+												<div id="isi_modal">
+												</div>
 											</div>
 										</div>
 									</div>

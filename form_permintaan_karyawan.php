@@ -121,7 +121,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 	</section>
 
 
-<form id="form_permintaan" enctype="multipart/form-data">
+<form id="form_permintaan" enctype="multipart/form-data" action="save_permintaan_karyawan.php" method="post" target="blank_">
 <input type="hidden" name="nopk" id="nopk" value="<?php echo $number ?>"> 
   <!-- Main content -->
   <section class="content" >
@@ -194,7 +194,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 					  </label>
 				  </div>
 				  <div class="co-sm-12">
-      				<p class="form-control " id="isi">Jika ya, Lampirkan Manpower Planning yang disetujui <input type="file" class="wajib" name="mp" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></p>
+      				<p class="form-control " id="isi">Jika ya, Lampirkan Manpower Planning yang disetujui <input type="file" class="wajib" name="mp1" id="mp1" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></p>
 				  </div>
     		 </div>
     		<div class="form-group">
@@ -363,8 +363,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 </form>
 <script>
   function radio(){
-    var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui '
-    + '<input type="file" name="mp" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document class="wajib">';
+    var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui <input type="file" class="wajib" name="mp1" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">';
     var b = 'Jika Tidak, '
     + 'Menggantikan Formasi karena: &nbsp&nbsp'
     + '<input type="radio" name="mp" value="promosi" id="promosi" checked> Promosi&nbsp&nbsp'
@@ -382,7 +381,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 
   function fkontrak(){
     if (document.getElementById('kontrak').checked) {
-      var a = '<input type="text" id="bulan" name="bulan" size="2" value="0"> Bulan';
+      var a = '<input type="text" id="bulan" name="bulan" size="2" value="0" class="wajib"> Bulan';
       document.getElementById("isikontrak").innerHTML = a;
     }else{
      document.getElementById("isikontrak").innerHTML = " "; 
@@ -392,7 +391,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 
  function fpengalaman(){
   if (document.getElementById('pengalaman').checked) {
-    var a = '<input type="text" id="tahun" name="tahun" size="2" value="0"> Tahun';
+    var a = '<input type="text" id="tahun" name="tahun" size="2" value="0" class="wajib"> Tahun';
     document.getElementById("isipengalaman").innerHTML = a;
   }else{
     document.getElementById("isipengalaman").innerHTML = " "; 
@@ -401,29 +400,32 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 }
 
 function save_form(){
- $.ajax({
-  type: "POST",
-  url: "save_permintaan_karyawan.php", 
-  data: $("#form_permintaan").serialize(),
-  dataType: "text",  
-  cache:false,
-  success: 
-  function(data){
-//    data=data.split('|');
-//    if(data[1]=="Success"){
-//      alert("Success");
-//    }else{
-//      alert("Failed");
-//    }
-    // alert('Berhasil di Submit');
-    // location.reload();
-     // $('#isi_content').html(data);
-          alert(data);  //as a debugging message.
-          // form_permintaan_karyawan();
+//  $.ajax({
+//   type: "POST",
+//   url: "save_permintaan_karyawan.php",
+// 				processData: false,
+//     			contentType: false, 
+//   data: $("#form_permintaan").serialize(),
+//   dataType: "text",  
+//   cache:false,
+//   success: 
+//   function(data){
+// //    data=data.split('|');
+// //    if(data[1]=="Success"){
+// //      alert("Success");
+// //    }else{
+// //      alert("Failed");
+// //    }
+//     // alert('Berhasil di Submit');
+//     // location.reload();
+//      // $('#isi_content').html(data);
+//           // alert(data);  //as a debugging message.
           
-        }
-});// you have missed this bracket
- return false;
+          
+//         }
+// });// you have missed this bracket
+//  return false;
+ form_permintaan_karyawan();
 }
 
 
@@ -444,7 +446,7 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = '<button type="button" onclick="save_form()" class="btn btn-primary">Submit</button>';
+    document.getElementById("nextBtn").innerHTML = '<button type="submit" onclick="save_form()" class="btn btn-primary">Submit</button>';
   } else {
     document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>';
   }

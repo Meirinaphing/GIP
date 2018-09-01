@@ -37,11 +37,11 @@ $wanita = $_POST['wanita'];
 $approval = $_POST['approval'];
 $mp = $_POST['mp'];
 if( $mp!="promosi" && $mp!="mutasi" && $mp!="pensiun" && $mp!="berhenti"){
-	$mp_f=$_FILES['mp']['name'];
-	$fileError1 = $_FILES['mp']['error'];
-	$move = move_uploaded_file($_FILES['mp']['tmp_name'],'file_p_kariawan'.$rdm1.$mp_f );
+	$mp_f=$_FILES['mp1']['name'];
+	$fileError1 = $_FILES['mp1']['error'];
+	$move = move_uploaded_file($_FILES['mp1']['tmp_name'],'file_p_kariawan/'.$rdm1.$mp_f );
 	$mp="file_p_kariawan/".$rdm1.$mp_f;
-	echo "file";
+	
 	}
 
 
@@ -69,5 +69,14 @@ $jlhorg3 = $_POST['jlhorg3'];
 
 $query = $conn->query($sql);
 //return true;
+if($query){
+	$cek="Data Telah Di Proses";
+}else{
+	$cek="Terjadi Kesalahan Pada Database";
+}
 
 ?>
+<script type="text/javascript">
+	alert('<?php echo $cek; ?>');
+	window.close();
+</script>
