@@ -28,6 +28,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 	<!-- DataTables -->
 	<link rel="stylesheet" href="lte/plugins/datatables/dataTables.bootstrap4.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="lte/plugins/select2/select2.min.css">
 	
 </head>
 
@@ -177,6 +179,12 @@ if(!isset($_SESSION['user'])){
           			<a href="#" class="nav-link" onClick="penilaian()">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Form Penilaian</p>
+          			</a>
+          		</li>
+          		<li class="nav-item">
+          			<a href="#" class="nav-link" onClick="keputusan()">
+          				<i class="fa fa-circle-o nav-icon"></i>
+          				<p>Keputusan Akhir</p>
           			</a>
           		</li>
           	</ul>
@@ -404,6 +412,8 @@ if(!isset($_SESSION['user'])){
 <!-- DataTables -->
 <script src="lte/plugins/datatables/jquery.dataTables.js"></script>
 <script src="lte/plugins/datatables/dataTables.bootstrap4.js"></script>
+<!-- Select2 -->
+<script src="lte/plugins/select2/select2.full.min.js"></script>
 </body>
 </html>
 
@@ -448,6 +458,22 @@ if(!isset($_SESSION['user'])){
 		$.ajax({
 			type: "POST",
 			url: "form_penilaian.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+	function keputusan(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "form_keputusan.php", 
 			data: {kosong:'kosong'},
 			dataType: "text",  
 			cache:false,

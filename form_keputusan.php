@@ -19,12 +19,12 @@ include 'conn.php';
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Form Penilaian</h1>
+					<h1>Form Keputusan</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Form Penilaian</li>
+						<li class="breadcrumb-item active">Form Keputusan</li>
 					</ol>
 				</div>
 			</div>
@@ -55,10 +55,10 @@ include 'conn.php';
 														$n++;
 														$cek=$row1['status'];
 													}
-												if ($n<"2" and $cek !="Fail"){
+												if ($n>="2" and $cek !="Fail"){
 													$n++;
 									?>
-												<option value="<?=$idpelamar ?>"><?=$namapelamar." (wawancara ke ".$n.")"; ?></option>
+												<option value="<?=$idpelamar ?>"><?=$namapelamar ?></option>
 									<?php
 										}
 									}
@@ -90,14 +90,14 @@ include 'conn.php';
   function pilihpelamar(idpelamar){
 		$.ajax({
 			type: "POST",
-			url: "f_p_pelamar.php", 
+			url: "f_p_keputusan.php", 
 			data: {idpelamar:idpelamar},
 			dataType: "text",  
 			cache:false,
 			success: 
 			function(data){
 				$('#isi_pelamar').html(data);
-					//alert(data);  //as a debugging message.
+					alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
 		return false;
@@ -105,14 +105,14 @@ include 'conn.php';
   function simpan(){
 		$.ajax({
 			type: "POST",
-			url: "proses_p.php", 
+			url: "proses_k.php", 
 			data: $("#form_wawancara").serialize(),
 			dataType: "text",  
 			cache:false,
 			success: 
 			function(data){
 				// $('#isi_pelamar').html(data);
-					alert(data);  //as a debugging message.
+					//alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
 		return false;
