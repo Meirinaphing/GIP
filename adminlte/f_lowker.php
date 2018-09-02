@@ -1,3 +1,6 @@
+<?php 
+  include '../conn.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,7 +97,7 @@
         </h1>
       </section>
       
-      <form action="proses.php" method="get">
+      <form action="proses.php" enctype="multipart/form-data" method="POST"  >
         <!-- Main content -->
         <section class="content">
 
@@ -127,7 +130,7 @@
                     <div class="form-group col-sm-6">
                       <label>Foto :</label>	
                       <div class="input-group" id="tam-foto">
-                       <input type="file" id="Foto_Pelamar" name="Foto_Pelamar" onchange="tamfoto(this.value)">
+                       <input type="file" id="Foto_Pelamar" name="Foto_Pelamar">
                        <p class="help-block">Ukuran foto 3x4</p>
                      </div>
                      <!-- /.input group -->
@@ -208,10 +211,15 @@
                   <i class="fa fa-user-secret"></i>
                 </div>
                 <select id="jabatanygdilamar" name="jabatanygdilamar" class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Office Boy</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
+          <?php
+              echo $sql = "select * from permintaan_karyawan where status = 'Approved'";
+                $query = $conn->query($sql);
+                foreach ($query as $row) {
+          ?>
+                  <option value="<?php echo $row['nopk']; ?>"><?php echo $row['jabatan']; ?></option>
+          <?php 
+            }
+          ?>
                 </select>
               </div>
               <!-- /.input group -->

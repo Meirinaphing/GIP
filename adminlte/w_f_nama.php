@@ -5,8 +5,8 @@ $jlh=$_POST['jlh'];
    if($jlh>2){
     $jlh=2;
  }
- if($jlh<=0){
-   $jlh=0;
+ if($jlh<=1){
+   $jlh=1;
 
 
  }
