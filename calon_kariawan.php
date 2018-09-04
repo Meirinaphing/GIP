@@ -73,9 +73,9 @@ if(!isset($_SESSION['user'])){
 										<td><?=$row['jumlah'];?></td>
 										<td><img src="<?=$row['fotopelamar'];?>" width="100px" height=""></td>
 										<td>
-											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[nopk]?>')"></button>
-											<button onclick="approve('<?=$row[nopk]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
-											<button onclick="reject('<?=$row[nopk]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
+											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[idpelamar]?>')"></button>
+											<button onclick="approve('<?=$row[idpelamar]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
+											<button onclick="reject('<?=$row[idpelamar]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
 										</td>
 									</tr>
 									<?php
@@ -116,11 +116,11 @@ if(!isset($_SESSION['user'])){
 
 	});
 
-	function modal_reload(nopk){
+	function modal_reload(idpelamar){
 		$.ajax({
 			type: "POST",
-			url: "m_history_permintaan_karyawan.php", 
-			data: {nopk:nopk},
+			url: "m_calon_karyawan.php", 
+			data: {idpelamar:idpelamar},
 			dataType: "text",  
 			cache:false,
 			success: 

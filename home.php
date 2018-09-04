@@ -128,16 +128,16 @@ if(!isset($_SESSION['user'])){
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-          	<a href="#" class="nav-link active">
-          		<i class="nav-icon fa fa-dashboard"></i>
+          <li class="nav-item ">
+          	<a href="#" class="nav-link active" id="dashboard" onclick="ceklink(this.id,'dashboard')" />
+          		<i class="nav-icon fa fa-dashboard" ></i>
           		<p>
           			Dashboard
           		</p>
           	</a>
           </li>
           <li class="nav-item has-treeview">
-          	<a href="#" class="nav-link">
+          	<a href="#" class="nav-link" id="pkar">
           		<i class="nav-icon fa fa-th"></i>
           		<p>
           			Permintaan Karyawan
@@ -146,13 +146,13 @@ if(!isset($_SESSION['user'])){
           	</a>
           	<ul class="nav nav-treeview">
           		<li class="nav-item">
-          			<a href="#" class="nav-link" onClick="form_permintaan_karyawan()">
+          			<a href="#" class="nav-link" id="rk" onclick="form_permintaan_karyawan(),ceklink(this.id,'pkar')" >
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Request Karyawan</p>
           			</a>
           		</li>
           		<li class="nav-item">
-          			<a href="#" class="nav-link" onClick="history_permintaan_karyawan()">
+          			<a href="#" class="nav-link" id="hr" onclick="history_permintaan_karyawan(),ceklink(this.id,'pkar')" >
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>History Request</p>
           			</a>
@@ -161,7 +161,7 @@ if(!isset($_SESSION['user'])){
           </li>
           
           <li class="nav-item has-treeview">
-          	<a href="#" class="nav-link">
+          	<a href="#" class="nav-link" id="interv">
           		<i class="nav-icon fa fa-edit"></i>
           		<p>
           			Interview
@@ -170,19 +170,19 @@ if(!isset($_SESSION['user'])){
           	</a>
           	<ul class="nav nav-treeview">
           		<li class="nav-item">
-          			<a href="#" class="nav-link" onclick="calonkariawan()">
+          			<a href="#" class="nav-link" id="ckari" onclick="calonkariawan(),ceklink(this.id,'interv')">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Calon Karyawan</p>
           			</a>
           		</li>
           		<li class="nav-item">
-          			<a href="#" class="nav-link" onClick="penilaian()">
+          			<a href="#" class="nav-link" id="fpeni" onclick="penilaian(),ceklink(this.id,'interv')">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Form Penilaian</p>
           			</a>
           		</li>
           		<li class="nav-item">
-          			<a href="#" class="nav-link" onClick="keputusan()">
+          			<a href="#" class="nav-link" onclick="keputusan(),ceklink(this.id,'interv')">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Keputusan Akhir</p>
           			</a>
@@ -220,7 +220,6 @@ if(!isset($_SESSION['user'])){
   </nav>
   <!-- /.sidebar-menu -->
 </div>
-
 <!-- /.sidebar -->
 </aside>
 
@@ -368,7 +367,7 @@ if(!isset($_SESSION['user'])){
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+	
 <!-- jQuery -->
 <script src="lte/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -418,6 +417,12 @@ if(!isset($_SESSION['user'])){
 </html>
 
 <script>	
+	function ceklink(id,lead){
+			$('.nav-link').removeClass("active");
+			$('#'+id).addClass("active");
+			$('#'+lead).addClass("active");
+	}
+
 	function form_permintaan_karyawan(){
 		$('#myModal').modal('hide');
 		$.ajax({

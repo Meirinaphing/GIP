@@ -30,7 +30,7 @@ include 'conn.php';
 			</div>
 		</div>
 	</section>
-<form action="proses_p.php" action="get" id="form_wawancara">
+<form action="proses_k.php"  id="form_keputusan" >
 	<section class="content">
 		<div class="container-fluid">
 			<div class="card">
@@ -97,7 +97,7 @@ include 'conn.php';
 			success: 
 			function(data){
 				$('#isi_pelamar').html(data);
-					alert(data);  //as a debugging message.
+					//alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
 		return false;
@@ -106,13 +106,14 @@ include 'conn.php';
 		$.ajax({
 			type: "POST",
 			url: "proses_k.php", 
-			data: $("#form_wawancara").serialize(),
+			data: $("#form_keputusan").serialize(),
 			dataType: "text",  
 			cache:false,
 			success: 
 			function(data){
+				keputusan();
 				// $('#isi_pelamar').html(data);
-					//alert(data);  //as a debugging message.
+					alert(data);  //as a debugging message.
 				}
 			  });// you have missed this bracket
 		return false;

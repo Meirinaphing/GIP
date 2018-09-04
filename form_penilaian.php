@@ -111,6 +111,7 @@ include 'conn.php';
 			cache:false,
 			success: 
 			function(data){
+				penilaian();
 				// $('#isi_pelamar').html(data);
 					alert(data);  //as a debugging message.
 				}

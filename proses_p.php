@@ -15,13 +15,15 @@ $motivasi= $_POST['motivasi'];
 $pengalaman= $_POST['pengalaman'];
 $pengambilan_keputusn= $_POST['pengambilan_keputusn'];
 $sosialisasi= $_POST['sosialisasi'];
-$nilai = $komunikasi + $kecerdasan +$percaya_diri + $kemampuan_khusus + $kepemimpinan + $motivasi + $pengalaman + $pengambilan_keputusn + $sosialisasi;
-if($nilai>30){
+$nilai = $komunikasi + $kecerdasan +$percaya_diri + $kemampuan_umum + $kemampuan_khusus + $kepemimpinan + $motivasi + $pengalaman + $pengambilan_keputusn + $sosialisasi;
+$total= 5*10;
+$hasil = ($nilai/$total)*100;
+if($hasil>59){
 	$status ="OK";
 }else{
 	$status = "Fail";
 }
-	$sql_wawancara = "INSERT INTO `wawancara` (`id`, `nopelamar`, `wawancara`, `status`, `nilai, `tgl`) VALUES (NULL, '$namapelamar', '$_SESSION[iduser]', '$status', '$nilai', '$tanggal')";
+	$sql_wawancara = "INSERT INTO `wawancara` (`id`, `nopelamar`, `wawancara`, `status`, `nilai`, `tgl`) VALUES (NULL, '$namapelamar', '$_SESSION[iduser]', '$status', '$hasil', '$tanggal')";
 	$query_wawancara = $conn->query($sql_wawancara);
 
 	$sql_cek_wawancara = "SELECT * FROM `wawancara` ORDER BY `wawancara`.`id` DESC Limit 1";
@@ -53,9 +55,10 @@ $faktor[9]= "pengambilan_keputusn";
 $faktor[10]= "sosialisasi";
 $nn=1;
 while ( $nn <= 10) {
- 	echo $sql_nilai = "INSERT INTO `nilai_wawancara` (`id`, `idwawancara`, `faktor`, `nilai_s`) VALUES (NULL, '$id', '$faktor[$nn]', '$nilaii[$nn]')";
+ 	$sql_nilai = "INSERT INTO `nilai_wawancara` (`id`, `idwawancara`, `faktor`, `nilai_s`) VALUES (NULL, '$id', '$faktor[$nn]', '$nilaii[$nn]')";
 	$query_nilai = $conn->query($sql_nilai);
 
  	$nn++;
  } 
+ echo "Data Telah disimpan";
 ?>
