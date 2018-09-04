@@ -170,6 +170,12 @@ if(!isset($_SESSION['user'])){
           	</a>
           	<ul class="nav nav-treeview">
           		<li class="nav-item">
+          			<a href="#" class="nav-link" id="pelamar" onclick="pelamar(),ceklink(this.id,'interv')">
+          				<i class="fa fa-circle-o nav-icon"></i>
+          				<p>Pelamar</p>
+          			</a>
+          		</li>
+          		<li class="nav-item">
           			<a href="#" class="nav-link" id="ckari" onclick="calonkariawan(),ceklink(this.id,'interv')">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Calon Karyawan</p>
@@ -514,17 +520,33 @@ if(!isset($_SESSION['user'])){
 			  });// you have missed this bracket
 		return false;
 	}
+	function pelamar(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "pelamar.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
 </script>
 
 <!-- The Modal -->
-									<div class="modal fade" id="myModal">
-										<div class="modal-dialog modal-lg">
-											<div class="modal-content">
-												<div id="isi_modal">
-												</div>
-											</div>
-										</div>
-									</div>
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div id="isi_modal">
+			</div>
+		</div>
+	</div>
+</div>
 
 
 

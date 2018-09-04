@@ -40,7 +40,7 @@ include '../conn.php';
  $mulai_kerja = $_POST['mulai_kerja'];
  $email = $_POST['email'];
 
-$sql_p = "INSERT INTO `pelamar` (`idpelamar`, `namapelamar`, `fotopelamar`, `tempatlahir`, `tgllahir`, `noktp`, `alamat`, `jabatandilamar`, `jkpelamar`, `statuspelamar`, `kebangsaan`, `notlpn`, `ditempatkan`, `ingingaji`, `adakeluarga`, `pernahlamar`, `pelanggaran`, `perusahaanlain`, `mulaikerja`, `email`) VALUES (NULL, '$nama_pelamar', '$Foto_Pelamar', '$tempatlahir', '$i_tgllahir', '$noktp', '$alamatktp', '$jabatanygdilamar', '$jk_pelamar', '$stat_pelamar', '$kebangsaan_pelamar', '$notlpn_pelamar', '$kotalain', '$ingin_gaji', '$keluarga_di_p', '$melamar_disini', '$pelanggaran_polisi', '$kepemilikan_p_lain', '$mulai_kerja', '$email')";
+$sql_p = "INSERT INTO `pelamar` (`idpelamar`, `namapelamar`, `fotopelamar`, `tempatlahir`, `tgllahir`, `noktp`, `alamat`, `jabatandilamar`, `jkpelamar`, `statuspelamar`, `kebangsaan`, `notlpn`, `ditempatkan`, `ingingaji`, `adakeluarga`, `pernahlamar`, `pelanggaran`, `perusahaanlain`, `mulaikerja`, `email`, `status`) VALUES (NULL, '$nama_pelamar', '$Foto_Pelamar', '$tempatlahir', '$i_tgllahir', '$noktp', '$alamatktp', '$jabatanygdilamar', '$jk_pelamar', '$stat_pelamar', '$kebangsaan_pelamar', '$notlpn_pelamar', '$kotalain', '$ingin_gaji', '$keluarga_di_p', '$melamar_disini', '$pelanggaran_polisi', '$kepemilikan_p_lain', '$mulai_kerja', '$email','barudaftar')";
 $query_p = $conn->query($sql_p);
 
 $sql_crid = "select * from pelamar order by idpelamar desc limit 1";
