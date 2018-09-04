@@ -16,12 +16,12 @@ if(!isset($_SESSION['user'])){
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>History Request</h1>
+					<h1>Calon Karyawan</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="home.php">Home</a></li>
-						<li class="breadcrumb-item active">History Request</li>
+						<li class="breadcrumb-item active">Calon Karyawan</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -39,12 +39,12 @@ if(!isset($_SESSION['user'])){
 						<table id="example2" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal</th>
-									<th>Nama Pemohon</th>
-									<th>Divisi</th>
-									<th>Job Class</th>
-									<th>Jumlah</th>
-									<th>Status</th>
+									<th>Nama Pelamar</th>
+									<th>Jabatan</th>
+									<th>Ditempatkan</th>
+									<th>Gaji</th>
+									<th>Jumlah pengalaman</th>
+									<th>Foto</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -53,14 +53,12 @@ if(!isset($_SESSION['user'])){
 
 								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
-								$sql = "select * from permintaan_karyawan";
+								$sql = "SELECT * , (SELECT Count(pelamar_pengalaman.pengalaman_nama) FROM pelamar_pengalaman WHERE pelamar_pengalaman.idpelamar = pelamar.idpelamar) as jumlah FROM  pelamar";
 
 								$query = $conn->query($sql);
 
 								foreach ($query as $row) {
-									$jlh = $row['jum_pria'] + $row['jum_wanita'];
-
-									$status = $row['status'];
+									
 									?>
 
 
@@ -68,12 +66,12 @@ if(!isset($_SESSION['user'])){
 
 
 									<tr>
-										<td><?=$row['tgl'];?></td>
-										<td><?=$row['iduser'];?></td>
-										<td><?=$row['divisi'];?></td>
-										<td><?=$row['job_kelas'];?></td>
-										<td><?=$jlh;?></td>
-										<td><?=$row['status'];?></td>
+										<td><?=$row['namapelamar'];?></td>
+										<td><?=$row['jabatandilamar'];?></td>
+										<td><?=$row['ditempatkan'];?></td>
+										<td><?=$row['ingingaji'];?></td>
+										<td><?=$row['jumlah'];?></td>
+										<td><img src="<?=$row['fotopelamar'];?>" width="100px" height=""></td>
 										<td>
 											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[nopk]?>')"></button>
 											<button onclick="approve('<?=$row[nopk]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
