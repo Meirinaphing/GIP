@@ -182,20 +182,12 @@ if(!isset($_SESSION['user'])){
           			</a>
           		</li>
           		<li class="nav-item">
-          			<a href="#" class="nav-link" onclick="keputusan(),ceklink(this.id,'interv')">
+          			<a href="#" class="nav-link" id="kpak" onclick="keputusan(),ceklink(this.id,'interv')">
           				<i class="fa fa-circle-o nav-icon"></i>
           				<p>Keputusan Akhir</p>
           			</a>
           		</li>
           	</ul>
-          </li>
-          <li class="nav-item">
-          	<a href="#" class="nav-link">
-          		<i class="nav-icon fa fa-table"></i>
-          		<p>
-          			Lowongan Kerja
-          		</p>
-          	</a>
           </li>
           <li class="nav-header">REPORTS</li>
           <li class="nav-item">
@@ -207,8 +199,8 @@ if(!isset($_SESSION['user'])){
           	</a>
           </li>
           <li class="nav-item">
-          	<a href="#" class="nav-link">
-          		<i class="nav-icon fa fa-calendar"></i>
+          	<a href="#" class="nav-link" id="rank" onclick="rank(),ceklink(this.id,'rank')">
+          		<i class="nav-icon fa fa-trophy"></i>
           		<p>
           			Perangkingan
           		</p>
@@ -225,7 +217,7 @@ if(!isset($_SESSION['user'])){
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" >
-	<div id="isi_content">
+	<div id="isi_content" style="overflow-y: scroll;">
 	<!-- Content Header (Page header) -->
 	<div class="content-header">
 		<div class="container-fluid">
@@ -495,6 +487,22 @@ if(!isset($_SESSION['user'])){
 		$.ajax({
 			type: "POST",
 			url: "calon_kariawan.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+	function rank(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "rank.php", 
 			data: {kosong:'kosong'},
 			dataType: "text",  
 			cache:false,
