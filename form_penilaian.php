@@ -61,11 +61,11 @@ include 'conn.php';
 												<option value="<?=$idpelamar ?>"><?=$namapelamar." (wawancara ke ".$n.")"; ?></option>
 									<?php
 										}
+										$cek="";
 									}
 									?>
 								</select>
 							</h3>
-							
 							<h3 class="card-title col-sm-6" style="text-align:right;">Tanggal : <?php echo date("D").','.date('d-M-Y') ?></h3>
 						</div>
 					</h3>
