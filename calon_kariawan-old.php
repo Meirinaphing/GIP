@@ -9,19 +9,18 @@ if(!isset($_SESSION['user'])){
 
 ?>
 
-
 <div class="content">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>History Request</h1>
+					<h1>Calon Karyawan</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="home.php">Home</a></li>
-						<li class="breadcrumb-item active">History Request</li>
+						<li class="breadcrumb-item active">Calon Karyawan</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -39,12 +38,10 @@ if(!isset($_SESSION['user'])){
 						<table id="example2" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal</th>
-									<th>Nama Pemohon</th>
-									<th>Divisi</th>
-									<th>Job Class</th>
-									<th>Jumlah</th>
-									<th>Status</th>
+									<th>Nama Pelamar</th>
+									<th>tgl wawancara</th>
+									<th>waktu</th>
+									<th>status</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -53,14 +50,23 @@ if(!isset($_SESSION['user'])){
 
 								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
-								$sql = "select * from permintaan_karyawan";
+								$sql = "SELECT * , (SELECT Count(pelamar_pengalaman.pengalaman_nama) FROM pelamar_pengalaman WHERE pelamar_pengalaman.idpelamar = pelamar.idpelamar) as jumlah FROM  pelamar WHERE pelamar.status='Approved'";
 
 								$query = $conn->query($sql);
 
 								foreach ($query as $row) {
-									$jlh = $row['jum_pria'] + $row['jum_wanita'];
-
-									$status = $row['status'];
+									$nilai[1]=0;
+									$nilai[2]=0;
+									$sql_wawancara = "SELECT * FROM `wawancara` WHERE nopelamar='$row[idpelamar]'";
+										$query_wawancara = $conn->query($sql_wawancara);
+										$n=1;
+											foreach ($query_wawancara as $row_wawancara){
+												$id[$n]=$row_wawancara['id'];
+												$nilai[$n]=$row_wawancara['nilai'];
+											$n++;	
+											}
+											$rata=($nilai[1]+$nilai[2])/2;
+									
 									?>
 
 
@@ -68,18 +74,12 @@ if(!isset($_SESSION['user'])){
 
 
 									<tr>
-										<td><?=$row['tgl'];?></td>
-										<td><?=$row['iduser'];?></td>
-										<td><?=$row['divisi'];?></td>
-										<td><?=$row['job_kelas'];?></td>
-										<td><?=$jlh;?></td>
-										<td><?=$row['status'];?></td>
+										<td><?=$row['namapelamar'];?></td>
+										<td><?=$nilai[1];?></td>
+										<td><?=$nilai[2];?></td>
+										<td><?=$rata ?></td>
 										<td>
-											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[nopk]?>')"></button>
-											<?php if($row['status']=="Submited"){?>
-											<button onclick="approve('<?=$row[nopk]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
-											<button onclick="reject('<?=$row[nopk]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
-											<?php }?>
+											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-envelope" title="Email" onclick="modal_reload('<?=$row[idpelamar]?>')"></button><button onclick="reject('<?=$row[idpelamar]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
 										</td>
 									</tr>
 									<?php
@@ -89,12 +89,10 @@ if(!isset($_SESSION['user'])){
 							</tbody>
 							<tfoot>
 								<tr>
-									<th>Tanggal</th>
-									<th>Nama Pemohon</th>
-									<th>Divisi</th>
-									<th>Job Class</th>
-									<th>Jumlah</th>
-									<th>Status</th>
+									<th>Nama Pelamar</th>
+									<th>tgl wawancara</th>
+									<th>waktu</th>
+									<th>status</th>
 									<th>Action</th>
 								</tr>
 							</tfoot>
@@ -120,11 +118,11 @@ if(!isset($_SESSION['user'])){
 
 	});
 
-	function modal_reload(nopk){
+	function modal_reload(idpelamar){
 		$.ajax({
 			type: "POST",
-			url: "m_history_permintaan_karyawan.php", 
-			data: {nopk:nopk},
+			url: "m_calon_karyawan.php", 
+			data: {idpelamar:idpelamar},
 			dataType: "text",  
 			cache:false,
 			success: 

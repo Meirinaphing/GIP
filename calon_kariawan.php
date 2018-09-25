@@ -39,9 +39,9 @@ if(!isset($_SESSION['user'])){
 							<thead>
 								<tr>
 									<th>Nama Pelamar</th>
-									<th>Wawancara 1</th>
-									<th>Wawancara 2</th>
-									<th>Rata-Rata</th>
+									<th>tgl wawancara</th>
+									<th>waktu</th>
+									<th>status</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -50,39 +50,29 @@ if(!isset($_SESSION['user'])){
 
 								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
-								$sql = "SELECT * , (SELECT Count(pelamar_pengalaman.pengalaman_nama) FROM pelamar_pengalaman WHERE pelamar_pengalaman.idpelamar = pelamar.idpelamar) as jumlah FROM  pelamar WHERE pelamar.status='Approved'";
+								$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar WHERE pelamar.idpelamar = calon_karyawan.idpelamar";
 
 								$query = $conn->query($sql);
-
 								foreach ($query as $row) {
-									$nilai[1]=0;
-									$nilai[2]=0;
-									$sql_wawancara = "SELECT * FROM `wawancara` WHERE nopelamar='$row[idpelamar]'";
-										$query_wawancara = $conn->query($sql_wawancara);
-										$n=1;
-											foreach ($query_wawancara as $row_wawancara){
-												$id[$n]=$row_wawancara['id'];
-												$nilai[$n]=$row_wawancara['nilai'];
-											$n++;	
-											}
-											$rata=($nilai[1]+$nilai[2])/2;
-									
+
 									?>
-
-
-									
-
-
 									<tr>
 										<td><?=$row['namapelamar'];?></td>
-										<td><?=$nilai[1];?></td>
-										<td><?=$nilai[2];?></td>
-										<td><?=$rata ?></td>
+										<td><?=$row['tgl'];?></td>
+										<td><?=$row['waktu'];?></td>
+										<td><?=$row['status_k'];?></td>
+										<?php 
+										$pch=explode(" ", $row['status_k']);
+
+										if($row['status_k'] == "wawancara ke 1" || $row['status_k'] == "wawancara ke 2" || $pch[2]>1){
+											$field="hidden";
+										} ?>
 										<td>
-											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-envelope" title="Email" onclick="modal_reload('<?=$row[idpelamar]?>')"></button><button onclick="reject('<?=$row[idpelamar]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
+											<button <?php echo $field; ?> data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-envelope" title="Email" onclick="modal_reload('<?=$row[idpelamar]?>')"></button><button onclick="reject('<?=$row[idpelamar]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
 										</td>
 									</tr>
 									<?php
+									$field="";
 								}
 
 								?>
@@ -90,9 +80,9 @@ if(!isset($_SESSION['user'])){
 							<tfoot>
 								<tr>
 									<th>Nama Pelamar</th>
-									<th>Wawancara 1</th>
-									<th>Wawancara 2</th>
-									<th>Rata-Rata</th>
+									<th>tgl wawancara</th>
+									<th>waktu</th>
+									<th>status</th>
 									<th>Action</th>
 								</tr>
 							</tfoot>
@@ -136,35 +126,17 @@ if(!isset($_SESSION['user'])){
         });
 	}
 
-	function approve(nopk){
+	function reject(idpelamar){
 		$.ajax({
 			type: "POST",
-			url: "changestatus.php", 
-			data: {status:"approve", nopk:nopk},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				alert('Approved');
-				history_permintaan_karyawan();
-				// location.reload();
-    			// $('#isi_content').html(data);
-        		//alert(data);  //as a debugging message.
-        	}
-        });
-	}
-
-	function reject(nopk){
-		$.ajax({
-			type: "POST",
-			url: "changestatus.php", 
-			data: {status:"reject", nopk:nopk},
+			url: "changestatus_plamar.php", 
+			data: {status:"reject", idpelamar:idpelamar},
 			dataType: "text",  
 			cache:false,
 			success: 
 			function(data){
 				alert('Rejected');
-				history_permintaan_karyawan();
+				calonkariawan();
 				// location.reload();
     			// $('#isi_content').html(data);
         		//alert(data);  //as a debugging message.

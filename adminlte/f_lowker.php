@@ -76,7 +76,13 @@
     height: 5px !important;
 
   }
-
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+textarea.invalid {
+  background-color: #ffdddd;
+}
 </style>	
 
 
@@ -121,7 +127,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <input id="nama_pelamar " name="nama_pelamar" type="text" class="form-control" placeholder="Nama Lengkap">
+                        <input id="nama_pelamar " name="nama_pelamar" type="text" class="form-control wajib" placeholder="Nama Lengkap">
                       </div>
                       <!-- /.input group -->
                     </div>
@@ -130,7 +136,7 @@
                     <div class="form-group col-sm-6">
                       <label>Foto :</label>	
                       <div class="input-group" id="tam-foto">
-                       <input type="file" id="Foto_Pelamar" name="Foto_Pelamar">
+                       <input type="file" id="Foto_Pelamar" name="Foto_Pelamar" class="wajib">
                        <p class="help-block">Ukuran foto 3x4</p>
                      </div>
                      <!-- /.input group -->
@@ -147,7 +153,7 @@
                           <i class="fa fa-globe"></i>
                         </div>
                         <div class="input-group">
-                         <input type="text" id="tempatlahir" name="tempatlahir" class="form-control" placeholder="Tempat">
+                         <input type="text" id="tempatlahir" name="tempatlahir" class="form-control wajib" placeholder="Tempat">
                        </div>
                      </div>
                    </div>
@@ -158,7 +164,7 @@
                         <i class="fa fa-calendar"></i>
                       </div>
                       <div class="input-group">
-                       <input type="text" id="tanggallahir" name="tanggallahir" class="form-control" placeholder="Tanggal" >
+                       <input type="text" id="tanggallahir" name="tanggallahir" class="form-control wajib" placeholder="Tanggal" >
                      </div>
                    </div>
                  </div>
@@ -174,7 +180,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-credit-card"></i>
                 </div>
-                <input type="text" class="form-control pull-right " id="noktp" name="noktp" placeholder="No KTP">
+                <input type="text" class="form-control pull-right wajib" id="noktp" name="noktp" placeholder="No KTP">
               </div>
               <!-- /.input group -->
             </div>
@@ -186,7 +192,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-envelope"></i>
                 </div>
-                <input type="email" class="form-control pull-right " id="email" name="email" placeholder="Email">
+                <input type="email" class="form-control pull-right wajib" id="email" name="email" placeholder="Email" onblur="emailck()">
               </div>
               <!-- /.input group -->
             </div>
@@ -198,7 +204,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-edit"></i>
                 </div>
-                <textarea id="alamatktp" name="alamatktp" class="form-control" placeholder="Alamat Sesuai KTP"></textarea>
+                <textarea id="alamatktp" name="alamatktp" class="form-control wajib" placeholder="Alamat Sesuai KTP"></textarea>
               </div>
               <!-- /.input group -->
             </div>
@@ -254,7 +260,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-globe"></i>
                 </div>
-                <input type="text" class="form-control" id="kebangsaan_pelamar" name="kebangsaan_pelamar" placeholder="Indonesia">
+                <input type="text" class="form-control wajib" id="kebangsaan_pelamar" name="kebangsaan_pelamar" placeholder="Indonesia">
               </div>
               <!-- /.input group -->
             </div>
@@ -266,7 +272,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input type="text" class="form-control" id="notlpn_pelamar" name="notlpn_pelamar" data-inputmask="'mask': '9999-9999-99999'" data-mask placeholder="0811-2233-4455">
+                <input type="text" class="form-control wajib" id="notlpn_pelamar" name="notlpn_pelamar" data-inputmask="'mask': '9999-9999-99999'" data-mask placeholder="0811-2233-4455">
               </div>
 
               <!-- /.input group -->
@@ -287,7 +293,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-users"></i>
                 </div>
-                <input type="number" value="1" id="jlh_saudara" name="jlh_saudara" class="form-control" onChange="tambahsasudara(this.value)">
+                <input type="number" value="1" id="jlh_saudara" name="jlh_saudara" class="form-control wajib" onChange="tambahsasudara(this.value)">
               </div>
 
               <!-- /.input group -->
@@ -303,17 +309,17 @@
               </tr>
               <tr>
                 <td><span class="form-control">Ayah</span></td>
-                <td><input type="text" class="form-control" placeholder="Nama" name="namaayah" id="namaayah"></td>
-                <td><input type="number" class="form-control" Placeholder="usia" name="usiaayah" id="usiaayah"></td>
-                <td><input type="text" class="form-control" placeholder="pendidikan terakhir" name="pendidikanayah" id="pendidikanayah"></td>
-                <td><textarea class="form-control" placeholder="keterangan" name="keteranganayah" id="keteranganayah"></textarea></td>
+                <td><input type="text" class="form-control wajib" placeholder="Nama" name="namaayah" id="namaayah"></td>
+                <td><input type="number" class="form-control wajib" Placeholder="usia" name="usiaayah" id="usiaayah"></td>
+                <td><input type="text" class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanayah" id="pendidikanayah"></td>
+                <td><textarea class="form-control wajib" placeholder="keterangan" name="keteranganayah" id="keteranganayah"></textarea></td>
               </tr>
               <tr>
                 <td><span class="form-control">Ibu</span></td>
-                <td><input type="text" class="form-control" placeholder="Nama" name="namaibu" id="namaibu"></td>
-                <td><input type="number" class="form-control" Placeholder="usia" name="usiaibu" id="usiaibu"></td>
-                <td><input type="text" class="form-control" placeholder="pendidikan terakhir" name="pendidikanibu" id="pendidikanibu"></td>
-                <td><textarea class="form-control" placeholder="keterangan" name="keteranganibu" id="keteranganibu"></textarea></td>
+                <td><input type="text" class="form-control wajib" placeholder="Nama" name="namaibu" id="namaibu"></td>
+                <td><input type="number" class="form-control wajib" Placeholder="usia" name="usiaibu" id="usiaibu"></td>
+                <td><input type="text" class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanibu" id="pendidikanibu"></td>
+                <td><textarea class="form-control wajib" placeholder="keterangan" name="keteranganibu" id="keteranganibu"></textarea></td>
               </tr>
 
             </tbody>
@@ -351,24 +357,24 @@
           </tr>
           <tr>
             <td><span class="form-control">SD</span></td>
-            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namasd" id="namasd"></td>
+            <td colspan="2"><input type="text" class="form-control wajib" placeholder="Nama Sekolah / Perguruan tinggi" name="namasd" id="namasd"></td>
 
-            <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansd" id="jurusansd"></td>
-            <td><input type="text" class="form-control" placeholder="IPK" name="ipksd" id="ipksd"></td>
+            <td><input type="text" class="form-control wajib" placeholder="Jurusan" name="jurusansd" id="jurusansd"></td>
+            <td><input type="number" class="form-control wajib" placeholder="IPK" name="ipksd" id="ipksd"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksd" id="masuksd"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaisd" id="selesaisd"></td>
+            <td><input type="text" class="form-control wajib" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksd" id="masuksd"></td>
+            <td><input type="text" class="form-control wajib" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaisd" id="selesaisd"></td>
           </tr>
           
           <tr>
             <td><span class="form-control">SMP</span></td>
-            <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namasmp" id="namasmp"></td>
+            <td colspan="2"><input type="text" class="form-control " placeholder="Nama Sekolah / Perguruan tinggi" name="namasmp" id="namasmp"></td>
 
             <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansmp" id="jurusansmp"></td>
-            <td><input type="text" class="form-control" placeholder="IPK" name="ipksmp" id="ipksmp"></td>
+            <td><input type="number" class="form-control" placeholder="IPK" name="ipksmp" id="ipksmp"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
@@ -382,7 +388,7 @@
             <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namsma" id="namsma"></td>
 
             <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansma" id="jurusansma"></td>
-            <td><input type="text" class="form-control" placeholder="IPK" name="ipksma" id="ipksma"></td>
+            <td><input type="number" class="form-control" placeholder="IPK" name="ipksma" id="ipksma"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
@@ -396,7 +402,7 @@
             <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namauni" id="namauni"></td>
 
             <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusanuni" id="jurusanuni"></td>
-            <td><input type="text" class="form-control" placeholder="IPK" name="ipkuni" id="ipkuni"></td>
+            <td><input type="number" class="form-control" placeholder="IPK" name="ipkuni" id="ipkuni"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
@@ -418,7 +424,7 @@
         <div class="input-group-addon">
           <i class="fa fa-users"></i>
         </div>
-        <input type="number" value="1" class="form-control" id="jlh_pelatihan" name="jlh_pelatihan" onChange="tambah_pelatihan(this.value)">
+        <input type="number" value="0" class="form-control" id="jlh_pelatihan" name="jlh_pelatihan" onChange="tambah_pelatihan(this.value)">
       </div>
       <!-- /.input group -->
       <table class="table table-bordered">
@@ -490,7 +496,7 @@
           <div class="input-group-addon">
             <i class="fa fa-suitcase"></i>
           </div>
-          <input type="number" value="1" class="form-control" placeholder="Jumlah Perusahaan" id="jlh_pengalaman" name="jlh_pengalaman" onChange="tambah_pengalaman(this.value)">
+          <input type="number" value="0" class="form-control" placeholder="Jumlah Perusahaan" id="jlh_pengalaman" name="jlh_pengalaman" onChange="tambah_pengalaman(this.value)">
         </div>
         <!-- /.input group -->
       </div>
@@ -815,7 +821,7 @@
                Jika ya ingin ditempatkan di mana? Jika tidak beri alasan
                </td>
              <td>
-                <input type="text" class="form-control" placeholder="keterangan" name="kotalain" id="kotalain">
+                <input type="text" class="form-control" placeholder="keterangan" name="kotalain" id="kotalain" required>
              </td>
            </tr>
 
@@ -825,7 +831,7 @@
                Gaji yang di inginkan
             </td>
              <td>
-                <input type="text" id="ingin_gaji" name="ingin_gaji" class="form-control" placeholder="Gaji" >
+                <input type="text" id="ingin_gaji" name="ingin_gaji" class="form-control" placeholder="Gaji"  required>
              </td>
            </tr>
          </tfoot>
@@ -843,7 +849,7 @@
                 Apakah Anda memiliki keluarga, kerabat, atau teman yang bekerja di perusahaan ini Sebutkan!
               </td>
               <td>
-                <textarea name="keluarga_di_p" id="keluarga_di_p"></textarea>
+                <textarea name="keluarga_di_p" id="keluarga_di_p" required></textarea>
               </td>
             </tr>
             <tr>
@@ -851,7 +857,7 @@
                 Apakah Anda pernah Melamar ke Perusahaaj ini sebelumnya? Jika ya, untuk posisi apa?
               </td>
               <td>
-                <textarea name="melamar_disini" id="melamar_disini"></textarea>
+                <textarea name="melamar_disini" id="melamar_disini" required></textarea>
               </td>
             </tr>
             <tr>
@@ -859,7 +865,7 @@
                 Apakah Anda perham terlibat dengan pihak kepolisian berkaitan dengan isu pelanggaran kriminal,atau pelanggaran perdata?
               </td>
               <td>
-                <textarea name="pelanggaran_polisi" id="pelanggaran_polisi"></textarea>
+                <textarea name="pelanggaran_polisi" id="pelanggaran_polisi" required></textarea>
               </td>
             </tr>
             <tr>
@@ -867,7 +873,7 @@
                 Apakah anda memiliki kepemilikan atau keteriakatan dengan perusahaan lain?
               </td>
               <td>
-                <textarea name="kepemilikan_p_lain" id="kepemilikan_p_lain"></textarea>
+                <textarea name="kepemilikan_p_lain" id="kepemilikan_p_lain" required></textarea>
               </td>
             </tr>
             <tr>
@@ -875,7 +881,7 @@
                 Jika Anda di terima, kapan Anda dapat mulai bekerja?
               </td>
               <td>
-                <textarea name="mulai_kerja" id="mulai_kerja"></textarea>
+                <textarea name="mulai_kerja" id="mulai_kerja" required></textarea>
               </td>
             </tr>
           </tbody>
@@ -1064,6 +1070,16 @@
     ingin_gaji.addEventListener('keyup', function(e){
       ingin_gaji.value = formatRupiah(this.value);
     });
+  }
+
+  function emailck(){
+    var em = document.getElementById('email').value;
+    // alert(em);
+      var filter = /^([a-zA-Z-Z0-9_.-])+@(([a-zA-Z-Z0-9-]+.)+[a-zA-Z-Z0-9]{2,4})+$/;
+      if(!filter.test(em)){
+        alert('Format Email Salah');
+            document.getElementById('email').value="";
+      }
   }
 
   

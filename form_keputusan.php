@@ -42,8 +42,7 @@ include 'conn.php';
 								<select id="namapelamar" name="namapelamar" class="form-control select2" onchange="pilihpelamar(this.value)">
 									<option>-- Pilih Nama --</option>
 									<?php
-
-										$sql = "SELECT * FROM `pelamar`";
+									$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar WHERE pelamar.idpelamar = calon_karyawan.idpelamar";
 										$query = $conn->query($sql);
 										foreach ($query as $row) {
 											$n=0;
@@ -55,12 +54,17 @@ include 'conn.php';
 														$n++;
 														$cek=$row1['status'];
 													}
-												if ($n>="2" and $cek !="Fail"){
-													$n++;
+												if ($cek =="Fail"){
+													$faill="- Ditunda sementara";
+												}
+												$n++;
+												if($n>2){
 									?>
-												<option value="<?=$idpelamar ?>"><?=$namapelamar ?></option>
+												<option value="<?=$idpelamar ?>"><?=$namapelamar."$faill"; ?></option>
 									<?php
-										}
+									}
+										$faill="";
+										$cek="";
 									}
 									?>
 								</select>

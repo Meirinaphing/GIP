@@ -51,10 +51,12 @@ $nopk = $_POST['nopk'];
 			<div class="col-sm-3" style="text-align: center;">Pendidikan : <?=$row['pendidikan'];?></div>
 			<div class="col-sm-3" style="text-align: right;">Status : <?=$row['status_karyawan'];?></div>
 		</div>
+		<br>
 		<div>
 			<b> Tugas dan Tanggung Jawab : </b> <br>
 			<?=$row['uraian_p'];?>
 		</div>
+		<br>
 		<div class="row mb-2">
 			<div class="col-sm-4">Pengalaman : <?=$row['pengalaman_y'];?> Tahun</div>
 			<div class="col-sm-4" style="text-align: center;">Gaji : <?=$row['job_kelas'];?></div>

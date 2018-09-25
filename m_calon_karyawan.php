@@ -1,3 +1,6 @@
+
+  <link rel="stylesheet" href="lte/plugins/timepicker/bootstrap-timepicker.min.css">
+
 <?php
 $idpelamar = $_POST['idpelamar'];
 	$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
@@ -42,11 +45,13 @@ $idpelamar = $_POST['idpelamar'];
 		
 		<div class="row ">
 			<div class="col-sm-12">Kepada :
-			<input type="text" value="<?=$row['email'];?>" readonly name="" class="form-control">
+			<input type="text" value="<?=$row['email'];?>" readonly name="email" id="email" class="form-control">
 			</div>
 			<div class="col-sm-12">
-				Isi Email :
-				<textarea class="form-control"></textarea></div>
+                Tanggal :
+                    <input type="text" class="form-control" id="tglwawancara" name="tglwawancara">
+				Jam :
+				<input type="text" name="jam" id="jam" class="form-control timepicker"></div>
 		</div>
 	</div>
 
@@ -56,10 +61,51 @@ $idpelamar = $_POST['idpelamar'];
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		</div>
 		<div class="col-sm-6" align="right">
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Send Email</button>
+			<button type="button" class="btn btn-primary"  onclick="kirimemail()">Send Email</button>
 		</div>
 	</div>
 
 <?php
 }
 ?>
+<script src="lte/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
+<script type="text/javascript">
+$(function () {
+    $('.timepicker').timepicker({
+      showInputs: true
+
+    })
+      $('#tglwawancara').datepicker({
+      autoclose: true,
+      format: 'dd/mm/yyyy'
+    })
+  })
+
+
+function kirimemail(){
+	 var jam =  document.getElementById("jam").value;
+	 var tgl =  document.getElementById("tglwawancara").value;
+	 var email =  document.getElementById("email").value;
+	 if(tgl==""){
+	 	document.getElementById("tglwawancara").focus();
+	 }else if(jam==""){
+	 	document.getElementById("jam").focus();
+	 }else{
+	$.ajax({
+		type: "POST",
+		url: "email/wawancara.php", 
+		data: {jam:jam,email:email, tgl:tgl,idpelamar:"<?php echo $idpelamar; ?>"},
+		dataType: "text",  
+		cache:false,
+		success: 
+		function(data){
+			// alert('Rejected');
+			// location.reload();
+			// $('#isi_content').html(data);
+    		alert(data);  //as a debugging message.
+			calonkariawan();
+    	}
+    });}
+}
+</script>

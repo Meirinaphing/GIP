@@ -195,7 +195,50 @@ if(!isset($_SESSION['user'])){
           		</li>
           	</ul>
           </li>
+
+
+
+		
+
+          <li class="nav-item has-treeview">
+          	<a href="#" class="nav-link" id="inpu">
+          		<i class="nav-icon fa fa-list"></i>
+          		<p>
+          			Input
+          			<i class="right fa fa-angle-left"></i>
+          		</p>
+          	</a>
+          	<ul class="nav nav-treeview">
+          		<li class="nav-item">
+          			<a href="#" class="nav-link" id="divi" onclick="divisi(),ceklink(this.id,'inpu')" >
+          				<i class="fa fa-circle-o nav-icon"></i>
+          				<p>Divisi</p>
+          			</a>
+          		</li>
+          		<li class="nav-item">
+          			<a href="#" class="nav-link" id="pmbt" onclick="pembobotan(),ceklink(this.id,'inpu')" >
+          				<i class="fa fa-circle-o nav-icon"></i>
+          				<p>Pembobotan</p>
+          			</a>
+          		</li>
+          	</ul>
+          </li>
+
+
           <li class="nav-header">REPORTS</li>
+          
+          <li class="nav-item has-treeview">
+          	<a href="#" class="nav-link" id="rnk">
+          		<i class="nav-icon fa fa-trophy"></i>
+          		<p>
+          			Ranking
+          			<i class="right fa fa-angle-left"></i>
+          		</p>
+          	</a>
+          	<ul class="nav nav-treeview">
+          	</ul>
+          </li>
+
           <li class="nav-item">
           	<a href="#" class="nav-link">
           		<i class="nav-icon fa fa-table"></i>
@@ -213,8 +256,8 @@ if(!isset($_SESSION['user'])){
           	</a>
           </li>
 
-
       </ul>
+
   </nav>
   <!-- /.sidebar-menu -->
 </div>
@@ -525,6 +568,38 @@ if(!isset($_SESSION['user'])){
 		$.ajax({
 			type: "POST",
 			url: "pelamar.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+	function pembobotan(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "pembobotan.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+	function divisi(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "divisi.php", 
 			data: {kosong:'kosong'},
 			dataType: "text",  
 			cache:false,

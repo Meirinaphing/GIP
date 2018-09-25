@@ -45,7 +45,6 @@ textarea.invalid {
 }
 </style>  
 
-
   <!-- <div class="container">
     <h2 align="center">Form Permintaan Karyawan Baru</h2>
     <form action="#">
@@ -144,7 +143,23 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 
 				<div class="col-sm-4">
 					<label class="control-label" style="text-align: left;">Divisi/Dept:</label>
-					<input type="text" class="form-control wajib " id="divisi" name="divisi" placeholder="Enter Divisi" required>
+
+					<select id="divisi" name="divisi" class="form-control select2 wajib">
+						
+						<?php
+
+							$sql = "SELECT * FROM divisi";
+							$query = $conn->query($sql);
+							foreach ($query as $row) {
+								$namadivisi=$row['namadivisi'];
+						?>
+									<option value="<?=$namadivisi ?>"><?=$namadivisi; ?></option>
+						<?php
+						}
+						?>
+					</select>
+<!-- 
+					<input type="text" class="form-control wajib " id="divisi" name="divisi" placeholder="Enter Divisi" required> -->
 				</div>
 				<div class="col-sm-4">
 					<label class="control-label">Job Kelas:</label>
@@ -249,7 +264,13 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 						   <div class="col-sm-2" align="right">
 							 <label class="control-label">Pendidikan:</label></div>
 							 <div class="col-sm-4">
-							   <input type="text" class="form-control wajib form-control-sm" id="pendidikan" name="pendidikan" placeholder="Enter Pendidikan">
+								<select id="pendidikan" name="pendidikan" class="form-control wajib" >
+									<option value="sd">SD Sederajat</option>
+									<option value="smp">SMP sederajat</option>
+									<option value="sma">SMA/SMK Sederajat </option>
+									<option value="uni">S1 Keatas </option>
+								</select>
+							   <!-- <input type="text" class="form-control wajib form-control-sm" id="pendidikan" name="pendidikan" placeholder="Enter Pendidikan"> -->
 							 </div>
 						 </div>
 						
@@ -361,7 +382,38 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 
 
 </form>
-<script>
+<script type="text/javascript">
+
+	var startgaji = document.getElementById('startgaji');
+  if(startgaji){
+    startgaji.addEventListener('keyup', function(e){
+      startgaji.value = formatRupiah(this.value);
+    });
+  }
+
+var endgaji = document.getElementById('endgaji');
+  if(endgaji){
+    endgaji.addEventListener('keyup', function(e){
+      endgaji.value = formatRupiah(this.value);
+    });
+  }
+   
+   function formatRupiah(bilangan){
+
+    var number_string = bilangan.replace(/[^,\d]/g, '').toString();
+    split = number_string.split(',');
+    sisa  = split[0].length % 3;
+    rupiah  = split[0].substr(0, sisa);
+    ribuan  = split[0].substr(sisa).match(/\d{1,3}/gi);
+    
+    if (ribuan) {
+      separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+    
+    return rupiah = split[1] != undefined ? rupiah + ',' + split[1] : 'Rp.' + rupiah;
+  }
+ 
   function radio(){
     var a = 'Jika ya, Lampirkan Manpower Planning yang disetujui <input type="file" class="wajib" name="mp1" accept="application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">';
     var b = 'Jika Tidak, '

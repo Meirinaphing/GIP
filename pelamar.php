@@ -84,12 +84,12 @@ if(!isset($_SESSION['user'])){
 							</tbody>
 							<tfoot>
 								<tr>
-									<th>Tanggal</th>
-									<th>Nama Pemohon</th>
-									<th>Divisi</th>
-									<th>Job Class</th>
-									<th>Jumlah</th>
-									<th>Status</th>
+									<th>Nama Pelamar</th>
+									<th>Jabatan</th>
+									<th>Ditempatkan</th>
+									<th>Gaji</th>
+									<th>Jumlah pengalaman</th>
+									<th>Foto</th>
 									<th>Action</th>
 								</tr>
 							</tfoot>

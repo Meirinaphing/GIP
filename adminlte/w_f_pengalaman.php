@@ -32,7 +32,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
             <div class="input-group-addon">
               <i class="fa fa-industry"></i>
             </div>
-            <input type="text" class="form-control" placeholder="Nama Perusahaan" id="pengalaman_nama_p_<?php echo $b; ?>" name="pengalaman_nama_p_<?php echo $b; ?>">
+            <input type="text" class="form-control wajib" placeholder="Nama Perusahaan" id="pengalaman_nama_p_<?php echo $b; ?>" name="pengalaman_nama_p_<?php echo $b; ?>">
           </div>
           <!-- /.input group -->
         </div>
@@ -42,7 +42,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
             <div class="input-group-addon">
               <i class="fa fa-bar-chart"></i>
             </div>
-            <input type="text" class="form-control" placeholder="Bergerak di Bidang" id="pengalaman_bergerak_di_<?php echo $b; ?>" name="pengalaman_bergerak_di_<?php echo $b; ?>">
+            <input type="text" class="form-control wajib" placeholder="Bergerak di Bidang" id="pengalaman_bergerak_di_<?php echo $b; ?>" name="pengalaman_bergerak_di_<?php echo $b; ?>">
           </div>
           <!-- /.input group -->
         </div>
@@ -53,7 +53,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
              <div class="input-group-addon">
               <i class="fa fa-user-secret"></i>
             </div>
-            <input type="text" class="form-control" placeholder="jabatan" id="pengalaman_jabatan_p_<?php echo $b; ?>" name="pengalaman_jabatan_p_<?php echo $b; ?>">
+            <input type="text" class="form-control wajib" placeholder="jabatan" id="pengalaman_jabatan_p_<?php echo $b; ?>" name="pengalaman_jabatan_p_<?php echo $b; ?>">
           </div>
           <!-- /.input group -->
         </div>
@@ -63,7 +63,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
            <div class="input-group-addon">
             <i class="fa fa-money"></i>
           </div>
-          <input type="text" onkeydown="return limitCharacter(event)" class="form-control" id="pengalaman_gaji_p_<?php echo $b; ?>" name="pengalaman_gaji_p_<?php echo $b; ?>" placeholder="Gaji">
+          <input type="text" onkeydown="return limitCharacter(event)" class="form-control wajib" id="pengalaman_gaji_p_<?php echo $b; ?>" name="pengalaman_gaji_p_<?php echo $b; ?>" placeholder="Gaji">
         </div>
         <!-- /.input group -->
       </div>
@@ -78,7 +78,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
           <div class="input-group-addon">
            <i class="fa  fa-calendar"></i>
          </div>
-         <input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" id="pengalaman_mulai_k_<?php echo $b; ?>" name="pengalaman_mulai_k_<?php echo $b; ?>">
+         <input type="text" class="form-control wajib" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Masuk" id="pengalaman_mulai_k_<?php echo $b; ?>" name="pengalaman_mulai_k_<?php echo $b; ?>">
        </div>
      </div>
      <div class="col-sm-2"></div>
@@ -88,7 +88,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
         <div class="input-group-addon">
          <i class="fa  fa-calendar"></i>
        </div>
-       <input type="text" class="form-control" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Keluar" id="pengalaman_keluar_p_<?php echo $b; ?>" name="pengalaman_keluar_p_<?php echo $b; ?>">
+       <input type="text" class="form-control wajib" data-inputmask="'alias': 'mm/yyyy'" data-mask="" placeholder="Keluar" id="pengalaman_keluar_p_<?php echo $b; ?>" name="pengalaman_keluar_p_<?php echo $b; ?>">
      </div>
    </div>
 
@@ -100,7 +100,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
     <div class="input-group-addon">
       <i class="fa fa-hand-stop-o"></i>
     </div>
-    <textarea class="form-control" placeholder="Alasan Berhenti" id="pengalaman_alasan_berhenti_<?php echo $b; ?>" name="pengalaman_alasan_berhenti_<?php echo $b; ?>"></textarea>
+    <textarea class="form-control wajib" placeholder="Alasan Berhenti" id="pengalaman_alasan_berhenti_<?php echo $b; ?>" name="pengalaman_alasan_berhenti_<?php echo $b; ?>"></textarea>
   </div>
   <!-- /.input group -->
 </div>
@@ -111,7 +111,7 @@ var <?php echo $idjasa; ?> = document.getElementById('<?php echo $idjasa; ?>');
     <div class="input-group-addon">
       <i class="fa fa-object-group"></i>
     </div>
-    <textarea class="form-control" placeholder="Gambaran Pekerjaan" id="pengalaman_gambaran_p_<?php echo $b; ?>" name="pengalaman_gambaran_p_<?php echo $b; ?>"></textarea>
+    <textarea class="form-control wajib" placeholder="Gambaran Pekerjaan" id="pengalaman_gambaran_p_<?php echo $b; ?>" name="pengalaman_gambaran_p_<?php echo $b; ?>"></textarea>
   </div>
   <!-- /.input group -->
 </div>
