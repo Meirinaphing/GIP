@@ -1059,8 +1059,8 @@ textarea.invalid {
  $(document).ready(function() {
       tambahsasudara(1);
       tambah_bahasa(1);
-      tambah_pelatihan(1);
-      tambah_pengalaman(1);
+      tambah_pelatihan(0);
+      tambah_pengalaman(0);
       tambah_nama(1);
       tambah_refrensi(1);
  });

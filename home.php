@@ -226,18 +226,7 @@ if(!isset($_SESSION['user'])){
 
 
           <li class="nav-header">REPORTS</li>
-          
-          <li class="nav-item has-treeview">
-          	<a href="#" class="nav-link" id="rnk">
-          		<i class="nav-icon fa fa-trophy"></i>
-          		<p>
-          			Ranking
-          			<i class="right fa fa-angle-left"></i>
-          		</p>
-          	</a>
-          	<ul class="nav nav-treeview">
-          	</ul>
-          </li>
+        
 
           <li class="nav-item">
           	<a href="#" class="nav-link">

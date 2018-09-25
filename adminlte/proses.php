@@ -208,17 +208,16 @@ $query_p_p = $conn->query($sql_p_p);
 	 $pengalaman_jabatan_p_[$n] = $_POST['pengalaman_jabatan_p_'.$n];
 	 $pengalaman_gaji_p_[$n] = $_POST['pengalaman_gaji_p_'.$n];
 	 $p_pengalaman_mulai_k_[$n] = $_POST['pengalaman_mulai_k_'.$n];
- 		$p_tgl = explode("/", p_pengalaman_mulai_k_[$n]);
- 		$pengalaman_mulai_k_[$n] = $p_tgl[1].'-'.$p_tgl[0].'-01';
-
+ 		$p_tgl_m = explode("/", $p_pengalaman_mulai_k_[$n]);
+ 		$pengalaman_mulai_k_[$n] = $p_tgl_m[1].'-'.$p_tgl_m[0].'-01';
 	 $p_pengalaman_keluar_p_[$n] = $_POST['pengalaman_keluar_p_'.$n];
- 		$p_tgl = explode("/", p_pengalaman_keluar_p_[$n]);
- 		$pengalaman_keluar_p_[$n] = $p_tgl[1].'-'.$p_tgl[0].'-01';
+ 		$p_tgl_k = explode("/", $p_pengalaman_keluar_p_[$n]);
+ 		$pengalaman_keluar_p_[$n] = $p_tgl_k[1].'-'.$p_tgl_k[0].'-01';
 
 	 $pengalaman_alasan_berhenti_[$n] = $_POST['pengalaman_alasan_berhenti_'.$n];
 	 $pengalaman_gambaran_p_[$n] = $_POST['pengalaman_gambaran_p_'.$n];
 
-	$sql_pengalaman= "INSERT INTO `pelamar_pengalaman` (`nopengalaman`, `idpelamar`, `pengalaman_nama`, `pengalaman_bererak`, `pengalaman_jabatang`, `pengalaman_gaji`, `pengalaman_mulai`, `pengalaman_keluar`, `pengalaman_alasan_berhenti`, `pengalaman_gambaran_pekerjaan`) VALUES (NULL, '$idpelamar', '$pengalaman_nama_p_[$n]', '$pengalaman_bergerak_di_[$n]', '$pengalaman_jabatan_p_[$n]', '$pengalaman_gaji_p_[$n]', '$pengalaman_mulai_k_[$n]', '$pengalaman_keluar_p_[$n]', '$pengalaman_alasan_berhenti_[$n]', '$pengalaman_gambaran_p_[$n]')";
+	echo $sql_pengalaman= "INSERT INTO `pelamar_pengalaman` (`nopengalaman`, `idpelamar`, `pengalaman_nama`, `pengalaman_bererak`, `pengalaman_jabatang`, `pengalaman_gaji`, `pengalaman_mulai`, `pengalaman_keluar`, `pengalaman_alasan_berhenti`, `pengalaman_gambaran_pekerjaan`) VALUES (NULL, '$idpelamar', '$pengalaman_nama_p_[$n]', '$pengalaman_bergerak_di_[$n]', '$pengalaman_jabatan_p_[$n]', '$pengalaman_gaji_p_[$n]', '$pengalaman_mulai_k_[$n]', '$pengalaman_keluar_p_[$n]', '$pengalaman_alasan_berhenti_[$n]', '$pengalaman_gambaran_p_[$n]')";
 
 	$query_pengalaman = $conn->query($sql_pengalaman);
 
