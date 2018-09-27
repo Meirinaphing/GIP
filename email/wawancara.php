@@ -8,7 +8,7 @@ include("../conn.php");
 	$idpelamar=$_POST['idpelamar'];
 	$n=0;
 
-												$sql1 = "SELECT * FROM `wawancara` where nopelamar ='$idpelamar'";
+												$sql1 = "SELECT * FROM `wawancara` where idpelamar ='$idpelamar'";
 												$query1 = $conn->query($sql1);
 													foreach ($query1 as $row1) {
 														$n++;

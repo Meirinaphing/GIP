@@ -57,7 +57,7 @@ if(!isset($_SESSION['user'])){
 								foreach ($query as $row) {
 									$nilai[1]=0;
 									$nilai[2]=0;
-									$sql_wawancara = "SELECT * FROM `wawancara` WHERE nopelamar='$row[idpelamar]'";
+									$sql_wawancara = "SELECT * FROM `wawancara` WHERE idpelamar='$row[idpelamar]'";
 										$query_wawancara = $conn->query($sql_wawancara);
 										$n=1;
 											foreach ($query_wawancara as $row_wawancara){

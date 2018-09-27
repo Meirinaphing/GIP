@@ -8,7 +8,7 @@ $idpelamar = $_POST['idpelamar'];
 			$fotopelamar = $row_pelamar['fotopelamar'];
 			$jabatandilamar = $row_pelamar['jabatandilamar'];
 		}
-	$sql_wawancara = "SELECT * FROM `wawancara` WHERE nopelamar='$idpelamar'";
+	$sql_wawancara = "SELECT * FROM `wawancara` WHERE idpelamar='$idpelamar'";
 	$query_wawancara = $conn->query($sql_wawancara);
 	$n=1;
 		foreach ($query_wawancara as $row_wawancara){

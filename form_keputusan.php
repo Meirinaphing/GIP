@@ -48,7 +48,7 @@ include 'conn.php';
 											$n=0;
 											$namapelamar = $row['namapelamar'];	
 											$idpelamar = $row['idpelamar'];	
-												$sql1 = "SELECT * FROM `wawancara` where nopelamar ='$idpelamar'";
+												$sql1 = "SELECT * FROM `wawancara` where idpelamar ='$idpelamar'";
 												$query1 = $conn->query($sql1);
 													foreach ($query1 as $row1) {
 														$n++;

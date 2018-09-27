@@ -160,7 +160,7 @@ $divisi = $_POST['divisi'];
 
 							<tbody>
 								<?php
-									 $sqlckaryawan = "SELECT *,pelamar.namapelamar FROM `calon_karyawan` join pelamar on calon_karyawan.idpelamar = pelamar.idpelamar ";
+									$sqlckaryawan = "SELECT *,pelamar.namapelamar,permintaan_karyawan.nopk FROM `calon_karyawan` join pelamar on calon_karyawan.idpelamar = pelamar.idpelamar join permintaan_karyawan on permintaan_karyawan.nopk = pelamar.jabatandilamar where permintaan_karyawan.divisi='$divisi'";
 											$queryckaryawan = $conn->query($sqlckaryawan);
 											foreach ($queryckaryawan as $isikaryawan){
 												$komunikasiu = 0;
@@ -179,7 +179,7 @@ $divisi = $_POST['divisi'];
 									<th><?= $isikaryawan['namapelamar'] ?></th>
 								<?php
 
-									$sql2 = "SELECT AVG(nilai_wawancara.komunikasi) as komunikasi ,AVG(nilai_wawancara.kecerdasan) as kecerdasan, AVG(nilai_wawancara.pdiri) as pdiri,AVG(nilai_wawancara.kumum) as kumum ,AVG(nilai_wawancara.kkhusus) as kkhusus,AVG(nilai_wawancara.kepemimpinan) as kepemimpinan,AVG(nilai_wawancara.motivasi) as motivasi,AVG(nilai_wawancara.pengalaman)as pengalaman,AVG(nilai_wawancara.pkeputusan) as pkeputusan,AVG(nilai_wawancara.sosialisasi) as sosialisasi ,wawancara.nopelamar FROM wawancara join nilai_wawancara on wawancara.id = nilai_wawancara.idwawancara where wawancara.nopelamar = '$isikaryawan[idpelamar]'";
+									$sql2 = "SELECT AVG(nilai_wawancara.komunikasi) as komunikasi ,AVG(nilai_wawancara.kecerdasan) as kecerdasan, AVG(nilai_wawancara.pdiri) as pdiri,AVG(nilai_wawancara.kumum) as kumum ,AVG(nilai_wawancara.kkhusus) as kkhusus,AVG(nilai_wawancara.kepemimpinan) as kepemimpinan,AVG(nilai_wawancara.motivasi) as motivasi,AVG(nilai_wawancara.pengalaman)as pengalaman,AVG(nilai_wawancara.pkeputusan) as pkeputusan,AVG(nilai_wawancara.sosialisasi) as sosialisasi ,wawancara.idpelamar FROM wawancara join nilai_wawancara on wawancara.id = nilai_wawancara.idwawancara where wawancara.idpelamar = '$isikaryawan[idpelamar]' ";
 									$query2 = $conn->query($sql2);
 									foreach ($query2 as $rows) {
 										$komunikasiu=$rows['komunikasi'];
@@ -273,7 +273,7 @@ $divisi = $_POST['divisi'];
 									 else if($roww['namafield']=="keputusan"){ 
 
 											$bobot=$roww['nilai']/100;
-											$nilai = $keputusanu/$keputusanmax;
+											$nilai = $pkeputusanu/$keputusanmax;
 											$semua +=  $nilai * $bobot;
 											?>
 											<th><?= $nilai; ?></th>
@@ -290,7 +290,7 @@ $divisi = $_POST['divisi'];
 										}
 									 else if($roww['namafield']=="rrtw"){ 
 
-									 $sqltotmaxwawancara = "SELECT MAX(nilai_wawancara.komunikasi + nilai_wawancara.kecerdasan + nilai_wawancara.pdiri + nilai_wawancara.kumum + nilai_wawancara.kkhusus + nilai_wawancara.kepemimpinan + nilai_wawancara.motivasi + nilai_wawancara.pengalaman + nilai_wawancara.pkeputusan + nilai_wawancara.sosialisasi) as 'totmaxwawancara' from nilai_wawancara join wawancara on nilai_wawancara.idwawancara = wawancara.nopelamar where wawancara.nopelamar = '$isikaryawan[idpelamar]'";
+									 $sqltotmaxwawancara = "SELECT MAX(nilai_wawancara.komunikasi + nilai_wawancara.kecerdasan + nilai_wawancara.pdiri + nilai_wawancara.kumum + nilai_wawancara.kkhusus + nilai_wawancara.kepemimpinan + nilai_wawancara.motivasi + nilai_wawancara.pengalaman + nilai_wawancara.pkeputusan + nilai_wawancara.sosialisasi) as 'totmaxwawancara' from nilai_wawancara join wawancara on nilai_wawancara.idwawancara = wawancara.idpelamar where wawancara.idpelamar = '$isikaryawan[idpelamar]'";
 											$querytotmaxwawancara = $conn->query($sqltotmaxwawancara);
 											foreach ($querytotmaxwawancara as $totmaxwawancara) {
 									 			$wawanuser = $totmaxwawancara['totmaxwawancara'];
