@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2018 at 02:46 PM
+-- Generation Time: Sep 27, 2018 at 04:12 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -40,7 +40,8 @@ CREATE TABLE `calon_karyawan` (
 
 INSERT INTO `calon_karyawan` (`no`, `idpelamar`, `tgl`, `waktu`, `status`) VALUES
 (1, 1, '29/09/2018', '09:30 AM', 'wawancara ke 2 (PASS)'),
-(2, 2, '-', '-', 'Belum Wawancara');
+(2, 2, '-', '-', 'Belum Wawancara'),
+(3, 3, '-', '-', 'Belum Wawancara');
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,7 @@ CREATE TABLE `pelamar` (
 INSERT INTO `pelamar` (`idpelamar`, `namapelamar`, `fotopelamar`, `tempatlahir`, `tgllahir`, `noktp`, `alamat`, `jabatandilamar`, `jkpelamar`, `statuspelamar`, `kebangsaan`, `notlpn`, `ditempatkan`, `ingingaji`, `adakeluarga`, `pernahlamar`, `pelanggaran`, `perusahaanlain`, `mulaikerja`, `email`, `status`) VALUES
 (1, 'elven', 'fotopelamar/KE8t97294930e497ad395fb93124d919e985d.png', 'pnk', '1997-08-01', '090909', 'ktp', '2409-1-0', 'Pria', 'Belum Nikah', 'indonesia', '0896-4422-3322_', 'gak', 'Rp.2.500.000', 'engga', 'tidak pernah', 'tidak', 'tidak', 'segera', 'evneve00@gmail.com', 'Approved'),
 (2, 'namab', 'fotopelamar/dyuBc7294930e497ad395fb93124d919e985d.png', 'pnk', '2018-09-19', '123', 'asd', '2409-1-0', 'Pria', 'Belum Nikah', '123', '1231-2312-3123_', '98', 'Rp.98', '98', '98', '98', '98', '98', 'evneve00@gmail.com', 'Approved'),
-(3, 'namab', 'fotopelamar/1fHFA7294930e497ad395fb93124d919e985d.png', 'pnk', '2018-09-19', '123', 'asd', '2409-1-0', 'Pria', 'Belum Nikah', '123', '1231-2312-3123_', '98', 'Rp.98', '98', '98', '98', '98', '98', 'evneve00@gmail.com', 'barudaftar'),
+(3, 'namab', 'fotopelamar/1fHFA7294930e497ad395fb93124d919e985d.png', 'pnk', '2018-09-19', '123', 'asd', '2409-1-0', 'Pria', 'Belum Nikah', '123', '1231-2312-3123_', '98', 'Rp.98', '98', '98', '98', '98', '98', 'evneve00@gmail.com', 'Approved'),
 (4, 'namab', 'fotopelamar/77LUd7294930e497ad395fb93124d919e985d.png', 'pnk', '2018-09-19', '123', 'asd', '2409-1-0', 'Pria', 'Belum Nikah', '123', '1231-2312-3123_', '98', 'Rp.98', '98', '98', '98', '98', '98', 'evneve00@gmail.com', 'barudaftar'),
 (5, 'namab', 'fotopelamar/lY2hC7294930e497ad395fb93124d919e985d.png', 'pnk', '2018-09-19', '123', 'asd', '2409-1-0', 'Pria', 'Belum Nikah', '123', '1231-2312-3123_', '98', 'Rp.98', '98', '98', '98', '98', '98', 'evneve00@gmail.com', 'barudaftar'),
 (6, 'namab', 'fotopelamar/CStMJ7294930e497ad395fb93124d919e985d.png', 'pnk', '2018-09-19', '123', 'asd', '2409-1-0', 'Pria', 'Belum Nikah', '123', '1231-2312-3123_', '98', 'Rp.98', '98', '98', '98', '98', '98', 'evneve00@gmail.com', 'barudaftar'),
@@ -538,7 +539,7 @@ INSERT INTO `user` (`iduser`, `nama`, `jabatan`, `email`, `password`, `username`
 
 CREATE TABLE `wawancara` (
   `id` int(10) NOT NULL,
-  `nopelamar` int(10) NOT NULL,
+  `idpelamar` int(10) NOT NULL,
   `wawancara` varchar(100) NOT NULL,
   `status` text NOT NULL,
   `nilai` int(10) NOT NULL,
@@ -549,7 +550,7 @@ CREATE TABLE `wawancara` (
 -- Dumping data for table `wawancara`
 --
 
-INSERT INTO `wawancara` (`id`, `nopelamar`, `wawancara`, `status`, `nilai`, `tgl`) VALUES
+INSERT INTO `wawancara` (`id`, `idpelamar`, `wawancara`, `status`, `nilai`, `tgl`) VALUES
 (1, 1, '1', 'PASS', 70, '2018-09-25'),
 (2, 1, '1', 'PASS', 60, '2018-09-25');
 
@@ -679,7 +680,7 @@ ALTER TABLE `wawancara`
 -- AUTO_INCREMENT for table `calon_karyawan`
 --
 ALTER TABLE `calon_karyawan`
-  MODIFY `no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `faktor_wawancara`
 --
