@@ -488,6 +488,7 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
 function showTab(n) {
+
   // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
@@ -497,10 +498,10 @@ function showTab(n) {
   } else {
     document.getElementById("prevBtn").style.display = "inline";
   }
-  if (n == (x.length - 1)) {
+  if (n == (5 - 1)) {
     document.getElementById("nextBtn").innerHTML = '<button type="submit" onclick="save_form()" class="btn btn-primary">Submit</button>';
   } else {
-    document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>';
+    document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next'+x.length+n+'</button>';
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)

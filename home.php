@@ -119,7 +119,7 @@ if(!isset($_SESSION['user'])){
 						<img src="logo.png" class="img-circle elevation-2" alt="Logo perusahaan">
 					</div>
 					<div class="info">
-						<a href="#" class="d-block"><?=$_SESSION['user'];?></a>
+						<a href="#" onclick="profile(),ceklink(this.id,'')" class="d-block"><?=$_SESSION['user'];?></a>
 					</div>
 				</div>
 
@@ -221,6 +221,12 @@ if(!isset($_SESSION['user'])){
           				<p>Pembobotan</p>
           			</a>
           		</li>
+          		<li class="nav-item">
+          			<a href="#" class="nav-link" id="usr" onclick="user(),ceklink(this.id,'inpu')" >
+          				<i class="fa fa-circle-o nav-icon"></i>
+          				<p>User</p>
+          			</a>
+          		</li>
           	</ul>
           </li>
 
@@ -229,7 +235,7 @@ if(!isset($_SESSION['user'])){
         
 
           <li class="nav-item">
-          	<a href="#" class="nav-link">
+          	<a href="#" class="nav-link "onclick="lowker(),ceklink(this.id,'rank')"">
           		<i class="nav-icon fa fa-table"></i>
           		<p>
           			Lowongan Kerja
@@ -496,6 +502,55 @@ if(!isset($_SESSION['user'])){
 			  });// you have missed this bracket
 		return false;
 	}
+	function user(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "user.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+	function profile(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "profile.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+	function lowker(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type: "POST",
+			url: "lowker.php", 
+			data: {kosong:'kosong'},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				$('#isi_content').html(data);
+					//alert(data);  //as a debugging message.
+				}
+			  });// you have missed this bracket
+		return false;
+	}
+
 </script>
 
 <!-- The Modal -->

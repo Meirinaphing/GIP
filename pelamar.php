@@ -118,7 +118,7 @@ if(!isset($_SESSION['user'])){
 	function modal_reload(idpelamar){
 		$.ajax({
 			type: "POST",
-			url: "m_calon_karyawan.php", 
+			url: "m_pelamar.php", 
 			data: {idpelamar:idpelamar},
 			dataType: "text",  
 			cache:false,

@@ -1,5 +1,5 @@
 <?php 
-  include '../conn.php';
+include '../conn.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,52 +30,52 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
-  folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-  
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<![endif]-->
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <style>
-  .tab {
-    display: none;
-  }
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #3761D4;
-    border: none;  
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-  }
+.tab {
+  display: none;
+}
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #3761D4;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
 
-  .step.active {
-    opacity: 1;
-  }
+.step.active {
+  opacity: 1;
+}
 
-  /* Mark the steps that are finished and valid: */
-  .step.finish {
-    background-color: #299F3E;
-  }
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #299F3E;
+}
 
-  .hr {
-    background-color: dimgrey !important;
-    color: dimgrey !important;
-    border: solid 2px dimgrey !important;
-    height: 5px !important;
+.hr {
+  background-color: dimgrey !important;
+  color: dimgrey !important;
+  border: solid 2px dimgrey !important;
+  height: 5px !important;
 
-  }
+}
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #ffdddd;
@@ -217,15 +217,15 @@ textarea.invalid {
                   <i class="fa fa-user-secret"></i>
                 </div>
                 <select id="jabatanygdilamar" name="jabatanygdilamar" class="form-control select2" style="width: 100%;">
-          <?php
-              echo $sql = "select * from permintaan_karyawan where status = 'Approved'";
-                $query = $conn->query($sql);
-                foreach ($query as $row) {
-          ?>
-                  <option value="<?php echo $row['nopk']; ?>"><?php echo $row['jabatan']; ?></option>
-          <?php 
-            }
-          ?>
+                  <?php
+                  echo $sql = "select * from permintaan_karyawan where status = 'Approved'";
+                  $query = $conn->query($sql);
+                  foreach ($query as $row) {
+                    ?>
+                    <option value="<?php echo $row['nopk']; ?>"><?php echo $row['jabatan']; ?></option>
+                    <?php 
+                  }
+                  ?>
                 </select>
               </div>
               <!-- /.input group -->
@@ -467,14 +467,14 @@ textarea.invalid {
           </tbody>
           <tfoot id="u_bahasa">
             <!-- isi bahasa -->
-         </tfoot>
-       </table>
-     </div>
-     
-   </div>
+          </tfoot>
+        </table>
+      </div>
+      
+    </div>
 
- </div>
- <!-- /.box-body -->
+  </div>
+  <!-- /.box-body -->
 </div>
 <!-- /.box -->
 
@@ -742,67 +742,67 @@ textarea.invalid {
        <div class="form-group">
         <label>1. Silahkan tulis nama kerabat untuk referensi anda!</label><br>
         <label>Jumlah Refrensi:</label>  
-      <div class="input-group col-sm-6" >
-        <div class="input-group-addon">
-          <i class="fa fa-users"></i>
+        <div class="input-group col-sm-6" >
+          <div class="input-group-addon">
+            <i class="fa fa-users"></i>
+          </div>
+          <input type="number" value="1" class="form-control" id="jlh_kerabat" name="jlh_kerabat" onChange="tambah_refrensi(this.value)">
         </div>
-        <input type="number" value="1" class="form-control" id="jlh_kerabat" name="jlh_kerabat" onChange="tambah_refrensi(this.value)">
-      </div>
-      <hr>
-      <!-- /.input group -->
-      <table class="table table-bordered">
-        <tbody id="u_ref_kerabat">
-          <tr>
-            <td>Name <br> <i>Nama</i></td>
-            <td><input type="text" class="form-control" placeholder="Nama"></td>
-            <td>Phone Number <br> <i>No Telepon</i></td>
-            <td><input type="text" class="form-control" placeholder="No Telpon"></td>
-          </tr>
-          <tr>
-            <td>Position <br> <i>Jabatan</i></td>
-            <td><input type="text" class="form-control" placeholder="Jabatan"></td>
-            <td>Company <br> <i>Perusahaan</i></td>
-            <td><input type="text" class="form-control" placeholder="Perusahaan"></td>
-          </tr>
-          <tr>
-            <td>Relation <br> <i>Hubungan</i></td>
-            <td colspan="3"><input type="text" class="form-control" placeholder="Hubungan"></td>
-          </tr>
-        </tbody>
-      </table>
+        <hr>
         <!-- /.input group -->
-    </div>
-    
-    <hr>
-    <div class="form-group">
-      <label>2.Silahkan isi nama orang yang dapat di hubungi segera dalam keadaan mendesak/darurat!</label>
-      <br>
-      <label>Jumlah Nama:</label>  
-      <div class="input-group col-sm-6" >
-        <div class="input-group-addon">
-          <i class="fa fa-users"></i>
-        </div>
-        <input type="number" value="1" class="form-control" id="jlh_nama" name="jlh_nama" onChange="tambah_nama(this.value)">
+        <table class="table table-bordered">
+          <tbody id="u_ref_kerabat">
+            <tr>
+              <td>Name <br> <i>Nama</i></td>
+              <td><input type="text" class="form-control" placeholder="Nama"></td>
+              <td>Phone Number <br> <i>No Telepon</i></td>
+              <td><input type="text" class="form-control" placeholder="No Telpon"></td>
+            </tr>
+            <tr>
+              <td>Position <br> <i>Jabatan</i></td>
+              <td><input type="text" class="form-control" placeholder="Jabatan"></td>
+              <td>Company <br> <i>Perusahaan</i></td>
+              <td><input type="text" class="form-control" placeholder="Perusahaan"></td>
+            </tr>
+            <tr>
+              <td>Relation <br> <i>Hubungan</i></td>
+              <td colspan="3"><input type="text" class="form-control" placeholder="Hubungan"></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /.input group -->
       </div>
-      <!-- /.input group -->
-      <table class="table table-bordered">
-        <tbody id="tbody_nama">
-          <tr>
-            <th>Name / <small><i>Nama</i></small></th>
-            <th>Relation / <small><i>Hubungan</i></small></th>
-            <th>Phone Number / <small><i>No Telepon</i></small></th>
-          </tr>
-        </tbody>
-        <tfoot id="u_nama">
-          <!-- isi hubungan -->
-        </tfoot>
-      </table>
       
-    </div>
-    
-    <div class="form-group">
-      <label>3. Silahkan isi kolom keterangan sesuai dengan kesedian Anda!</label>
-      <br>
+      <hr>
+      <div class="form-group">
+        <label>2.Silahkan isi nama orang yang dapat di hubungi segera dalam keadaan mendesak/darurat!</label>
+        <br>
+        <label>Jumlah Nama:</label>  
+        <div class="input-group col-sm-6" >
+          <div class="input-group-addon">
+            <i class="fa fa-users"></i>
+          </div>
+          <input type="number" value="1" class="form-control" id="jlh_nama" name="jlh_nama" onChange="tambah_nama(this.value)">
+        </div>
+        <!-- /.input group -->
+        <table class="table table-bordered">
+          <tbody id="tbody_nama">
+            <tr>
+              <th>Name / <small><i>Nama</i></small></th>
+              <th>Relation / <small><i>Hubungan</i></small></th>
+              <th>Phone Number / <small><i>No Telepon</i></small></th>
+            </tr>
+          </tbody>
+          <tfoot id="u_nama">
+            <!-- isi hubungan -->
+          </tfoot>
+        </table>
+        
+      </div>
+      
+      <div class="form-group">
+        <label>3. Silahkan isi kolom keterangan sesuai dengan kesedian Anda!</label>
+        <br>
 
         <table class="table table-bordered">
           <tbody>
@@ -819,79 +819,79 @@ textarea.invalid {
               <td>
                Ditempatkan di kota lain <br>
                Jika ya ingin ditempatkan di mana? Jika tidak beri alasan
-               </td>
-             <td>
-                <input type="text" class="form-control" placeholder="keterangan" name="kotalain" id="kotalain" required>
              </td>
-           </tr>
-
-            <tr>
-              <td>2</td>
-            <td>
-               Gaji yang di inginkan
+             <td>
+              <input type="text" class="form-control" placeholder="keterangan" name="kotalain" id="kotalain" required>
             </td>
-             <td>
-                <input type="text" id="ingin_gaji" name="ingin_gaji" class="form-control" placeholder="Gaji"  required>
-             </td>
-           </tr>
-         </tfoot>
-       </table>
-     </div>
-     <hr>
+          </tr>
 
-     <div class="form-group">
-      
+          <tr>
+            <td>2</td>
+            <td>
+             Gaji yang di inginkan
+           </td>
+           <td>
+            <input type="text" id="ingin_gaji" name="ingin_gaji" class="form-control" placeholder="Gaji"  required>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <hr>
 
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <td>
-                Apakah Anda memiliki keluarga, kerabat, atau teman yang bekerja di perusahaan ini Sebutkan!
-              </td>
-              <td>
-                <textarea name="keluarga_di_p" id="keluarga_di_p" required></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Apakah Anda pernah Melamar ke Perusahaaj ini sebelumnya? Jika ya, untuk posisi apa?
-              </td>
-              <td>
-                <textarea name="melamar_disini" id="melamar_disini" required></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Apakah Anda perham terlibat dengan pihak kepolisian berkaitan dengan isu pelanggaran kriminal,atau pelanggaran perdata?
-              </td>
-              <td>
-                <textarea name="pelanggaran_polisi" id="pelanggaran_polisi" required></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Apakah anda memiliki kepemilikan atau keteriakatan dengan perusahaan lain?
-              </td>
-              <td>
-                <textarea name="kepemilikan_p_lain" id="kepemilikan_p_lain" required></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Jika Anda di terima, kapan Anda dapat mulai bekerja?
-              </td>
-              <td>
-                <textarea name="mulai_kerja" id="mulai_kerja" required></textarea>
-              </td>
-            </tr>
-          </tbody>
-       </table>
-     </div>
-     
-   </div>
+  <div class="form-group">
+    
 
- </div>
- <!-- /.box-body -->
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>
+            Apakah Anda memiliki keluarga, kerabat, atau teman yang bekerja di perusahaan ini Sebutkan!
+          </td>
+          <td>
+            <textarea name="keluarga_di_p" id="keluarga_di_p" required></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Apakah Anda pernah Melamar ke Perusahaaj ini sebelumnya? Jika ya, untuk posisi apa?
+          </td>
+          <td>
+            <textarea name="melamar_disini" id="melamar_disini" required></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Apakah Anda perham terlibat dengan pihak kepolisian berkaitan dengan isu pelanggaran kriminal,atau pelanggaran perdata?
+          </td>
+          <td>
+            <textarea name="pelanggaran_polisi" id="pelanggaran_polisi" required></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Apakah anda memiliki kepemilikan atau keteriakatan dengan perusahaan lain?
+          </td>
+          <td>
+            <textarea name="kepemilikan_p_lain" id="kepemilikan_p_lain" required></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Jika Anda di terima, kapan Anda dapat mulai bekerja?
+          </td>
+          <td>
+            <textarea name="mulai_kerja" id="mulai_kerja" required></textarea>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+</div>
+<!-- /.box-body -->
 </div>
 <!-- /.box -->
 
@@ -1057,29 +1057,29 @@ textarea.invalid {
 <!--	script untuk rupiah-->
 <script type="text/javascript">
  $(document).ready(function() {
-      tambahsasudara(1);
-      tambah_bahasa(1);
-      tambah_pelatihan(0);
-      tambah_pengalaman(0);
-      tambah_nama(1);
-      tambah_refrensi(1);
- });
+  tambahsasudara(1);
+  tambah_bahasa(1);
+  tambah_pelatihan(0);
+  tambah_pengalaman(0);
+  tambah_nama(1);
+  tambah_refrensi(1);
+});
 
-  var ingin_gaji = document.getElementById('ingin_gaji');
-  if(ingin_gaji){
-    ingin_gaji.addEventListener('keyup', function(e){
-      ingin_gaji.value = formatRupiah(this.value);
-    });
-  }
+ var ingin_gaji = document.getElementById('ingin_gaji');
+ if(ingin_gaji){
+  ingin_gaji.addEventListener('keyup', function(e){
+    ingin_gaji.value = formatRupiah(this.value);
+  });
+}
 
-  function emailck(){
-    var em = document.getElementById('email').value;
+function emailck(){
+  var em = document.getElementById('email').value;
     // alert(em);
-      var filter = /^([a-zA-Z-Z0-9_.-])+@(([a-zA-Z-Z0-9-]+.)+[a-zA-Z-Z0-9]{2,4})+$/;
-      if(!filter.test(em)){
-        alert('Format Email Salah');
-            document.getElementById('email').value="";
-      }
+    var filter = /^([a-zA-Z-Z0-9_.-])+@(([a-zA-Z-Z0-9-]+.)+[a-zA-Z-Z0-9]{2,4})+$/;
+    if(!filter.test(em)){
+      alert('Format Email Salah');
+      document.getElementById('email').value="";
+    }
   }
 
   
@@ -1139,30 +1139,30 @@ textarea.invalid {
    $("#u_saudara").html(isi);  
  }
 
-function tambah_bahasa(jlh){
+ function tambah_bahasa(jlh){
   if(jlh>5){
    jlh=5;
    document.getElementById('jlh_bahasa').value=5;
  }
  if(jlh<1){
    jlh=1;
-    document.getElementById('jlh_bahasa').value=1;
-   }
-  var b=2;
-  var isii = '<tr>'+
-              '<td><span >English / Bahasa Inggris</span></td>'+
-              '<td>'+
-                  '<input type="radio" class="minimal" name="bhs1" value="active_lisan" checked> Active'+
-                  '<input type="radio" class="minimal" name="bhs1" value="passive_lisan"> Passive'+
-              '</td>'+
-              '<td>'+
-                  '<input type="radio" class="minimal-red" name="mns1" value="active_write" checked> Active'+
-                  '<input type="radio" class="minimal-red" name="mns1" value="passive_write"> Passive'+
-              '</td>'+
-            '</tr>';
+   document.getElementById('jlh_bahasa').value=1;
+ }
+ var b=2;
+ var isii = '<tr>'+
+ '<td><span >English / Bahasa Inggris</span></td>'+
+ '<td>'+
+ '<input type="radio" class="minimal" name="bhs1" value="active_lisan" checked> Active'+
+ '<input type="radio" class="minimal" name="bhs1" value="passive_lisan"> Passive'+
+ '</td>'+
+ '<td>'+
+ '<input type="radio" class="minimal-red" name="mns1" value="active_write" checked> Active'+
+ '<input type="radio" class="minimal-red" name="mns1" value="passive_write"> Passive'+
+ '</td>'+
+ '</tr>';
 
 
-  while(b<=jlh){
+ while(b<=jlh){
 
    isii += '<tr>'+
    '<td><input type="text" class="form-control" Placeholder="Nama" id="nama_bahasa'+b+' " name="nama_bahasa'+b+'"></td>'+
@@ -1176,8 +1176,8 @@ function tambah_bahasa(jlh){
    '</td>'+
    '</tr>';
    b++;
-  }  
-   $("#u_bahasa").html(isii);  
+ }  
+ $("#u_bahasa").html(isii);  
 }
 
 
@@ -1279,7 +1279,7 @@ function tambah_nama(jlh){
 
      $('#u_nama').html(data);
            //alert(data);  //as a debugging message.
-        }
+         }
         });// you have missed this bracket
   return false;
 }

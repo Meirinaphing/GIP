@@ -9,6 +9,8 @@ if(!isset($_SESSION['user'])){
 
 ?>
 
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
 <div class="content">
 	<!-- Content Header (Page header) -->
@@ -16,12 +18,12 @@ if(!isset($_SESSION['user'])){
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>History Request</h1>
+					<h1>Form Lowker</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="home.php">Home</a></li>
-						<li class="breadcrumb-item active">History Request</li>
+						<li class="breadcrumb-item active">Form Lowker</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -36,6 +38,30 @@ if(!isset($_SESSION['user'])){
 				<div class="card">
 					<!-- /.card-header -->
 					<div class="card-body">
+
+<div class="card card-outline card-info">
+            
+            <!-- /.card-header -->
+            <div class="card-body pad">
+              <div class="mb-3">
+                <textarea class="textarea" placeholder="Place some text here"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+              </div>
+              <div class="col-sm-6" align="">
+                            <button class="btn btn-primary" onclick="savelow()">Save</button>
+              </div>
+              <div class="col-sm-6" align="right">
+              		<button class="btn btn-warning" onclick="open()">Open</button>
+          	  </div>
+            </div>
+          </div>
+
+
+
+
+
+
+						<hr>
 						<table id="example2" class="table table-bordered table-hover">
 							<thead>
 								<tr>
@@ -53,7 +79,7 @@ if(!isset($_SESSION['user'])){
 
 								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
-								$sql = "select * from permintaan_karyawan order by status DESC";
+								$sql = "select * from permintaan_karyawan where status = 'Approved'";
 
 								$query = $conn->query($sql);
 
@@ -76,10 +102,6 @@ if(!isset($_SESSION['user'])){
 										<td><?=$row['status'];?></td>
 										<td>
 											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[nopk]?>')"></button>
-											<?php if($row['status']=="Submited"){?>
-											<button onclick="approve('<?=$row[nopk]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
-											<button onclick="reject('<?=$row[nopk]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
-											<?php }?>
 										</td>
 									</tr>
 									<?php
@@ -113,6 +135,8 @@ if(!isset($_SESSION['user'])){
 </div>
 <!-- /.content-wrapper -->
 
+<!-- Bootstrap WYSIHTML5 -->
+<script src="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
 <script>
 	$(function () {
@@ -138,11 +162,28 @@ if(!isset($_SESSION['user'])){
         });
 	}
 
-	function approve(nopk){
+	function save(){
 		$.ajax({
 			type: "POST",
 			url: "changestatus.php", 
-			data: {status:"approve", nopk:nopk},
+			data: {status:"approve"},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				alert('Approved');
+				history_permintaan_karyawan();
+				// location.reload();
+    			// $('#isi_content').html(data);
+        		//alert(data);  //as a debugging message.
+        	}
+        });
+	}
+	function open(opn){
+		$.ajax({
+			type: "POST",
+			url: "changestatus.php", 
+			data: {opn:opn},
 			dataType: "text",  
 			cache:false,
 			success: 
@@ -156,22 +197,11 @@ if(!isset($_SESSION['user'])){
         });
 	}
 
-	function reject(nopk){
-		$.ajax({
-			type: "POST",
-			url: "changestatus.php", 
-			data: {status:"reject", nopk:nopk},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				alert('Rejected');
-				history_permintaan_karyawan();
-				// location.reload();
-    			// $('#isi_content').html(data);
-        		//alert(data);  //as a debugging message.
-        	}
-        });
-	}
 
+$(function () {
+   
+    $('.textarea').wysihtml5({
+      toolbar: { fa: true }
+    })
+  })
 </script>

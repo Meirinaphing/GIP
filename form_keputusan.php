@@ -42,7 +42,7 @@ include 'conn.php';
 								<select id="namapelamar" name="namapelamar" class="form-control select2" onchange="pilihpelamar(this.value)">
 									<option>-- Pilih Nama --</option>
 									<?php
-									$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar WHERE pelamar.idpelamar = calon_karyawan.idpelamar";
+									$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar on pelamar.idpelamar = calon_karyawan.idpelamar";
 										$query = $conn->query($sql);
 										foreach ($query as $row) {
 											$n=0;

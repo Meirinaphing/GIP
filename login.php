@@ -6,7 +6,7 @@ session_start();
 $username = $_POST['username'];
 $password = md5($_POST['password']);
 
-$sql = "select * from user where username='".$username."'";
+$sql = "select * from user where username='".$username."' and status != 'hapus'";
 
 $query = $conn->query($sql);
 

@@ -4,6 +4,9 @@ include ("conn.php");
 $sql = "SELECT * FROM `pelamar` where status = 'barudaftar'";
 		$query = $conn->query($sql);
 		$pelamarbaru = $query->rowCount(); 
+$sql1 = "SELECT * FROM `permintaan_karyawan` where status = 'Submited'";
+		$query1 = $conn->query($sql1);
+		$pe_k = $query1->rowCount(); 
 ?>
 <div class="content-header">
 		<div class="container-fluid">
@@ -38,7 +41,7 @@ $sql = "SELECT * FROM `pelamar` where status = 'barudaftar'";
 						<div class="icon">
 							<i class="ion ion-person"></i>
 						</div>
-						<a href="#" class="small-box-footer" onclick="pelamar()">More info <i class="fa fa-arrow-circle-right"></i></a>
+						<a href="#" class="small-box-footer" onclick="pelamar(),ceklink('pelamar','interv')">More info <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
@@ -46,14 +49,14 @@ $sql = "SELECT * FROM `pelamar` where status = 'barudaftar'";
 					<!-- small box -->
 					<div class="small-box bg-success">
 						<div class="inner">
-							<h3>53<sup style="font-size: 20px">%</sup></h3>
+							<h3><?= $pe_k ?> Request</h3>
 
-							<p>Bounce Rate</p>
+							<p>Permintaan Karyawan </p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-stats-bars"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						<a href="#" onclick="history_permintaan_karyawan(),ceklink('hr','pkar')" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
