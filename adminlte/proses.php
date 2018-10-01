@@ -310,6 +310,9 @@ $n++;
  	$sql_lainnya= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', '$lainnya', '$t_lainnya', '$n_lainnya')";
 
 	$query_lainnya = $conn->query($sql_lainnya);
+
  }
 
- ?>
+header("Location: f_lowker.php");
+
+?>
