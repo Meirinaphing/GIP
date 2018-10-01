@@ -43,6 +43,7 @@ include "prg/conn.php";
   </div>
 
   <div class="card">
+    <?php if($status=="close"){ ?>
     <div class="card-body register-card-body">
       <p class="login-box-msg"><?= $isi?></p>
 
@@ -56,7 +57,16 @@ include "prg/conn.php";
 
     </div>
     <!-- /.form-box -->
+<?php }else{?>
+<div class="card-body register-card-body">
+      <p class="login-box-msg " align="center">
+<font size="+2"> Maaf Blum ada lowker saat ini </font>
+</p>
+
+    </div>
+<?php } ?>
   </div><!-- /.card -->
+
 </div>
 <!-- /.register-box -->
 
