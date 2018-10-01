@@ -48,7 +48,7 @@ if(!isset($_SESSION['user'])){
 							<tbody>
 								<?php
 
-								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
+								include "conn.php";
 
 								$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar WHERE pelamar.idpelamar = calon_karyawan.idpelamar";
 
