@@ -558,6 +558,7 @@ if(!isset($_SESSION['user'])){
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div id="isi_modal">
+			
 			</div>
 		</div>
 	</div>

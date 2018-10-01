@@ -1,3 +1,48 @@
+<script>
+	$(function () {
+		$("#example2").DataTable();
+
+	});
+
+	function modal_reload(idpelamar){
+		$.ajax({
+			type: "POST",
+			url: "m_calon_karyawan.php", 
+			data: {idpelamar:idpelamar},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				// alert('Approved');
+				// history_permintaan_karyawan()
+				// location.reload();
+    			$('#isi_modal').html(data);
+        		// alert(data);  //as a debugging message.
+        	}
+        });
+	}
+
+	function reject(idpelamar){
+		$.ajax({
+			type: "POST",
+			url: "changestatus_plamar.php", 
+			data: {status:"reject", idpelamar:idpelamar},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+				alert('Rejected');
+				calonkariawan();
+				// location.reload();
+    			// $('#isi_content').html(data);
+        		//alert(data);  //as a debugging message.
+        	}
+        });
+	}
+
+</script>
+
+
 
 <?php
 include "conn.php";
@@ -48,6 +93,11 @@ if(!isset($_SESSION['user'])){
 							<tbody>
 								<?php
 
+<<<<<<< HEAD:prg/calon_kariawan.php
+=======
+								include "conn.php";
+
+>>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:calon_kariawan.php
 								$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar WHERE pelamar.idpelamar = calon_karyawan.idpelamar";
 
 								$query = $conn->query($sql);
@@ -100,46 +150,3 @@ if(!isset($_SESSION['user'])){
 <!-- /.content-wrapper -->
 
 
-<script>
-	$(function () {
-		$("#example2").DataTable();
-
-	});
-
-	function modal_reload(idpelamar){
-		$.ajax({
-			type: "POST",
-			url: "m_calon_karyawan.php", 
-			data: {idpelamar:idpelamar},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				// alert('Approved');
-				// history_permintaan_karyawan()
-				// location.reload();
-    			$('#isi_modal').html(data);
-        		// alert(data);  //as a debugging message.
-        	}
-        });
-	}
-
-	function reject(idpelamar){
-		$.ajax({
-			type: "POST",
-			url: "changestatus_plamar.php", 
-			data: {status:"reject", idpelamar:idpelamar},
-			dataType: "text",  
-			cache:false,
-			success: 
-			function(data){
-				alert('Rejected');
-				calonkariawan();
-				// location.reload();
-    			// $('#isi_content').html(data);
-        		//alert(data);  //as a debugging message.
-        	}
-        });
-	}
-
-</script>

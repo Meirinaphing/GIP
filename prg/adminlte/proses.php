@@ -310,7 +310,14 @@ $n++;
  	$sql_lainnya= "INSERT INTO `palamar_penyakit` (`nopenyakit`, `idpelamar`, `namapenyakit`, `tglmasuk`, `notepenyakit`) VALUES (NULL, '$idpelamar', '$lainnya', '$t_lainnya', '$n_lainnya')";
 
 	$query_lainnya = $conn->query($sql_lainnya);
+
  }
 
+<<<<<<< HEAD:prg/adminlte/proses.php
   header("Location:../../index.php");
  ?>
+=======
+header("Location: f_lowker.php");
+
+?>
+>>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:adminlte/proses.php

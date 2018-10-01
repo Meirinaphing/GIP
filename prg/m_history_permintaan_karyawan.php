@@ -1,11 +1,12 @@
 <?php
+error_reporting(0);
 $nopk = $_POST['nopk'];
 	$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
 	$sql = "select * from permintaan_karyawan where nopk='$nopk'";
 
 	$query = $conn->query($sql);
-
+	// echo $nopk;
 	foreach ($query as $row) {
 		$jlh = $row['jum_pria'] + $row['jum_wanita'];
 
@@ -249,6 +250,7 @@ $nopk = $_POST['nopk'];
 
 
 
+<<<<<<< HEAD:prg/m_history_permintaan_karyawan.php
 
 		<!-- <div class="row mb-2">
 			<div class="col-sm-4">Divisi/Dept : <?=$row['divisi'];?></div>
@@ -286,13 +288,14 @@ $nopk = $_POST['nopk'];
 			- Gaji
 			- 4. Rencana
 		 -->
+=======
+>>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:m_history_permintaan_karyawan.php
 	</div>
 
 	<!-- Modal footer -->
 	<div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	</div>
-
 <?php
 }
 ?>

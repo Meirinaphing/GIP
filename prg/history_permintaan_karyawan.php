@@ -63,7 +63,6 @@ if(!isset($_SESSION['user'])){
 									?>
 
 
-									
 
 
 									<tr>
@@ -74,10 +73,17 @@ if(!isset($_SESSION['user'])){
 										<td><?=$jlh;?></td>
 										<td><?=$row['status'];?></td>
 										<td>
+<<<<<<< HEAD:prg/history_permintaan_karyawan.php
 											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?= $nopk ?>')"></button>
 											<?php if($row['status']=="Submited"){?>
 											<button onclick="approve('<?= $nopk ?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
 											<button onclick="reject('<?= $nopk ?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
+=======
+											<button onclick="modal_reload('<?= $nopk?>')"   data-toggle="modal" data-target="#myModal"  id="view" class="btn btn-primary fa fa-eye" title="View"></button>
+											<?php if($row['status']=="Submited"){?>
+											<button onclick="approve('<?= $nopk?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
+											<button onclick="reject('<?= $nopk?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
+>>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:history_permintaan_karyawan.php
 											<?php }?>
 										</td>
 									</tr>
@@ -120,6 +126,7 @@ if(!isset($_SESSION['user'])){
 	});
 
 	function modal_reload(nopk){
+		// alert(nopk);
 		$.ajax({
 			type: "POST",
 			url: "m_history_permintaan_karyawan.php", 
@@ -128,11 +135,12 @@ if(!isset($_SESSION['user'])){
 			cache:false,
 			success: 
 			function(data){
+
 				// alert('Approved');
 				// history_permintaan_karyawan()
 				// location.reload();
     			$('#isi_modal').html(data);
-        		// alert(data);  //as a debugging message.
+        		 // alert(data);  //as a debugging message.
         	}
         });
 	}
