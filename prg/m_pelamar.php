@@ -691,8 +691,8 @@ foreach ($query as $row) {
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		</div>
 		<div class="col-sm-6" align="right">
-											<button onclick="approve('<?=$row[idpelamar]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
-											<button onclick="reject('<?=$row[idpelamar]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
+											<button onclick="approve('<?=$row['idpelamar']?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
+											<button onclick="reject('<?=$row['idpelamar']?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
 		</div>
 	</div>
 

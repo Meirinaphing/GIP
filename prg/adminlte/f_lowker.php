@@ -6,7 +6,7 @@ include '../conn.php';
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Advanced form elements</title>
+  <title>Aplication Form</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -359,8 +359,8 @@ textarea.invalid {
             <td><span class="form-control">SD</span></td>
             <td colspan="2"><input type="text" class="form-control wajib" placeholder="Nama Sekolah / Perguruan tinggi" name="namasd" id="namasd"></td>
 
-            <td><input type="text" class="form-control wajib" placeholder="Jurusan" name="jurusansd" id="jurusansd"></td>
-            <td><input type="number" class="form-control wajib" placeholder="IPK" name="ipksd" id="ipksd"></td>
+            <td><input type="text" class="form-control " placeholder="Jurusan" name="jurusansd" id="jurusansd"></td>
+            <td><input type="number" class="form-control " placeholder="IPK" name="ipksd" id="ipksd"></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
@@ -371,7 +371,7 @@ textarea.invalid {
           
           <tr>
             <td><span class="form-control">SMP</span></td>
-            <td colspan="2"><input type="text" class="form-control " placeholder="Nama Sekolah / Perguruan tinggi" name="namasmp" id="namasmp"></td>
+            <td colspan="2"><input type="text" class="form-control wajib" placeholder="Nama Sekolah / Perguruan tinggi" name="namasmp" id="namasmp"></td>
 
             <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansmp" id="jurusansmp"></td>
             <td><input type="number" class="form-control" placeholder="IPK" name="ipksmp" id="ipksmp"></td>

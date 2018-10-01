@@ -6,6 +6,23 @@ session_start();
 if(!isset($_SESSION['user'])){
 	header("Location:index.php");
 }
+include "conn.php";
+
+	$sql1 = "select * from lowker where idlowker=1";
+	$query1 = $conn->query($sql1);
+			foreach ($query1 as $row1) {
+				$isi = $row1['isi'];
+				$status = $row1['status'];
+				if ($status == "open"){
+					$status ="close";
+					$textsts = "close lamaran";
+				}else{
+					$textsts = "open lamaran";
+
+					$status ="open";
+				}
+			}
+
 
 ?>
 
@@ -44,15 +61,18 @@ if(!isset($_SESSION['user'])){
             <!-- /.card-header -->
             <div class="card-body pad">
               <div class="mb-3">
-                <textarea class="textarea" placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                <textarea class="textarea" id="isi" name="isi" placeholder="Place some text here"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?= $isi ?></textarea>
               </div>
-              <div class="col-sm-6" align="">
-                            <button class="btn btn-primary" onclick="savelow()">Save</button>
-              </div>
-              <div class="col-sm-6" align="right">
-              		<button class="btn btn-warning" onclick="open()">Open</button>
-          	  </div>
+            <div class="row">
+            	
+	              <div class="col-sm-6" align="">
+	                            <button class="btn btn-primary" onclick="save()" type="button">Save</button>
+	              </div>
+	              <div class="col-sm-6" align="right">
+	              		<button class="btn btn-warning" onclick="openn(this.value)" type="button" value="<?= $status ?>"><?= $textsts ?></button>
+	          	  </div>
+            </div>
             </div>
           </div>
 
@@ -77,7 +97,6 @@ if(!isset($_SESSION['user'])){
 							<tbody>
 								<?php
 
-								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
 								$sql = "select * from permintaan_karyawan where status = 'Approved'";
 
@@ -87,6 +106,7 @@ if(!isset($_SESSION['user'])){
 									$jlh = $row['jum_pria'] + $row['jum_wanita'];
 
 									$status = $row['status'];
+									$nopk = $row['nopk'];
 									?>
 
 
@@ -101,7 +121,7 @@ if(!isset($_SESSION['user'])){
 										<td><?=$jlh;?></td>
 										<td><?=$row['status'];?></td>
 										<td>
-											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[nopk]?>')"></button>
+											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?= $nopk ?>')"></button>
 										</td>
 									</tr>
 									<?php
@@ -163,33 +183,35 @@ if(!isset($_SESSION['user'])){
 	}
 
 	function save(){
+	 var isi =  document.getElementById("isi").value;
 		$.ajax({
 			type: "POST",
-			url: "changestatus.php", 
-			data: {status:"approve"},
+			url: "p_lowker.php", 
+			data: {status:"save", isi:isi},
 			dataType: "text",  
 			cache:false,
 			success: 
 			function(data){
-				alert('Approved');
-				history_permintaan_karyawan();
+				alert('Saved');
+				lowker();
+				// history_permintaan_karyawan();
 				// location.reload();
     			// $('#isi_content').html(data);
         		//alert(data);  //as a debugging message.
         	}
         });
 	}
-	function open(opn){
+	function openn(opn){
 		$.ajax({
 			type: "POST",
-			url: "changestatus.php", 
-			data: {opn:opn},
+			url: "p_lowker.php", 
+			data: {status:opn},
 			dataType: "text",  
 			cache:false,
 			success: 
 			function(data){
-				alert('Approved');
-				history_permintaan_karyawan();
+				lowker();
+				// history_permintaan_karyawan();
 				// location.reload();
     			// $('#isi_content').html(data);
         		//alert(data);  //as a debugging message.

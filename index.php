@@ -1,96 +1,79 @@
+<?php
+include "prg/conn.php";
+
+  $sql1 = "select * from lowker where idlowker=1";
+  $query1 = $conn->query($sql1);
+      foreach ($query1 as $row1) {
+        $isi = $row1['isi'];
+        $status = $row1['status'];
+        if ($status == "open"){
+          $status ="close";
+          $textsts = "close lamaran";
+        }else{
+          $textsts = "open lamaran";
+
+          $status ="open";
+        }
+      }
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login</title>
+  <title>Lowker</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="adminlte/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="adminlte/dist/css/AdminLTE.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="prg/lte/dist/css/adminlte.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="prg/lte/plugins/iCheck/square/blue.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="prg/login.php"><b>Lowongan</b>Kerja</a>
+  </div>
 
-<?php
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"><?= $isi?></p>
 
-session_start();
-$msg = "";
-
-if(isset($_SESSION['user'])){
-  header("Location:home.php");
-}else{
-  if(isset($_SESSION['msg'])){
-    $msg = $_SESSION['msg'];
-  }
-}
-
-?>
-<body class="hold-transition lockscreen">
-  <!-- Automatic element centering -->
-  <div class="lockscreen-wrapper">
-    <div class="lockscreen-logo">
-      <a href="adminlte/index2.html"><b>Login</b>User</a>
-    </div>
-    <!-- User name -->
-    <!-- <div class="lockscreen-name">John Doe</div> -->
-
-    <!-- START LOCK SCREEN ITEM -->
-    <div class="lockscreen-item">
-      <!-- lockscreen image -->
-      <div class="lockscreen-image">
-        <img src="logo.png" alt="User Image">
+      <div class="social-auth-links text-center">
+        <p>- Lamaran -</p>
+        <a href="prg/adminlte/f_lowker.php" class="btn btn-block btn-primary">
+          Lamar
+        </a>
+      
       </div>
-      <!-- /.lockscreen-image -->
-
-      <!-- lockscreen credentials (contains the form) -->
-      <form class="lockscreen-credentials" action="login.php" method="post">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Username" name="username" required>
-          <input type="password" class="form-control" placeholder="password" name="password" required>
-          <div class="input-group-btn">
-            <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
-          </div>
-        </div>
-      </form>
-      <!-- /.lockscreen credentials -->
 
     </div>
-    <!-- /.lockscreen-item -->
-    <div class="help-block text-center" style="color:red;">
-      <?php echo $msg; ?>
-    </div>
-
-    <div class="help-block text-center">
-      Enter your password to retrieve your session
-    </div>
-<!--   <div class="text-center">
-    <a href="login.html">Or sign in as a different user</a>
-  </div> -->
-<!--   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2014-2016 <b><a href="https://adminlte.io" class="text-black">Almsaeed Studio</a></b><br>
-    All rights reserved
-  </div> -->
+    <!-- /.form-box -->
+  </div><!-- /.card -->
 </div>
-<!-- /.center -->
+<!-- /.register-box -->
 
-<!-- jQuery 3 -->
-<script src="adminlte/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+<script src="prg/lte/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="prg/lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- iCheck -->
+<script src="prg/lte/plugins/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass   : 'iradio_square-blue',
+      increaseArea : '20%' // optional
+    })
+  })
+</script>
 </body>
 </html>

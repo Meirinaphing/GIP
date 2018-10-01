@@ -259,7 +259,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 						<div class="form-group row">
 						   <label class="control-label col-sm-1" style="text-align: left; margin-left: 3%;">Umur:</label>
 						   <div class="col-sm-1">
-							 <input type="text" class="form-control wajib form-control-sm" id="umur" name="umur" placeholder="Umur">
+							 <input type="number" class="form-control wajib form-control-sm" id="umur" name="umur" placeholder="Umur">
 						   </div>
 						   <div class="col-sm-2" align="right">
 							 <label class="control-label">Pendidikan:</label></div>
@@ -501,7 +501,7 @@ function showTab(n) {
   if (n == (5 - 1)) {
     document.getElementById("nextBtn").innerHTML = '<button type="submit" onclick="save_form()" class="btn btn-primary">Submit</button>';
   } else {
-    document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next'+x.length+n+'</button>';
+    document.getElementById("nextBtn").innerHTML = '<button type="button" class="btn btn-success" id="nextBtn" onclick="nextPrev(1)">Next</button>';
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)

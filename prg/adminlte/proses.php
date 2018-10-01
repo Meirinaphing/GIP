@@ -312,4 +312,5 @@ $n++;
 	$query_lainnya = $conn->query($sql_lainnya);
  }
 
+  header("Location:../../index.php");
  ?>

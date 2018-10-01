@@ -1,6 +1,6 @@
 
 <?php
-
+include "conn.php";
 session_start();
 
 if(!isset($_SESSION['user'])){
@@ -50,14 +50,13 @@ if(!isset($_SESSION['user'])){
 							<tbody>
 								<?php
 
-								$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 
 								$sql = "SELECT * , (SELECT Count(pelamar_pengalaman.pengalaman_nama) FROM pelamar_pengalaman WHERE pelamar_pengalaman.idpelamar = pelamar.idpelamar) as jumlah FROM  pelamar WHERE pelamar.status='barudaftar'";
 
 								$query = $conn->query($sql);
 
 								foreach ($query as $row) {
-									
+									$idpelamar = $row['idpelamar'];
 									?>
 
 
@@ -72,9 +71,9 @@ if(!isset($_SESSION['user'])){
 										<td><?=$row['jumlah'];?></td>
 										<td><img src="<?=$row['fotopelamar'];?>" width="100px" height=""></td>
 										<td>
-											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$row[idpelamar]?>')"></button>
-											<button onclick="approve('<?=$row[idpelamar]?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
-											<button onclick="reject('<?=$row[idpelamar]?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
+											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?=$idpelamar?>')"></button>
+											<button onclick="approve('<?= $idpelamar ?>')" id="approve" class="btn btn-success fa fa-check-square-o" title="Approve"></button>
+											<button onclick="reject('<?=$idpelamar?>')" id="reject" class="btn btn-danger fa fa-close" title="Reject"></button>
 										</td>
 									</tr>
 									<?php

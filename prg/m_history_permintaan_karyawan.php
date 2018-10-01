@@ -286,7 +286,6 @@ $nopk = $_POST['nopk'];
 			- Gaji
 			- 4. Rencana
 		 -->
- -->
 	</div>
 
 	<!-- Modal footer -->

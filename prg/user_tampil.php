@@ -67,15 +67,20 @@ include 'conn.php';
 								$query = $conn->query($sql);
 								foreach ($query as $row) {
 									$no++;
+									$iduser = $row['iduser'];
+									$email = $row['email'];
+									$username = $row['username'];
+									$jabatan = $row['jabatan'];
+									$nama = $row['nama'];
 									?>
 									<tr>
 										<td><?= $row['username'] ?></td>
 										<td><?=$row['nama'];?></td>
 										<td><?=$row['email'];?></td>
 										<td><?=$row['jabatan'];?></td>
-										<td><button class="btn btn-warning fa fa-edit" title="Edit" onclick="edit('<?=$row[iduser]?>','<?=$row[email]?>','<?=$row[username]?>','<?=$row[jabatan]?>','<?=$row[nama]?>')"></button>
-											<button onclick="del('<?=$row[iduser]?>')"  class="btn btn-danger fa fa-close" title="delete"></button>
-											<button data-toggle="modal" data-target="#myModal" onclick="editpass('<?=$row[iduser]?>')"  class="btn btn-primary fa fa-key" title="Edit password"></button>
+										<td><button class="btn btn-warning fa fa-edit" title="Edit" onclick="edit('<?=$iduser ?>','<?= $email?>','<?= $username?>','<?= $jabatan?>','<?=$nama?>')"></button>
+											<button onclick="del('<?= $iduser?>')"  class="btn btn-danger fa fa-close" title="delete"></button>
+											<button data-toggle="modal" data-target="#myModal" onclick="editpass('<?=$iduser ?>')"  class="btn btn-primary fa fa-key" title="Edit password"></button>
 										</td>
 									</tr>
 									<?php

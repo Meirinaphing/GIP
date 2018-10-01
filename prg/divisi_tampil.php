@@ -43,12 +43,13 @@ include 'conn.php';
 								$query = $conn->query($sql);
 								foreach ($query as $row) {
 									$no++;
+									$namadivisi = $row['namadivisi'];
 									?>
 									<tr>
 										<td><?= $no ?></td>
 										<td><?=$row['namadivisi'];?></td>
-										<td><button class="btn btn-warning fa fa-edit" title="Edit" onclick="edit('<?=$row[namadivisi]?>')"></button>
-											<button onclick="del('<?=$row[namadivisi]?>')"  class="btn btn-danger fa fa-close" title="delete"></button>
+										<td><button class="btn btn-warning fa fa-edit" title="Edit" onclick="edit('<?= $namadivisi ?>')"></button>
+											<button onclick="del('<?=$namadivisi?>')"  class="btn btn-danger fa fa-close" title="delete"></button>
 										</td>
 									</tr>
 									<?php
