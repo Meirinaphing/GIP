@@ -250,8 +250,6 @@ $nopk = $_POST['nopk'];
 
 
 
-<<<<<<< HEAD:prg/m_history_permintaan_karyawan.php
-
 		<!-- <div class="row mb-2">
 			<div class="col-sm-4">Divisi/Dept : <?=$row['divisi'];?></div>
 			<div class="col-sm-4" style="text-align: center;">Job Kelas : <?=$row['job_kelas'];?></div>
@@ -288,8 +286,6 @@ $nopk = $_POST['nopk'];
 			- Gaji
 			- 4. Rencana
 		 -->
-=======
->>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:m_history_permintaan_karyawan.php
 	</div>
 
 	<!-- Modal footer -->
