@@ -3,7 +3,7 @@
 session_start();
 include 'conn.php';
 $nilai=0;
-$iduser = $_SESSION['idpelamar'];
+$iduser = $_SESSION['iduser'];
 $tanggal = date('Y-m-d');
 $namapelamar= $_POST['namapelamar'];
 $komunikasi= $_POST['komunikasi'];
@@ -24,7 +24,7 @@ if($hasil>59){
 }else{
 	$status = "Fail";
 }
-	$sql_wawancara = "INSERT INTO `wawancara` (`id`, `nopelamar`, `wawancara`, `status`, `nilai`, `tgl`,`iduser`) VALUES (NULL, '$namapelamar', '$_SESSION[iduser]', '$status', '$hasil', '$tanggal','$iduser')";
+	 $sql_wawancara = "INSERT INTO `wawancara` (`id`, `idpelamar`, `wawancara`, `status`, `nilai`, `tgl`,`iduser`) VALUES (NULL, '$namapelamar', '$iduser', '$status', '$hasil', '$tanggal','$iduser')";
 	$query_wawancara = $conn->query($sql_wawancara);
 
 	$sql_cek_wawancara = "SELECT * FROM `wawancara` ORDER BY `wawancara`.`id` DESC Limit 1";
@@ -73,7 +73,7 @@ $sql1 = "SELECT * FROM `wawancara` where nopelamar ='$namapelamar'";
 												}
 												
 												if($n<1){
-									$status="Belum Wawancara"; 			
+									$statu="Belum Wawancara"; 			
 									}else{
 									$statu="wawancara ke ".$n." ($status)"; 
 								}
