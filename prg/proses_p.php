@@ -62,7 +62,7 @@ $faktor[10]= "sosialisasi";
  // 	$nn++;
  // } 
 $n=0;
-$sql1 = "SELECT * FROM `wawancara` where nopelamar ='$namapelamar'";
+$sql1 = "SELECT * FROM `wawancara` where idpelamar ='$namapelamar'";
 												$query1 = $conn->query($sql1);
 													foreach ($query1 as $row1) {
 														$n++;
