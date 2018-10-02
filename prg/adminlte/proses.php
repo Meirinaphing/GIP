@@ -313,11 +313,7 @@ $n++;
 
  }
 
-<<<<<<< HEAD:prg/adminlte/proses.php
   header("Location:../../index.php");
  ?>
-=======
-header("Location: f_lowker.php");
 
 ?>
->>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:adminlte/proses.php
