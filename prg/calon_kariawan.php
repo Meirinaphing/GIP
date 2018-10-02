@@ -93,11 +93,8 @@ if(!isset($_SESSION['user'])){
 							<tbody>
 								<?php
 
-<<<<<<< HEAD:prg/calon_kariawan.php
-=======
 								include "conn.php";
 
->>>>>>> d95677e8a4206721d8882117ec42eab9c72bf0e8:calon_kariawan.php
 								$sql = "SELECT *,calon_karyawan.status as status_k FROM calon_karyawan join pelamar WHERE pelamar.idpelamar = calon_karyawan.idpelamar";
 
 								$query = $conn->query($sql);
