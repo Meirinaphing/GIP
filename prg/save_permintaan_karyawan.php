@@ -1,5 +1,6 @@
 <?php
 
+
 //$conn = new PDO("mysql:host=localhost;dbname=spk","root","");
 include 'conn.php';
 
@@ -49,12 +50,17 @@ $status = $_POST['status'];
 $bulan = $_POST['bulan'];
 $jobdesk = $_POST['jobdesk'];
 $umur = $_POST['umur'];
+$umurs = $_POST['umurs'];
 $pendidikan = $_POST['pendidikan'];
 $pengalaman = $_POST['pengalamann'];
 $tahun = $_POST['tahun'];
 $kemampuan = $_POST['kemampuan'];
-$startgaji = $_POST['startgaji'];
-$endgaji = $_POST['endgaji'];
+
+$startgj = $_POST['startgaji'];
+echo $startgaji = toangka($startgj);
+$endgj = $_POST['endgaji'];
+echo $endgaji = toangka($endgj);
+
 $rencana = $_POST['rencana'];
 $rtahun = $_POST['rtahun'];
 $jlhorg = $_POST['jlhorg'];
@@ -65,9 +71,10 @@ $jlhorg3 = $_POST['jlhorg3'];
 
 
 
- $sql = "insert into permintaan_karyawan values('$nopk','$username','$tanggal','$divisi','$job','$jabatan','$pria','$wanita','$approval','$mp','$status','$bulan','$jobdesk','$umur','$pendidikan','$pengalaman','$tahun','$kemampuan','$startgaji','$endgaji','$rencana','$rtahun','$jlhorg','$jlhkaryawan','$jlhorg2','$rencanapenambahan','$jlhorg3','Submited')";
+ $sql = "insert into permintaan_karyawan values('$nopk','$username','$tanggal','$divisi','$job','$jabatan','$pria','$wanita','$approval','$mp','$status','$bulan','$jobdesk','$umur','$umurs','$pendidikan','$pengalaman','$tahun','$kemampuan','$startgaji','$endgaji','$rencana','$rtahun','$jlhorg','$jlhkaryawan','$jlhorg2','$rencanapenambahan','$jlhorg3','Submited')";
 
 $query = $conn->query($sql);
+
 //return true;
 if($query){
 	$cek="Data Telah Di Proses";

@@ -56,32 +56,7 @@ include "conn.php";
 					<!-- /.card-header -->
 					<div class="card-body">
 
-<div class="card card-outline card-info">
-            
-            <!-- /.card-header -->
-            <div class="card-body pad">
-              <div class="mb-3">
-                <textarea class="textarea" id="isi" name="isi" placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?= $isi ?></textarea>
-              </div>
-            <div class="row">
-            	
-	              <div class="col-sm-6" align="">
-	                            <button class="btn btn-primary" onclick="save()" type="button">Save</button>
-	              </div>
-	              <div class="col-sm-6" align="right">
-	              		<button class="btn btn-warning" onclick="openn(this.value)" type="button" value="<?= $status ?>"><?= $textsts ?></button>
-	          	  </div>
-            </div>
-            </div>
-          </div>
 
-
-
-
-
-
-						<hr>
 						<table id="example2" class="table table-bordered table-hover">
 							<thead>
 								<tr>
@@ -98,15 +73,21 @@ include "conn.php";
 								<?php
 
 
-								$sql = "select * from permintaan_karyawan where status = 'Approved'";
+								$sql = "select permintaan_karyawan.*,lowker.status as statuss,lowker.idlowker as idlok from lowker inner join permintaan_karyawan on permintaan_karyawan.nopk = lowker.nopk where permintaan_karyawan.status = 'Approved'";
 
 								$query = $conn->query($sql);
 
 								foreach ($query as $row) {
-									$jlh = $row['jum_pria'] + $row['jum_wanita'];
-
-									$status = $row['status'];
 									$nopk = $row['nopk'];
+									$idlowker = $row['idlok'];
+									$statuss = $row['statuss'];
+									if($statuss=='close'){
+										$statuss="open";
+										$bbttnn="btn-success";
+									}else{
+										$statuss="close";
+										$bbttnn="btn-danger";
+									}
 									?>
 
 
@@ -118,10 +99,12 @@ include "conn.php";
 										<td><?=$row['iduser'];?></td>
 										<td><?=$row['divisi'];?></td>
 										<td><?=$row['job_kelas'];?></td>
-										<td><?=$jlh;?></td>
-										<td><?=$row['status'];?></td>
+										<td><?=$row['jum_pria'] ?> P, <?=$row['jum_wanita'];?> W</td>
+										<td><?=$row['statuss'];?></td>
 										<td>
 											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-primary fa fa-eye" title="View" onclick="modal_reload('<?= $nopk ?>')"></button>
+											<button data-toggle="modal" data-target="#myModal" id="view" class="btn btn-warning fa fa-edit" title="View" onclick="modal_edit('<?= $idlowker ?>')"></button>
+											<button id="view" class="btn <?=$bbttnn ?>" title="View" onclick="openn('<?= $statuss ?>','<?= $idlowker ?>')"><?= $statuss ?></button>
 										</td>
 									</tr>
 									<?php
@@ -161,7 +144,6 @@ include "conn.php";
 <script>
 	$(function () {
 		$("#example2").DataTable();
-
 	});
 
 	function modal_reload(nopk){
@@ -173,21 +155,30 @@ include "conn.php";
 			cache:false,
 			success: 
 			function(data){
-				// alert('Approved');
-				// history_permintaan_karyawan()
-				// location.reload();
     			$('#isi_modal').html(data);
-        		// alert(data);  //as a debugging message.
+        	}
+        });
+	}
+	function modal_edit(idlowker){
+		$.ajax({
+			type: "POST",
+			url: "m_edit_lowker.php", 
+			data: {idlowker:idlowker},
+			dataType: "text",  
+			cache:false,
+			success: 
+			function(data){
+    			$('#isi_modal').html(data);
         	}
         });
 	}
 
-	function save(){
+	function save(idlowker){
 	 var isi =  document.getElementById("isi").value;
 		$.ajax({
 			type: "POST",
 			url: "p_lowker.php", 
-			data: {status:"save", isi:isi},
+			data: {status:"save", isi:isi, idlowker:idlowker},
 			dataType: "text",  
 			cache:false,
 			success: 
@@ -201,11 +192,12 @@ include "conn.php";
         	}
         });
 	}
-	function openn(opn){
+	function openn(opn,idlowker){
+		
 		$.ajax({
 			type: "POST",
 			url: "p_lowker.php", 
-			data: {status:opn},
+			data: {status:opn,idlowker:idlowker},
 			dataType: "text",  
 			cache:false,
 			success: 

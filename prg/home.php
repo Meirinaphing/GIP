@@ -235,7 +235,7 @@ if(!isset($_SESSION['user'])){
         
 
           <li class="nav-item">
-          	<a href="#" class="nav-link "onclick="lowker(),ceklink(this.id,'rank')"">
+          	<a href="#" class="nav-link " id="lker" onclick="lowker(),ceklink(this.id,'lker')"">
           		<i class="nav-icon fa fa-table"></i>
           		<p>
           			Lowongan Kerja

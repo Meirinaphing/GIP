@@ -1,13 +1,8 @@
+
 <style>
-
-
 body {
   background-color: #f1f1f1;
 }
-
-
-
-
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #ffdddd;
@@ -43,7 +38,12 @@ textarea.invalid {
 .step.finish {
   background-color: #4CAF50;
 }
+
 </style>  
+
+
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
   <!-- <div class="container">
     <h2 align="center">Form Permintaan Karyawan Baru</h2>
@@ -243,7 +243,7 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 				<!-- /.card-header -->
 					<div class="card-body">
 						<div class="row">
-							<textarea class="form-control wajib" rows="5" id="jobdesk" name="jobdesk" style="margin-left: 4%; width: 95%;" placeholder="Uraian Pekerjaan"></textarea>
+							<textarea class="textarea form-control wajib" rows="5" id="jobdesk" name="jobdesk" style=" width: 100%;" placeholder="Uraian Pekerjaan"></textarea>
 						</div>
 					</div>
 				</div>
@@ -260,6 +260,10 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 						   <label class="control-label col-sm-1" style="text-align: left; margin-left: 3%;">Umur:</label>
 						   <div class="col-sm-1">
 							 <input type="number" class="form-control wajib form-control-sm" id="umur" name="umur" placeholder="Umur">
+						   </div>
+						   -
+						   <div class="col-sm-1">
+							 <input type="number" class="form-control wajib form-control-sm" id="umurs" name="umurs" placeholder="Umur" onchange="cekumur()">
 						   </div>
 						   <div class="col-sm-2" align="right">
 							 <label class="control-label">Pendidikan:</label></div>
@@ -291,17 +295,17 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 
 							<div class="form-group">
 							  <label style="margin-left: 3%;">Kemampuan yang diharapkan:</label>
-							  <textarea class="form-control wajib" rows="5" id="kemampuan" name="kemampuan" style="margin-left: 4%; width: 95%;" placeholder="Kemampuan Yang Diharapkan"></textarea>
+							  <textarea class="textarea form-control wajib" rows="5" id="kemampuan" name="kemampuan" style=" width: 100%;" placeholder="Kemampuan Yang Diharapkan"></textarea>
 							</div>
 							<div class="form-group col-sm-12">
 							 <div class="row">
 							  <label class="control-label col-sm-2" style="text-align: left; margin-left: 3%; text-align: right;">Gaji(GBS):</label>
 							  <div class="col-sm-2">
-								<input type="text" class="form-control wajib form-control-sm" id="startgaji" name="startgaji" placeholder="Start Gaji">
+								<input type="text" class="form-control wajib form-control-sm" id="startgaji" name="startgaji" placeholder="Start Gaji" onblur="cekgaji()" value="0">
 							  </div>
 							  <label class="col-sm-1 control-label" style="text-align: center;">s/d</label>
 							  <div class="col-sm-2">
-								<input type="text" class="form-control wajib form-control-sm" id="endgaji" name="endgaji" placeholder="End Gaji">
+								<input type="text" class="form-control wajib form-control-sm" id="endgaji" name="endgaji" placeholder="End Gaji" onblur="cekgaji()" value="0">
 							  </div>
 							  <div class="col-sm-2" style="width:13.5%;"></div>
 							</div>
@@ -382,7 +386,45 @@ $number = $d.$m.'-'.$_SESSION['iduser'].'-'.$n;
 
 
 </form>
+
+<!-- Bootstrap WYSIHTML5 -->
+<script src="lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
 <script type="text/javascript">
+function toangka(rp){
+//var field = document.getElementById(id).value;
+	if (rp !=""){
+		angka = parseInt(rp.replace(/,.*|\D/g,''),10);
+		if (angka>=0){
+			return angka;
+		}else{
+			return 0;
+		}
+		
+	}else{
+		return 0;
+	}
+}
+
+function cekgaji(){
+
+	var gajia = document.getElementById('startgaji').value;
+	var gajib = document.getElementById('endgaji').value;
+			var ga = toangka(gajia); 
+			var gb = toangka(gajib);
+	
+		if(ga<gb){
+			document.getElementById('endgaji').value="";
+		}
+
+}
+
+$(function () {
+   
+    $('.textarea').wysihtml5({
+      toolbar: { fa: true }
+    })
+  })
 
 	var startgaji = document.getElementById('startgaji');
   if(startgaji){
@@ -482,6 +524,7 @@ function save_form(){
 
 
 </script>
+
 <!-- form next -->
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -557,4 +600,14 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+
+function cekumur(){
+	var umur = document.getElementById("umur").value;
+	var umurs = document.getElementById("umurs").value;
+	if(umur>umurs){
+		document.getElementById("umurs").value="";
+	}
+}
+
 </script>

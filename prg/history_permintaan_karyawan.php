@@ -115,10 +115,6 @@ if(!isset($_SESSION['user'])){
 
 
 <script>
-	$(function () {
-		$("#example2").DataTable();
-
-	});
 
 	function modal_reload(nopk){
 		// alert(nopk);

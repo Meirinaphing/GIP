@@ -1,20 +1,6 @@
 <?php
 include "prg/conn.php";
-
-  $sql1 = "select * from lowker where idlowker=1";
-  $query1 = $conn->query($sql1);
-      foreach ($query1 as $row1) {
-        $isi = $row1['isi'];
-        $status = $row1['status'];
-        if ($status == "open"){
-          $status ="close";
-          $textsts = "close lamaran";
-        }else{
-          $textsts = "open lamaran";
-
-          $status ="open";
-        }
-      }
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,9 +27,28 @@ include "prg/conn.php";
   <div class="register-logo">
     <a href="prg/login.php"><b>Lowongan</b>Kerja</a>
   </div>
+</div>
+<div class="row">
+<?php 
+$n=0;
+ $sql1 = "select * from lowker where status = 'open'";
+  $query1 = $conn->query($sql1);
+      foreach ($query1 as $row1) {
+     $n++;
+        $isi = $row1['isi'];
+        $status = $row1['status'];
+        if ($status == "open"){
+          $status ="close";
+          $textsts = "close lamaran";
+        }else{
+          $textsts = "open lamaran";
 
-  <div class="card">
-    <?php if($status=="close"){ ?>
+          $status ="open";
+        }
+       ?>
+  <div class="card col-4">
+    <?php 
+    if($status=="close"){ ?>
     <div class="card-body register-card-body">
       <p class="login-box-msg"><?= $isi?></p>
 
@@ -57,6 +62,8 @@ include "prg/conn.php";
 
     </div>
     <!-- /.form-box -->
+
+
 <?php }else{?>
 <div class="card-body register-card-body">
       <p class="login-box-msg " align="center">
@@ -64,8 +71,9 @@ include "prg/conn.php";
 </p>
 
     </div>
-<?php } ?>
+<?php }?>
   </div><!-- /.card -->
+<?php }?>
 
 </div>
 <!-- /.register-box -->

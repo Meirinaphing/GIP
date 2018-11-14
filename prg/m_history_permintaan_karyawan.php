@@ -125,8 +125,7 @@ $nopk = $_POST['nopk'];
 				<!-- /.card-header -->
 					<div class="card-body">
 						<div class="row">
-							<textarea class="form-control wajib" rows="5" id="jobdesk" name="jobdesk" style="margin-left: 4%; width: 95%;" placeholder="Uraian Pekerjaan" readonly>
-			<?=$row['uraian_p'];?></textarea>
+							<div style="border: 2px solid #ddd; border-radius: 5px ;padding-left: 5px; padding-right: 5px; width: 100%"><?=$row['uraian_p'];?></div>
 						</div>
 					</div>
 				</div>
@@ -140,10 +139,8 @@ $nopk = $_POST['nopk'];
 				<!-- /.card-header -->
 					<div class="card-body">
 						<div class="form-group row">
-						   <label class="control-label col-sm-1" style="text-align: left; margin-left: 3%;">Umur:</label>
-						   <div class="col-sm-1">
-						   	<?=$row['umur'];?>
-						   </div>
+						   <label class="control-label col-sm-2" style="text-align: left; margin-left: 3%;">Umur: 
+						   	<?=$row['umur'];?></label>
 						   <div class="col-sm-2" align="right">
 							 <label class="control-label">Pendidikan:</label></div>
 							 <div class="col-sm-4">
@@ -164,7 +161,7 @@ $nopk = $_POST['nopk'];
 
 							<div class="form-group">
 							  <label style="margin-left: 3%;">Kemampuan yang diharapkan:</label>
-							  <textarea class="form-control wajib" rows="5" id="kemampuan" name="kemampuan" style="margin-left: 4%; width: 95%;" placeholder="Kemampuan Yang Diharapkan" readonly> <?=$row['kemampuan'];?></textarea>
+							  <div style="border: 2px solid #ddd; border-radius: 5px ;padding-left: 5px; padding-right: 5px ;width: 100%;"><?=$row['kemampuan'];?></div>
 							</div>
 							<div class="form-group col-sm-12">
 							 <div class="row">
