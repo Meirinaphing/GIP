@@ -30,59 +30,59 @@ include '../conn.php';
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
-    folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+  <![endif]-->
 
-<!-- Google Font -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <style>
-.tab {
-  display: none;
-}
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #3761D4;
-  border: none;  
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
+  .tab {
+    display: none;
+  }
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #3761D4;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
 
-.step.active {
-  opacity: 1;
-}
+  .step.active {
+    opacity: 1;
+  }
 
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #299F3E;
-}
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #299F3E;
+  }
 
-.hr {
-  background-color: dimgrey !important;
-  color: dimgrey !important;
-  border: solid 2px dimgrey !important;
-  height: 5px !important;
+  .hr {
+    background-color: dimgrey !important;
+    color: dimgrey !important;
+    border: solid 2px dimgrey !important;
+    height: 5px !important;
 
-}
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd;
-}
-textarea.invalid {
-  background-color: #ffdddd;
-}
+  }
+  /* Mark input boxes that gets an error on validation: */
+  input.invalid {
+    background-color: #ffdddd;
+  }
+  textarea.invalid {
+    background-color: #ffdddd;
+  }
 </style>	
 
 
@@ -304,22 +304,40 @@ textarea.invalid {
                 <th style="width: 17%">Hubungan</th>
                 <th>Nama</th>
                 <th>Usia</th>
-                <th>Pendidikan Trakhir</th>
+                <th>Pendidikan Terakhir</th>
                 <th>Keterangan</th>
               </tr>
               <tr>
                 <td><span class="form-control">Ayah</span></td>
                 <td><input type="text" class="form-control wajib" placeholder="Nama" name="namaayah" id="namaayah"></td>
                 <td><input type="number" class="form-control wajib" Placeholder="usia" name="usiaayah" id="usiaayah"></td>
-                <td><input type="text" class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanayah" id="pendidikanayah"></td>
-                <td><textarea class="form-control wajib" placeholder="keterangan" name="keteranganayah" id="keteranganayah"></textarea></td>
+                <td>
+                  <!-- <input type="text" class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanayah" id="pendidikanayah"> -->
+                  <select class="form-control wajib" name="pendidikanayah" id="pendidikanayah">
+                    <option>Tidak sekolah</option>
+                    <option>SD Sederajat</option>
+                    <option>SMP Sederajat</option>
+                    <option>SMA Sederajat</option>
+                    <option>S1 Sederajat</option>
+                  </select>
+                </td>
+                <td><textarea class="form-control" placeholder="keterangan" name="keteranganayah" id="keteranganayah"></textarea></td>
               </tr>
               <tr>
                 <td><span class="form-control">Ibu</span></td>
                 <td><input type="text" class="form-control wajib" placeholder="Nama" name="namaibu" id="namaibu"></td>
                 <td><input type="number" class="form-control wajib" Placeholder="usia" name="usiaibu" id="usiaibu"></td>
-                <td><input type="text" class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanibu" id="pendidikanibu"></td>
-                <td><textarea class="form-control wajib" placeholder="keterangan" name="keteranganibu" id="keteranganibu"></textarea></td>
+                <td>
+                  <!-- <input type="text" class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanibu" id="pendidikanibu"> -->
+                  <select class="form-control wajib" placeholder="pendidikan terakhir" name="pendidikanibu" id="pendidikanibu">
+                    <option>Tidak sekolah</option>
+                    <option>SD Sederajat</option>
+                    <option>SMP Sederajat</option>
+                    <option>SMA Sederajat</option>
+                    <option>S1 Sederajat</option>
+                  </select>
+                </td>
+                <td><textarea class="form-control " placeholder="keterangan" name="keteranganibu" id="keteranganibu"></textarea></td>
               </tr>
 
             </tbody>
@@ -359,32 +377,32 @@ textarea.invalid {
             <td><span class="form-control">SD</span></td>
             <td colspan="2"><input type="text" class="form-control wajib" placeholder="Nama Sekolah / Perguruan tinggi" name="namasd" id="namasd"></td>
 
-            <td><input type="text" class="form-control " placeholder="Jurusan" name="jurusansd" id="jurusansd"></td>
-            <td><input type="number" class="form-control " placeholder="IPK" name="ipksd" id="ipksd"></td>
+            <td><!-- <input type="text" class="form-control " placeholder="Jurusan" name="jurusansd" id="jurusansd"> --></td>
+            <td><!-- <input type="number" class="form-control " placeholder="IPK" name="ipksd" id="ipksd"> --></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control wajib" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksd" id="masuksd"></td>
-            <td><input type="text" class="form-control wajib" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaisd" id="selesaisd"></td>
+            <td><input type="text" class="form-control wajib" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Masuk" name="masuksd" id="masuksd"></td>
+            <td><input type="text" class="form-control wajib" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Selesai" name="selesaisd" id="selesaisd"></td>
           </tr>
           
           <tr>
             <td><span class="form-control">SMP</span></td>
             <td colspan="2"><input type="text" class="form-control wajib" placeholder="Nama Sekolah / Perguruan tinggi" name="namasmp" id="namasmp"></td>
 
-            <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansmp" id="jurusansmp"></td>
-            <td><input type="number" class="form-control" placeholder="IPK" name="ipksmp" id="ipksmp"></td>
+            <td><!-- <input type="text" class="form-control" placeholder="Jurusan" name="jurusansmp" id="jurusansmp"> --></td>
+            <td><!-- <input type="number" class="form-control" placeholder="IPK" name="ipksmp" id="ipksmp"> --></td>
           </tr>
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksmp" id="masuksmp"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaismp" id="selesaismp"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Masuk" name="masuksmp" id="masuksmp"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Selesai" name="selesaismp" id="selesaismp"></td>
           </tr>
           
           <tr>
-            <td><span class="form-control">SMA</span></td>
+            <td><span class="form-control">SMA / Sederajat </span></td>
             <td colspan="2"><input type="text" class="form-control" placeholder="Nama Sekolah / Perguruan tinggi" name="namsma" id="namsma"></td>
 
             <td><input type="text" class="form-control" placeholder="Jurusan" name="jurusansma" id="jurusansma"></td>
@@ -393,8 +411,8 @@ textarea.invalid {
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masuksma" id="masuksma"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaisma" id="selesaisma"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Masuk" name="masuksma" id="masuksma"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Selesai" name="selesaisma" id="selesaisma"></td>
           </tr>
           
           <tr>
@@ -407,8 +425,8 @@ textarea.invalid {
           <tr>
             <td colspan="" width="20%" class="hidden-xs"></td>
             <td colspan="2"><p align="right"><font size="+1">Lama Periode :</font></p></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Masuk" name="masukuni" id="masukuni"></td>
-            <td><input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" placeholder="Selesai" name="selesaiuni" id="selesaiuni"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Masuk" name="masukuni" id="masukuni"></td>
+            <td><input type="text" class="form-control" data-inputmask="'alias': 'yyyy'" data-mask="" placeholder="Selesai" name="selesaiuni" id="selesaiuni"></td>
           </tr>
         </tbody>
       </table>
@@ -840,7 +858,7 @@ textarea.invalid {
   <hr>
 
   <div class="form-group">
-    
+
 
     <table class="table table-bordered">
       <tbody>
@@ -1129,9 +1147,17 @@ function emailck(){
    var isi="";
    while(a<=jumlah){
      isi+='<tr>'+
-     '<td><span class="form-control">Saudara '+a+'</span></td><td><input type="text" class="form-control" placeholder="Nama" id="namasaudara'+a+'" name="namasaudara'+a+'"></td>'+
-     '<td><input type="number" class="form-control" Placeholder="usia" id="umursaudara'+a+'" name="umursaudara'+a+'"></td>'+
-     '<td><input type="text" class="form-control" placeholder="pendidikan terakhir" id="pendidikansaudara'+a+'" name="pendidikansaudara'+a+'"></td>'+
+     '<td><span class="form-control">Saudara '+a+'</span></td><td><input type="text" class="form-control wajib" placeholder="Nama" id="namasaudara'+a+'" name="namasaudara'+a+'"></td>'+
+     '<td><input type="number" class="form-control wajib" Placeholder="usia" id="umursaudara'+a+'" name="umursaudara'+a+'"></td>'+
+     '<td>'+
+     '<select class="form-control" id="pendidikansaudara'+a+'" name="pendidikansaudara'+a+'">'+
+     '<option>Tidak sekolah</option>'+
+     '<option>SD Sederajat</option>'+
+     '<option>SMP Sederajat</option>'+
+     '<option>'+
+     '<option>SMA Sederajat</option>'+
+     '</select>'+
+     '</td>'+
      '<td><textarea class="form-control" placeholder="keterangan" id="keterangansaudara'+a+'" name="keterangansaudara'+a+'"></textarea></td>'+
      '</tr>';
      a++;

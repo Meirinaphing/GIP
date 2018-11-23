@@ -413,7 +413,7 @@ function cekgaji(){
 			var ga = toangka(gajia); 
 			var gb = toangka(gajib);
 	
-		if(ga<gb){
+		if(ga>gb){
 			document.getElementById('endgaji').value="";
 		}
 

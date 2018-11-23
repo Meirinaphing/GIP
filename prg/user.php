@@ -165,6 +165,7 @@ $(function () {
 						document.getElementById("nama").value="";
 						document.getElementById("email").value="";
 						document.getElementById("password").value="";
+						document.getElementById("repassword").value="";
 						document.getElementById("iduser").value="";
 						document.getElementById("password").readOnly=false;
 						document.getElementById("repassword").readOnly=false;
